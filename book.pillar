@@ -5,4 +5,4 @@
 }
 
 ${inputFile:Chapters/Introduction/Introduction.pillar}$
-${inputFile:Chapters/Glamour/Glamour.pillar}$
+%${inputFile:Chapters/Glamour/Glamour.pillar}$
