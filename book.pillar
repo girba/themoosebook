@@ -1,0 +1,8 @@
+{
+	"metadata": {
+	"title" : "The Moose Book"
+	}
+}
+
+${inputFile:Chapters/Introduction/Introduction.pillar}$
+${inputFile:Chapters/Glamour/Glamour.pillar}$
