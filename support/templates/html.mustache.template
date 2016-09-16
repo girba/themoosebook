@@ -34,7 +34,7 @@
   </head>
   <body>
 
-    <div class="container text-justify">
+    <div class="container">
       <section>
         <h1>{{{title}}}</h1>
         <div class="attribution">{{{attribution}}}</div>

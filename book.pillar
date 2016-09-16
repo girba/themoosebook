@@ -4,5 +4,5 @@
 	}
 }
 
-${inputFile:Chapters/Introduction/Introduction.pillar}$
-%${inputFile:Chapters/Glamour/Glamour.pillar}$
+${inputFile:Chapters/Nutshell/index.pillar}$
+%${inputFile:Chapters/Glamour/index.pillar}$
