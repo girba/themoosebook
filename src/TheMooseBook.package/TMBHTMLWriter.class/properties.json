@@ -1,0 +1,14 @@
+{
+	"category" : "TheMooseBook",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "",
+	"instvars" : [
+		 ],
+	"name" : "TMBHTMLWriter",
+	"pools" : [
+		 ],
+	"super" : "PRHTMLWriter",
+	"type" : "normal" }
