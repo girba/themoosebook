@@ -1,3 +1,3 @@
-as yet unclassified
+visiting-document
 visitHeader: aHeader
 	^ super visitHeader: aHeader
