@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <title></title>
+    <title>The Moose Book</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Highlight js -->
@@ -12,9 +12,9 @@
     <script src="../support/html/js/highlight-commands.js"></script>
 
     <!-- Bootstrap -->
-    <link href="../support/html/css/bootstrap.min.css" rel="stylesheet">
-    <link href="../support/html/css/bootstrap-theme.min.css" rel="stylesheet">
-    <link href="../support/html/css/square-braket-associates.css" rel="stylesheet">
+    <link href="support/html/css/bootstrap.min.css" rel="stylesheet">
+    <link href="support/html/css/bootstrap-theme.min.css" rel="stylesheet">
+    <link href="support/html/css/square-braket-associates.css" rel="stylesheet">
     <style>
         .container { max-width: 55em; }
         figure {text-align: center; margin: 2em;}
@@ -36,7 +36,7 @@
 
     <div class="container">
       <section>
-        <h1></h1>
+        <h1>The Moose Book</h1>
         <div class="attribution"></div>
 
         <section>
@@ -71,11 +71,7 @@ We first need to build a model of our system, and for this we will use <a href="
 <li>Download and unzip <a href="https://github.com/girba/jdt2famix/releases/download/1.0.2/jdt2famix-bin-1.0.2.zip">version 1.0.2</a>.</li>
 <li>Create an <code>ArgoUML-0-34</code> folder.</li>
 <li><a href="http://argouml-downloads.tigris.org/nonav/argouml-0.34/ArgoUML-0.34-src.zip">Download the ArgoUML version 0.34 sources</a> and place them in <code>ArgoUML-0-34/src</code> folder (the name of the src folder can be arbitrary)</li>
-<li>*Download the ArgoUML version 0.34 libraries&gt;</li>
-</ul>
-<p>
-http://argouml-downloads.tigris.org/nonav/argouml-0.34/ArgoUML-0.34-libs.zip* and place them in <code>ArgoUML-0-34/libs</code> folder  (the name of the libs folder can be arbitrary)
-</p><ul>
+<li><a href="http://argouml-downloads.tigris.org/nonav/argouml-0.34/ArgoUML-0.34-libs.zip">Download the ArgoUML version 0.34 libraries</a> and place them in <code>ArgoUML-0-34/libs</code> folder  (the name of the libs folder can be arbitrary)</li>
 <li>Go to the <code>ArgoUML-0-34</code> folder</li>
 <li>From the command line execute <code>path/to/jdt2famix/sh</code></li>
 </ul>
@@ -89,7 +85,7 @@ Starting Moose you see the following window:
 <p>
 
 <figure>
-	<img src="figures/moose-panel-1.png"/>
+	<img src="Chapters/Nutshell/figures/moose-panel-1.png"/>
 	<figcaption>Moose Panel</figcaption>
 </figure>
 </p>
@@ -105,7 +101,7 @@ Now we are ready to query our system. Select <code>All model classes</code>.
 <p>
 
 <figure>
-	<img src="figures/moose-panel-2.png"/>
+	<img src="Chapters/Nutshell/figures/moose-panel-2.png"/>
 	<figcaption>All model classes</figcaption>
 </figure>
 </p>
@@ -120,7 +116,7 @@ Select the whole text and from the contextual menu choose <code>Do it and go</co
 <p>
 
 <figure>
-	<img src="figures/moose-panel-3.png"/>
+	<img src="Chapters/Nutshell/figures/moose-panel-3.png"/>
 	<figcaption>Deprecated classes</figcaption>
 </figure>
 </p>
@@ -130,7 +126,7 @@ Just to make sure that we indeed got deprecated classes, let's investigate one o
 <p>
 
 <figure>
-	<img src="figures/moose-panel-4.png"/>
+	<img src="Chapters/Nutshell/figures/moose-panel-4.png"/>
 	<figcaption>One deprecated class with source code</figcaption>
 </figure>
 </p>
@@ -140,7 +136,7 @@ Let's step back for a moment. We see 2 panes at the moment, but we have 4 panes 
 <p>
 
 <figure>
-	<img src="figures/moose-panel-5.png"/>
+	<img src="Chapters/Nutshell/figures/moose-panel-5.png"/>
 	<figcaption>Three panes</figcaption>
 </figure>
 </p>
@@ -155,7 +151,7 @@ We get 14 classes that can be removed immediately.
 <p>
 
 <figure>
-	<img src="figures/moose-panel-6.png"/>
+	<img src="Chapters/Nutshell/figures/moose-panel-6.png"/>
 	<figcaption>Deprecated classes without clients</figcaption>
 </figure>
 </p>
@@ -165,7 +161,7 @@ This leaves us with 11 classes that cannot be removed because they are still bei
 <p>
 
 <figure>
-	<img src="figures/moose-panel-7.png"/>
+	<img src="Chapters/Nutshell/figures/moose-panel-7.png"/>
 	<figcaption>Deprecated classes with clients</figcaption>
 </figure>
 </p>
@@ -187,7 +183,7 @@ This shows us a simple visualization containing the 11 deprecated classes and th
 <p>
 
 <figure>
-	<img src="figures/moose-panel-8.png"/>
+	<img src="Chapters/Nutshell/figures/moose-panel-8.png"/>
 	<figcaption>Simple visualization of used deprecated classes and their clients</figcaption>
 </figure>
 </p>
@@ -197,7 +193,7 @@ What we get is an interactive picture, and clicking on a node reveals the detail
 <p>
 
 <figure>
-	<img src="figures/moose-panel-9.png"/>
+	<img src="Chapters/Nutshell/figures/moose-panel-9.png"/>
 	<figcaption>Obtaining details from the visualization</figcaption>
 </figure>
 </p>
@@ -216,7 +212,7 @@ view</code></pre><figcaption></figcaption></figure>
 <p>
 
 <figure>
-	<img src="figures/moose-panel-10.png"/>
+	<img src="Chapters/Nutshell/figures/moose-panel-10.png"/>
 	<figcaption>Distinguishuing between deprecated and non-deprecated classes</figcaption>
 </figure>
 </p>
@@ -237,7 +233,7 @@ view</code></pre><figcaption></figcaption></figure>
 <p>
 
 <figure>
-	<img src="figures/moose-panel-11.png"/>
+	<img src="Chapters/Nutshell/figures/moose-panel-11.png"/>
 	<figcaption>Representing dependencies through edges</figcaption>
 </figure>
 </p>
@@ -258,7 +254,7 @@ view</code></pre><figcaption></figcaption></figure>
 <p>
 
 <figure>
-	<img src="figures/moose-panel-12.png"/>
+	<img src="Chapters/Nutshell/figures/moose-panel-12.png"/>
 	<figcaption>Patterns of usages of deprecated classes</figcaption>
 </figure>
 </p>
@@ -266,7 +262,7 @@ view</code></pre><figcaption></figcaption></figure>
 Ok. Now, we can distinguish several distinct situations. Two deprecated classes call each other and they can be simply removed. There is one non-deprecated class using two deprecated classes. And there are 3 deprecated classes that are being used by several other non-deprecated ones. This picture offers us the opportunity to choose our path by taking more details into account at the same time. For example, an interesting candidate to investigate is the one class that uses two deprecated ones.
 </p>
 </section><section>
-<h3>1.1.2. Beyond code</h3>
+<h3>1.1.2. Navigating XML files</h3>
 
 <p>
 Working with code is interesting but often the plain code does not provide the complete story. For example, ArgoUML happens to rely on some Ant XML files for building the system. Let's look at them. To this end, click on the background of Pharo and from the so called World menu choose <code>Playground</code>. If you are new to Pharo, the Playground is a little tool that allows you to evaluate scripts. We start with inspecting the object representing the root directory of our <code>ArgoUML-0-34</code> model. 
@@ -276,7 +272,7 @@ Working with code is interesting but often the plain code does not provide the c
 <p>
 
 <figure>
-	<img src="figures/playground-files-1.png"/>
+	<img src="Chapters/Nutshell/figures/playground-files-1.png"/>
 	<figcaption>Inspecting directories</figcaption>
 </figure>
 </p>
@@ -286,7 +282,7 @@ We want to find the Ant XML files. We could write a query, but let's first get a
 <p>
 
 <figure>
-	<img src="figures/playground-files-2.png"/>
+	<img src="Chapters/Nutshell/figures/playground-files-2.png"/>
 	<figcaption>Overview of files by extension</figcaption>
 </figure>
 </p>
@@ -296,7 +292,7 @@ We see that we get 614 XML files. We pick the first <code>build.xml</code>.
 <p>
 
 <figure>
-	<img src="figures/playground-files-3.png"/>
+	<img src="Chapters/Nutshell/figures/playground-files-3.png"/>
 	<figcaption>A build.xml</figcaption>
 </figure>
 </p>
@@ -308,7 +304,7 @@ The inspector shows the XML with syntax highlighting. Let's say that we want to 
 <p>
 
 <figure>
-	<img src="figures/playground-files-4.png"/>
+	<img src="Chapters/Nutshell/figures/playground-files-4.png"/>
 	<figcaption>Inspecting an XML document</figcaption>
 </figure>
 </p>
@@ -320,23 +316,63 @@ The tree is more appropriate for  navigation, but still we are required to scrol
 <p>
 
 <figure>
-	<img src="figures/playground-files-5.png"/>
+	<img src="Chapters/Nutshell/figures/playground-files-5.png"/>
 	<figcaption>Using XPath to find elements of interest</figcaption>
 </figure>
 </p>
 <p>
-The result is only a list of 44 <code>&lt;property&gt;</code> tags. Now we can scroll.
+The result is only a list of 44 <code>&lt;property&gt;</code> tags. Now we can read.
+</p>
+
+</section><section>
+<h3>1.1.3. Beyond structured text</h3>
+
+<p>
+The previous examples show how the same interaction metaphor that we can use for navigating models of code, can be used to navigate and reason about arbitrary objects, such as objects representing files and folders. But, what happens when we do not have easy access to those objects?
 </p>
 <p>
-This example shows how the same interaction metaphor used previously for navigating models of code, can be used to navigate and reason about arbitrary objects (in our case, objects representing files and folders).
+Let's consider another example. The <a href="https://raw.githubusercontent.com/girba/themoosebook/master/Chapters/Nutshell/index.pillar">source of this chapter</a>  uses Pillar, a markup language. As with any technical documentation, it contains code, and very often we just want to scheme through that code. Of course, we could just scroll through the whole document, but that is not really cool. So, let's set to extract only the snippets.
 </p>
+<p>
+First, we need the source. Open another Playground by clicking on the background of the window and inspect:
+</p>
+<figure><pre><code>ZnClient new
+	url: 'https://raw.githubusercontent.com/girba/themoosebook/master/Chapters/Nutshell/index.pillar';
+	get</code></pre><figcaption></figcaption></figure>
+
+<p>
+
+<figure>
+	<img src="Chapters/Nutshell/figures/playground-pillar-1.png"/>
+	<figcaption>Obtaining the remote source code</figcaption>
+</figure>
+</p>
+<p>
+Looking at the first code snippet, we notice that it is introduced through a pattern like <code>[[[ ... ]]]</code>. To extract this pattern, we need a parser. Suppose we do not have a parser at hand. It follows that we should build one. But, given that  we are not interested at this time in the whole grammar of the markup language, we should be able to extract only the snippet we care about. Switch to the <code>Raw</code> presentation and evaluate:
+</p>
+<figure><pre><code>p := (('[[[' asParser , ']]]' asParser negate plus flatten , ']]]' asParser 
+	==&gt; #second) sea 
+	==&gt; #second) star.
+p parse: self contents.</code></pre><figcaption></figcaption></figure>
+
+<p>
+Evaluating this code, extracts the wanted snippets. Now we can read.
+</p>
+<p>
+
+<figure>
+	<img src="Chapters/Nutshell/figures/playground-pillar-2.png"/>
+	<figcaption>Extracting code snippets</figcaption>
+</figure>
+</p>
+
 </section></section><section>
 <h2>1.2. Moose overview</h2>
 <p>
-The examples above exercised several Moose components. Let's take a step back to take a look at the overall structure of Moose.
+The examples above exercised several Moose components. Let's take a step back and observe the overall structure of Moose.
 </p>
 <p>
-Moose is a generic platform for engineers that want to understand data in general, and software systems in particular.  Foremost, Moose is designed for programmers, not for clickers. To get the most out of it, you have to program it. First, that means that you have to program in Pharo (<a href="http://pharo.org">http://pharo.org</a>). Second, you have to learn the inner workings of Moose to understand how to use it.
+Moose is a generic platform for engineers that want to understand data in general, and software systems in particular.  Foremost, Moose is designed for programmers, not for clickers. To get the most out of it, you have to program it. First, that means that you have to program in <a href="http://pharo.org">Pharo</a>. Second, you have to learn the inner workings of Moose to understand how to use it.
 </p>
 <p>
 This is actually less difficult than it sounds. Pharo is a beautiful language, and if you do not know it already, you will not be sorry for learning it. And Moose is rather small having less than 2000 classes and less than 150k lines of code. Let's take a quick tour.
@@ -347,7 +383,7 @@ From a conceptual point of view, Moose is organized as follows.
 <p>
 
 <figure>
-	<img src="figures/moose-workflow.png"/>
+	<img src="Chapters/Nutshell/figures/moose-workflow.png"/>
 	<figcaption>Moose workflow</figcaption>
 </figure>
 </p>
@@ -361,19 +397,19 @@ The picture emphasizes two aspects:
 This might sound like mumbo jumbo, but let us take a moment and consider how this diagram is instantiated through a couple of examples.
 </p>
 <p>
-The input is always some piece of data. By data, we understand all sorts of structures that contain objects, properties and relations. For example, data can be a software system written in Java. Or it can be a set of configuration files written in XML. Or it can be some meta-data about your system.
+The input is always some piece of data. By data, we understand all sorts of structures that contain objects, properties and relations. For example, data can be a software system written in Java. Or it can be a set of configuration files written in XML. Or it can be some meta-data about your system. Or it can be a text file.
 </p>
 <p>
-This data is loaded in Moose via importers. You can import data from various sources and in various formats. For example, you can import the structure of software systems either through internal importers (e.g., for Smalltalk, XML, JSON, MSE), or through external ones (e.g., Java).
+This data is loaded in Moose via importers. You can import data from various sources and in various formats. For example, you can import the structure of software systems either through internal importers (e.g., for Smalltalk code, XML, JSON, MSE), or through external ones (e.g., Java).
 </p>
 <p>
-The importing of data can be perceived as a rather unexciting step, but it is a necessary one. Once imported, the data is stored into models. This is where things get more interesting, because on top of these models you can start performing various kinds of analyses.
+The importing of data can be perceived as a rather unexciting step, but it is a necessary one. Once imported, the data is stored into models. This is where things get more interesting because on top of these models you can start performing various kinds of analyses.
 </p>
 <p>
-What do we mean by analyses? Metrics, queries, data mining and graph-based algorithms, duplication detection, interactive visualizations, data browsers etc. There a multitude of basic services like these provided by default. These tools can be applied interactively, and can be combined to produce more complex analyses such as: computation of dependency cycles, detection of high level design problems, identification of exceptional entities and so on. A key concept is that the results obtained after applying a specific analysis are fed back into the model and are available for further analysis. This enables an iterative process through which the analysis is built and refined gradually.
+What do we mean by analyses? Metrics, queries, interactive visualizations etc. There a multitude of basic services like these provided by default. These tools can be applied interactively, and can be combined to produce more complex analyses such as: computation of dependency cycles, detection of high level design problems, identification of exceptional entities and so on. A key concept is that the results obtained after applying a specific analysis are fed back into the model and are available for further analysis. This enables an iterative process through which the analysis is built and refined gradually.
 </p>
 <p>
-But, Moose is more than a tool. Moose is a platform. This is not just marketing, but it actually means that it helps you build your own tools. This is achieved by means of several engines through which you can control and customize the complete analysis workflow. In particular, you can:
+But, Moose is more than a tool. Moose is a platform. This is not just marketing, and it actually means that it is designed to help you build your own tools. This is achieved by means of several engines through which you can control and customize the complete analysis workflow. In particular, you can:
 </p><ul>
 <li>build new importers for new data sets,</li>
 <li>define new models to store the data, and</li>
@@ -392,7 +428,7 @@ PetitParser is a parsing engine. Its goal is to help engineers craft parsers for
 <p>
 
 <figure>
-	<img src="figures/petitparser-workflow.png"/>
+	<img src="Chapters/Nutshell/figures/petitparser-workflow.png"/>
 	<figcaption>PetitParser</figcaption>
 </figure>
 </p>
@@ -402,7 +438,7 @@ For example, to build a parser for SQLite, you can follow the official abstract 
 <p>
 
 <figure>
-	<img src="figures/sqlite-select-core.png"/>
+	<img src="Chapters/Nutshell/figures/sqlite-select-core.png"/>
 	<figcaption>Select core SQLite production</figcaption>
 </figure>
 </p>
@@ -427,7 +463,7 @@ In the picture below, you can see the definition of the <code>selectCore</code> 
 <p>
 
 <figure>
-	<img src="figures/pp-with-inspector.png"/>
+	<img src="Chapters/Nutshell/figures/pp-with-inspector.png"/>
 	<figcaption>PetitParser browser with inspector</figcaption>
 </figure>
 </p>
@@ -437,7 +473,7 @@ Furthermore, the browser offers other visual representations of the grammar. For
 <p>
 
 <figure>
-	<img src="figures/pp-with-graph.png"/>
+	<img src="Chapters/Nutshell/figures/pp-with-graph.png"/>
 	<figcaption>PetitParser browser with graph</figcaption>
 </figure>
 </p>
@@ -459,7 +495,7 @@ Fame is one of the two engines that provide the meta-modeling infrastructure of 
 <p>
 
 <figure>
-	<img src="figures/fame-workflow.png"/>
+	<img src="Chapters/Nutshell/figures/fame-workflow.png"/>
 	<figcaption>Fame</figcaption>
 </figure>
 </p>
@@ -495,7 +531,7 @@ To this end, the Moose Meta Browser provides an easy way to keep an overview of 
 <p>
 
 <figure>
-	<img src="figures/meta-browser.png"/>
+	<img src="Chapters/Nutshell/figures/meta-browser.png"/>
 	<figcaption>The Meta Browser</figcaption>
 </figure>
 </p>
@@ -520,44 +556,37 @@ Roassal is an engine for crafting interactive graph visualizations. For example,
 <p>
 
 <figure>
-	<img src="figures/roassal-workflow.png"/>
+	<img src="Chapters/Nutshell/figures/roassal-workflow.png"/>
 	<figcaption>Roassal</figcaption>
 </figure>
 </p>
 <p>
-At its core, Roassal offers a fine grained object-oriented model for displaying, interacting and animating graphs. On top of this model, Roassal offers several convenient builders for mapping arbitrary objects onto a drawable graph, the most known being the MondrianViewBuilder (this simple layer replaced the old Mondrian engine).
+At its core, Roassal offers a fine grained object-oriented model for displaying, interacting and animating graphs. On top of this model, Roassal offers several convenient builders for mapping arbitrary objects onto a drawable graph, the most known being the Mondrian builder.
 </p>
 <p>
-To make visualization crafting easier, Moose offers tools to develop such visualizations. For example, the Roassal Easel provides an interactive editor in which developers can develop visualizations and preview them against a given piece of data.
+To make visualization crafting easier, Moose offers tools to develop such visualizations. For example, the inspector  allows us to embed and preview visualizations directly. The picture below shows an example of a visualization script executed against a directory showing the nesting of all subdirectories in a circular treemap and highlighting the directories that contain a <code>build.xml</code> file.
 </p>
-<p>
-For example, the picture below shows an example of a visualization script executed against a group of classes. In this particular case, the classes are actually from Moose itself and the visualization shows what annotations are used within those classes and how they are related to each other (these happen to be the annotation with which one can customize the GTDebugger - the Pharo debugger that is built with Moose technology).
-</p>
-<p>
-If you want to reproduce it, you can use the script below:
-</p>
-<p class="todo">Update this part with a Finder picture.</p>
-<figure><pre><code>view shape ellipse withoutBorder; fillColor: Color lightGray.
-view nodes: classGroup.
-view shape
-     rectangle withoutBorder; fillColor: (Color blue alpha: 0.2);
-     withText: #name.
-view nodes: (classGroup flatCollectAsSet: [:each |
-     each methods flatCollect: #annotationTypes]).
-view edges: (classGroup flatCollect: #methods)
-     fromAll: #annotationTypes
-     to: #parentType.
-view forceBasedLayout</code></pre><figcaption></figcaption></figure>
+<figure><pre><code>b := RTCircularTreeMapBuilder new.
+b shape
+  borderColor: Color lightGray;
+  if: [ :d | 
+    d files anySatisfy: [ :f |
+      f basename = 'build.xml' ] ]   color: [ Color red ].
+b leafWeight: [:f | f size sqrt ];
+  explore: self
+  nesting: #directories
+  leaves: #directories.
+b </code></pre><figcaption></figcaption></figure>
 
-<p>
-Although the logic behind the script is complicated (getting all annotations from a class, linking them with each class etc), the script is rather compact. Even if it is compact, you do not even have to write the complete script at once. Instead, you can preview the state of the visualization after each modification. Thus, you can iterate easily until you reach an acceptable result.
-</p>
 <p>
 
 <figure>
-	<img src="figures/roassal-easel.png"/>
-	<figcaption>Roassal editor</figcaption>
+	<img src="Chapters/Nutshell/figures/roassal-2.png"/>
+	<figcaption>Roassal in the inspector</figcaption>
 </figure>
+</p>
+<p>
+The script is rather compact. Furthermore, you do not even have to write the complete script at once. Instead, you can preview the state of the visualization after each modification. Thus, you can iterate easily until you reach an acceptable result.
 </p>
 <p>
 These visualizations are fully interactive, and developers can continue inspecting the objects behind the visual representations. This is particularly relevant for supporting iterative analyses.
@@ -574,7 +603,7 @@ Visualizations are great, but analyzing complicated models requires browsing thr
 <p>
 
 <figure>
-	<img src="figures/glamour-workflow.png"/>
+	<img src="Chapters/Nutshell/figures/glamour-workflow.png"/>
 	<figcaption>Glamour</figcaption>
 </figure>
 </p>
@@ -584,7 +613,7 @@ The entire user interface of Moose is built with Glamour (yes, the pun is intend
 <p>
 
 <figure>
-	<img src="figures/moose-code-browser.png"/>
+	<img src="Chapters/Nutshell/figures/moose-code-browser.png"/>
 	<figcaption>Sample browser</figcaption>
 </figure>
 </p>
@@ -615,7 +644,7 @@ composer startOn: classGroup.</code></pre><figcaption></figcaption></figure>
 <p>
 
 <figure>
-	<img src="figures/glamour-editor.png"/>
+	<img src="Chapters/Nutshell/figures/glamour-editor.png"/>
 	<figcaption>Glamour Editor</figcaption>
 </figure>
 </p>
@@ -634,7 +663,7 @@ All these engines can be combined in various forms. One interface in which most 
 <p>
 
 <figure>
-	<img src="figures/finder-workflow.png"/>
+	<img src="Chapters/Nutshell/figures/finder-workflow.png"/>
 	<figcaption>Finder</figcaption>
 </figure>
 </p>
@@ -647,7 +676,7 @@ For example, the screenshot below shows the finder open on a group of classes fr
 <p>
 
 <figure>
-	<img src="figures/finder-query-visualization.png"/>
+	<img src="Chapters/Nutshell/figures/finder-query-visualization.png"/>
 	<figcaption>Finder with a  query and a visualization</figcaption>
 </figure>
 </p>
@@ -657,7 +686,7 @@ Selecting one of the classes from the map, spawns another pane to the right. In 
 <p>
 
 <figure>
-	<img src="figures/finder-visualization-source.png"/>
+	<img src="Chapters/Nutshell/figures/finder-visualization-source.png"/>
 	<figcaption>Finder with a visualization and source code</figcaption>
 </figure>
 </p>
@@ -665,7 +694,13 @@ Selecting one of the classes from the map, spawns another pane to the right. In 
 The Moose Finder focuses on the iterative nature of analysis. Every instance of the browser captures one analysis flow where every pane represents a step in the analysis. This is particularly useful when the analysis requires multiple steps. Furthermore, the Finder is extensible, and developers can easily add presentations specific to their entities.
 </p>
 </section><section>
-<h3>1.2.6. Other engines and tools</h3>
+<h3>1.2.6. The Glamorous Toolkit</h3>
+
+<p>
+Moose is primarily an analysis platform. This means that the editing part is not particular
+</p>
+</section><section>
+<h3>1.2.7. Other engines and tools</h3>
 
 <p>
 The engines and tools mentioned above are the most visible one that come with Moose. Yet, Moose offers more. To name a few:
@@ -691,9 +726,9 @@ Working with Moose does imply a learning curve. However, this investment is wort
 </ol>
 
 <p>
-But, Moose is more than the source code. It is also an active and open community. If you want to give it a try, just <a href="http://www.moosetechnology.org/about/contact">join us</a>. Work with us. Play with us. Software engineering is still young and there are plenty of things to uncover.
+But, Moose is more than the source code. It is also an active and open community. If you want to give it a try, just <a href="http://www.moosetechnology.org">join us</a>. Work with us. Play with us. Software engineering is still young and there are plenty of things to uncover.
 </p>
-<p class="note">If someone asks you about Moose, you can tell them that Moose is all about custom analyses made easy.</p>
+<p class="note">If someone asks, you can say that Moose is all about custom analyses made easy.</p>
 
 
 
