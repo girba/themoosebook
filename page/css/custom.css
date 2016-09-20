@@ -1,10 +1,23 @@
 .jumbotron {
 	text-align: center;
 	background-color: white;
-	margin-top: 180px;
+	margin-top: 100px;
 }
 .jumbotron p.lead { font-weight: 300; }
-.jumbotron h1 { font-weight: normal; }
+.jumbotron h1 { font-weight: normal; padding-bottom: 50px; }
+
+.navbar-header {
+  display: block;
+  float: none;
+  vertical-align: top;
+  text-align: center;
+}
+
+.navbar-brand {
+	float: none;
+	display: inline-block;
+	
+}
 
 .navbar-toggle .icon-bar {
     background-color: #212121;
