@@ -1,14 +1,15 @@
 {
-	"category" : "TheMooseBook-Pillar",
+	"category" : "TheMooseBook-Examples",
 	"classinstvars" : [
 		 ],
 	"classvars" : [
 		 ],
 	"commentStamp" : "",
 	"instvars" : [
-		 ],
-	"name" : "TMBHTMLWriter",
+		"problematic",
+		"comment" ],
+	"name" : "TMBReview",
 	"pools" : [
 		 ],
-	"super" : "PRHTMLWriter",
+	"super" : "Object",
 	"type" : "normal" }

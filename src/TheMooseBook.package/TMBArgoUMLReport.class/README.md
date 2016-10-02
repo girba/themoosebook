@@ -1,0 +1,1 @@
+TMBArgoUMLReport openOn: MooseModel root allModels first
