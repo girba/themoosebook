@@ -6,9 +6,10 @@
 		 ],
 	"commentStamp" : "",
 	"instvars" : [
-		"headerStack",
-		"rootHeader" ],
-	"name" : "TMBHTMLWriter",
+		"children",
+		"parent",
+		"header" ],
+	"name" : "TMBHTMLHeaderNesting",
 	"pools" : [
 		 ],
 	"super" : "PRHTMLWriter",
