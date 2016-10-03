@@ -6,7 +6,7 @@
 		 ],
 	"commentStamp" : "TudorGirba 10/3/2016 22:42",
 	"instvars" : [
-		 ],
+		"activeParserProcess" ],
 	"name" : "TMBBrowser",
 	"pools" : [
 		 ],
