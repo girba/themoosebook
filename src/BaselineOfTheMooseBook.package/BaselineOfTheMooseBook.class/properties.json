@@ -1,0 +1,14 @@
+{
+	"category" : "BaselineOfTheMooseBook",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "",
+	"instvars" : [
+		 ],
+	"name" : "BaselineOfTheMooseBook",
+	"pools" : [
+		 ],
+	"super" : "BaselineOf",
+	"type" : "normal" }

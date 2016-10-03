@@ -1,0 +1,15 @@
+{
+	"category" : "TheMooseBook-Examples",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "",
+	"instvars" : [
+		"problematic",
+		"comment" ],
+	"name" : "TMBReview",
+	"pools" : [
+		 ],
+	"super" : "Object",
+	"type" : "normal" }

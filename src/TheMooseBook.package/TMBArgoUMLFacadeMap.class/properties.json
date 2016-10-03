@@ -1,0 +1,14 @@
+{
+	"category" : "TheMooseBook-Examples",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "",
+	"instvars" : [
+		 ],
+	"name" : "TMBArgoUMLFacadeMap",
+	"pools" : [
+		 ],
+	"super" : "REPComputedConcern",
+	"type" : "normal" }

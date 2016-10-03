@@ -1,0 +1,120 @@
+.jumbotron {
+	text-align: center;
+	background-color: white;
+	margin-top: 100px;
+}
+.jumbotron p.lead { font-weight: 300; }
+.jumbotron h1 { font-weight: normal; padding-bottom: 50px; }
+
+.navbar-header {
+  display: block;
+  float: none;
+  vertical-align: top;
+  text-align: center;
+}
+
+.navbar-brand {
+	float: none;
+	display: inline-block;
+	
+}
+
+.navbar-toggle .icon-bar {
+    background-color: #212121;
+}
+
+.home {
+	text-align: center;
+}
+.card {
+	text-align: center;
+	margin-top: 20px;
+	background-color: white;
+	border: 1px solid #DDD;
+}
+.card p, .card h2 {
+	padding-left: 20px;
+	padding-right: 20px;
+	margin-top: 20px;
+}
+.card-action { padding-top: 20px; }
+
+p { font-weight: 300; }
+li { font-weight: 300; }
+
+a {
+	text-decoration: none;
+	color: rgb(0, 102, 200);
+}
+a:hover {
+	text-decoration: none;
+	color: rgb(0, 102, 200);
+}
+
+a.active {
+	background-color: #EEE;
+}
+
+section {padding-top: 60px;}
+section {padding-bottom: 180px;}
+section h1 {
+	font-weight: normal;
+	font-size: 64px;
+}
+section h2 {
+	font-weight: normal;
+	font-size: 28px;
+	margin-top: 40px;
+}
+section h3 {
+	font-weight: 300;
+	font-size: 20px;
+}
+
+body { background-color: #fff; }
+img { max-width: 100%; }
+
+.navbar {
+	background-color: white;
+	box-shadow:0px 5px 20px 20px white;
+	opacity: 0.9;
+    filter: alpha(opacity=90); /* For IE8 and earlier */;
+}
+.navbar li.active a {
+	background-color: #EEE;
+}
+.navbar li a {
+	font-weight: normal;
+}
+
+footer {
+	text-align: center;
+	background-color: white;
+	color: #9e9e9e;
+	padding: 24px;
+}
+#footer a { color: #EEE; }
+
+.btn {
+    padding: 14px 24px;
+    border: 0 none;
+    font-weight: normal;
+    border-radius: 0px;
+}
+.btn:focus, .btn:active:focus, .btn.active:focus {
+    outline: 0 none;
+}
+.btn-primary, .btn-default {
+    background: #EEE;
+    color: #212121;
+}
+ 
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active {
+    background: #DDD;
+    color: #212121;
+}
+ 
+.btn-primary:active, .btn-primary.active {
+    background: #DDD;
+    box-shadow: none;
+}
