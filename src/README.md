@@ -1,2 +1,0 @@
-The Moose Book sources
-============

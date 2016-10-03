@@ -1,0 +1,14 @@
+{
+	"category" : "TheMooseBook-Pillar",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "TudorGirba 10/3/2016 22:42",
+	"instvars" : [
+		 ],
+	"name" : "TMBBrowser",
+	"pools" : [
+		 ],
+	"super" : "GLMCompositePresentation",
+	"type" : "normal" }
