@@ -3,8 +3,6 @@ baseline: spec
 	<baseline>
 	spec for: #common do: [ 
 		spec
-			baseline: 'Iceberg' with: [ 
-				spec repository: 'github://npasserini/iceberg' ];
 			project: 'Pillar' with: [
 				spec
 					className: #ConfigurationOfPillar;
