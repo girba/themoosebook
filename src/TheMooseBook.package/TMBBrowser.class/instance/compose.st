@@ -15,6 +15,10 @@ compose
 			from: #files;
 			to: #editor;
 			andShow: 	[ :a :file | self editorIn: a forFile: file ].
+		t transmit 
+			from: #index;
+			to: #editor port: #selectionInterval;
+			transformed: [ :header | header header start to: header header start - 1 ].
 		t transmit
 			from: #editor;
 			toWatcher;
