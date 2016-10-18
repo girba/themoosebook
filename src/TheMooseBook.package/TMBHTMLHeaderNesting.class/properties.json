@@ -12,5 +12,5 @@
 	"name" : "TMBHTMLHeaderNesting",
 	"pools" : [
 		 ],
-	"super" : "PRHTMLWriter",
+	"super" : "Object",
 	"type" : "normal" }

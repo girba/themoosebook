@@ -8,4 +8,9 @@ baseline: spec
 					className: #ConfigurationOfPillar;
 					versionString: #'development';
 					repository: 'http://smalltalkhub.com/mc/Pier/Pillar/main/' ];	
-			package: 'TheMooseBook' with: [ spec requires: #(Pillar) ] ]
+			project: 'Mustache' with: [
+				spec
+					className: #ConfigurationOfMustache;
+					versionString: #'stable';
+					repository: 'http://smalltalkhub.com/mc/NorbertHartl/Mustache/main/' ];	
+			package: 'TheMooseBook' with: [ spec requires: #(Pillar Mustache) ] ]

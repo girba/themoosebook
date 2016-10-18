@@ -6,9 +6,9 @@
 		 ],
 	"commentStamp" : "",
 	"instvars" : [
-		"rootHeader" ],
-	"name" : "TMBIndexChanged",
+		"baseDirectory" ],
+	"name" : "TMBIncluderFlattener",
 	"pools" : [
 		 ],
-	"super" : "PRHTMLWriter",
+	"super" : "PRVisitor",
 	"type" : "normal" }
