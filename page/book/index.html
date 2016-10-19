@@ -74,6 +74,15 @@
 <li>
 <a href="#h2pharointegration">Pharo integration</a></li></ul></li>
 <li>
+<a href="#h1dealingwithmodels">Dealing with models</a>
+<ul class="nav nav-h2">
+<li>
+<a href="#h2theentity">The Entity</a></li>
+<li>
+<a href="#h2thegroup">The Group</a></li>
+<li>
+<a href="#h2themodel">The Model</a></li></ul></li>
+<li>
 <a href="#h1famix">Famix</a></li>
 <li>
 <a href="#h1paintingobjectswithroassal">Painting objects with Roassal</a>
@@ -1605,6 +1614,104 @@ Why would we need more meta-levels? We always need a meta-level when we want to 
 <li><code>Object&gt;&gt;mmSetProperty: aFM3PropertyDescription to: value</code></li>
 </ul>
 
+<h1 id="h1dealingwithmodels">Dealing with models</h1>
+<p>
+The core of Moose offers support for storing and manipulating entities in models. The figure below provides an overview of the main classes involved:
+</p><ul>
+<li>Entity -- representing basic abstract entity representation,</li>
+<li>Group -- representing a group of entities, and</li>
+<li>Model-- a special group that contains all entities relevant for a system.</li>
+</ul>
+
+<p>
+The following sections provide more details about each of these.
+</p>
+<p>
+
+<figure>
+	<img src="figures/moose-entity-model-group.png"/>
+	<figcaption>Entity, Model, Group</figcaption>
+</figure>
+</p>
+
+<h2 id="h2theentity">The Entity</h2>
+<p>
+The MooseEntity is the basic representation of an entity in a model. Thus, the MooseEntity class is meant to be subclassed by any specific meta-model entity.
+</p>
+<p>
+It provides two main generic services.
+</p>
+<p>
+First, it holds a reference to the parent MooseModel. This does lead to a cyclic dependency between the entity and the model. However, given the tight connection between these two concepts, it is unproblematic in practice while it provides a particularly handful feature for creating queries that require more information than the current entity provides. 
+</p>
+<p>
+For example, suppose that we intend to create a query that given a method entity checks whether another method with the same name appears in the rest of the model. For this, we need to traverse all methods in the model. Having the reference to the model allows us to install a simple method without parameters (i.e., unary method) directly in FAMIXMethod:
+</p>
+<figure><pre><code>otherMethodsWithTheSameName
+   ^ self mooseModel allMethods select: [:each | each name = self name]</code></pre><figcaption></figcaption></figure>
+
+<p>
+The second important feature of an entity is the mechanism for state management and extension achieved through the EntityState hierarchy.
+</p>
+<p>
+Following our example, we might want to cache the result of <code>otherMethodsWithTheSameName</code> to not require a new traversal of all methods every time we ask for it. To achieve this, the simplest solution would be to add an instance variable to store the result. However,  extension methods like <code>otherMethodsWithTheSameName</code> are placed typically in a separate package (other than the package of the class), and thus the instance variable should also belong to the same package. This is not cleanly possible in Smalltalk.
+</p>
+<p>
+EntityState solves the situation, by offering for each entity an extensible dictionary that simulates instance variables. For example, we could store the result of our query in a cache:
+</p>
+<figure><pre><code>otherMethodsWithTheSameName
+   ^ self privateState 
+       cacheAt: #otherMethodsWithTheSameName
+       ifAbsentPut: [
+         self mooseModel allMethods select: [:each | each name = self name]]</code></pre><figcaption></figcaption></figure>
+
+<p>
+Every entity can access its EntityState through the <code>privateState</code> message. There are three dictionaries offered:
+</p><ul>
+<li>attributes -- for variable extensions that are meant to extend the basic structure of the entity. This typically happens when we want to extend the meta-model with an extra relationship between two entities, we would store it as an attribute. For example, if you would have extra information about which author worked on which method, we could add an author attribute in the Method entity.</li>
+<li>cache -- for storing the result of queries. For example, our example query is meant to be stored in the cache, and not as an attribute.</li>
+<li>properties -- for storing simple values. For example, metrics are typically stored as properties.</li>
+</ul>
+
+
+<h2 id="h2thegroup">The Group</h2>
+<p>
+A Group is an entity representing a collection of entities. For example, we could have a group of class entities, a group of method entities.
+</p>
+<p>
+Groups are important abstractions especially for queries and for user interfaces (see <a href=""></a>).
+</p>
+<p class="todo">storage</p>
+<p class="todo">caches and allWithType:</p>
+<p class="todo">talk about dynamic type changing</p>
+
+<h2 id="h2themodel">The Model</h2>
+<p>
+In essence a model is the totality of entities and their inter-relationships from a target system. A MooseModel is a special Group.
+</p>
+<p>
+The simplest model is the empty one. You can get it by simply instantiating a MooseModel:
+</p>
+<figure><pre><code> MooseModel new.</code></pre><figcaption></figcaption></figure>
+
+<p>
+A model is also an entity, and thus, it can be stored in another model. By default, Moose offers a special root model object that is a singleton and that can be accessed via:
+</p>
+<figure><pre><code> MooseModel root.</code></pre><figcaption></figcaption></figure>
+
+<p>
+The root model is special because by convention it is used to store all other models. It acts as a repository, and its content are displayed in the MoosePanel user interface.
+</p>
+<p>
+To add your model to the root model, you can simply do:
+</p>
+<figure><pre><code> | myModel |
+ myModel := MooseModel new.
+ MooseModel root add: myModel.</code></pre><figcaption></figcaption></figure>
+
+<p>
+Once an entity is placed in a model, it automatically stores the model in an instance variable accessible via <code>mooseModel</code>. Thus, when a query requires information that is outside of the scope of the entity under study, you can obtain the information from the model.
+</p>
 <h1 id="h1famix">Famix</h1>
 
 <p class="todo">TODO</p>

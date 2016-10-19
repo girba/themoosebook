@@ -5,5 +5,5 @@
 }
 
 ${inputFile:Chapters/Nutshell/index.pillar}$
-${inputFile:Chapters/Importing/index.pillar}$${inputFile:Chapters/PetitParser/index.pillar}$${inputFile:Chapters/Fame/index.pillar}$${inputFile:Chapters/Famix/index.pillar}$${inputFile:Chapters/Roassal/index.pillar}$${inputFile:Chapters/Glamour/index.pillar}$
+${inputFile:Chapters/Importing/index.pillar}$${inputFile:Chapters/PetitParser/index.pillar}$${inputFile:Chapters/Fame/index.pillar}$${inputFile:Chapters/GenericMetaModel/index.pillar}$${inputFile:Chapters/Famix/index.pillar}$${inputFile:Chapters/Roassal/index.pillar}$${inputFile:Chapters/Glamour/index.pillar}$
 ${inputFile:Chapters/GlamorousToolkit/index.pillar}$${inputFile:Chapters/Arki/index.pillar}$
