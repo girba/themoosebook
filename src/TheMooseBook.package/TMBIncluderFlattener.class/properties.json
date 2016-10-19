@@ -10,5 +10,5 @@
 	"name" : "TMBIncluderFlattener",
 	"pools" : [
 		 ],
-	"super" : "PRVisitor",
+	"super" : "PRNodeTransformer",
 	"type" : "normal" }
