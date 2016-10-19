@@ -1,72 +1,4 @@
-<!DOCTYPE html>
-<html>
-	<title>The Moose Book</title>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<style>
-		.nav-pills>li.active>a {
-			background-color: transparent;
-			color: #337ab7;
-		}
-		.nav-pills>li.active>a:focus,
-		.nav-pills>li.active>a:hover {
-			background-color: #eee;
-			color: #337ab7;
-		}
-		.nav-pills>li>a {
-			border-radius: 0px;
-		}
-		.nav-pills {
-		   top: 20px;
-		   position: fixed;
-		}
-		/* hide sidebar sub menus by default */
-		.nav-pills li .nav-h2 {
-		  display: none;
-		}
-		/* show sub menu when parent is active */
-		.nav-pills li.active .nav-h2 {
-		  display: block;
-		}
-		.nav-pills>li.active {
-			border-left: 2px solid #ddd;
-		}
-		.nav-pills>li.active>a {
-		  border-left: 6px solid #ddd;
-		}
-		.nav-pills>li.active li.active a {
-		  border-left: 6px solid #eee;
-		}
-		.nav-pills>li.active li a {
-		  border-left: 6px solid transparent;
-		}
-		ul .nav-h3 {display: none;}
-		.nav-pills li a {
-			padding-top: 5px;
-			padding-bottom: 5px;
-			font-size: 14px;
-		}
-		.nav-pills li li a {
-			padding-top: 5px;
-			padding-bottom: 5px;
-			font-size: 11px;
-		}
-		img {max-width: 100%;}
-		.todo { padding: 20px; background-color: #FED2D4; }
-		.note { padding: 20px; background-color: #AACEFF; }
-		figcaption { text-align: center; color: gray; }
-		figure { padding: 20px; text-align: center; }
-		figure pre { text-align: left;  }
-	</style>
-	<body data-spy="scroll" data-target="#myScrollspy" data-offset="20">
-		<div class="container">
-			<div class="row">
-				<nav class="col-sm-3" id="myScrollspy">
-
-					
+<!DOCTYPE html><html>	<title>The Moose Book</title>	<author>Tudor Girba</author>	<meta charset="utf-8">	<meta name="viewport" content="width=device-width, initial-scale=1">	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>	<style>		.nav-pills>li.active>a {			background-color: transparent;			color: #337ab7;		}		.nav-pills>li.active>a:focus,		.nav-pills>li.active>a:hover {			background-color: #eee;			color: #337ab7;		}		.nav-pills>li>a {			border-radius: 0px;		}		.nav-pills {		   top: 20px;		   position: fixed;		}		/* hide sidebar sub menus by default */		.nav-pills li .nav-h2 {		  display: none;		}		/* show sub menu when parent is active */		.nav-pills li.active .nav-h2 {		  display: block;		}		.nav-pills>li.active {			border-left: 2px solid #ddd;		}		.nav-pills>li.active>a {		  border-left: 6px solid #ddd;		}		.nav-pills>li.active li.active a {		  border-left: 6px solid #eee;		}		.nav-pills>li.active li a {		  border-left: 6px solid transparent;		}		ul .nav-h3 {display: none;}		.nav-pills li a {			padding-top: 5px;			padding-bottom: 5px;			font-size: 14px;		}		.nav-pills li li a {			padding-top: 5px;			padding-bottom: 5px;			font-size: 11px;		}		img {max-width: 100%;}		.todo { padding: 20px; background-color: #F9F2F4; }		.note { padding: 20px; background-color: #DBECFF; }		figcaption { text-align: center; color: gray; }		figure { padding: 20px; text-align: center; }		figure pre { text-align: left; }		code { background-color: #eee; color: #333; }	</style>	<body data-spy="scroll" data-target="#myScrollspy" data-offset="20">		<div class="container">			<div class="row">				<nav class="col-sm-3" id="myScrollspy">					
 <ul class="nav nav-pills nav-stacked">
 <li>
 <a href="#h1mooseinanutshell">Moose in a nutshell</a>
@@ -100,11 +32,49 @@
 <li>
 <a href="#h2summary">Summary</a></li></ul></li>
 <li>
-<a href="#h1petitparser">PetitParser</a></li>
+<a href="#h1importingandexportingmodels">Importing and exporting models</a>
+<ul class="nav nav-h2">
+<li>
+<a href="#h2importingandexportingwithmse">Importing and exporting with MSE</a></li>
+<li>
+<a href="#h2importingpharocode">Importing Pharo code</a></li>
+<li>
+<a href="#h2importingjavacode">Importing Java code</a></li>
+<li>
+<a href="#h2settingtherootfolder">Setting the root folder</a></li></ul></li>
+<li>
+<a href="#h1writingparserswithpetitparser">Writing parsers with PetitParser</a>
+<ul class="nav nav-h2">
+<li>
+<a href="#h2stepbystepparsingofmse">Step by step parsing of MSE</a>
+<ul class="nav nav-h3">
+<li>
+<a href="#h3startingsmallwithparsingnames">Starting small with parsing names</a></li>
+<li>
+<a href="#h3manipulatingtheoutputofparsingstringsandnumbers">Manipulating the output of parsing strings and numbers</a></li>
+<li>
+<a href="#h3dealingwithcyclicdependencieswhenscriptingthemsegrammar">Dealing with cyclic dependencies when scripting the MSE grammar</a></li>
+<li>
+<a href="#h3encapsulatingthemsegrammarinaclass">Encapsulating the MSE grammar in a class</a></li>
+<li>
+<a href="#h3testingthemsegrammarclass">Testing the MSE grammar class</a></li>
+<li>
+<a href="#h3creatinganmseparser">Creating an MSE parser</a></li></ul></li>
+<li>
+<a href="#h2parsingoperators">Parsing operators</a></li>
+<li>
+<a href="#h2dedicateduserinterface">Dedicated user interface</a></li></ul></li>
+<li>
+<a href="#h1meta-modelingwithfame">Meta-modeling with Fame</a>
+<ul class="nav nav-h2">
+<li>
+<a href="#h2thefm3meta-meta-model">The FM3 meta-meta-model</a></li>
+<li>
+<a href="#h2subject,model,meta-model,meta-meta-model">Subject, model, meta-model, meta-meta-model</a></li>
+<li>
+<a href="#h2pharointegration">Pharo integration</a></li></ul></li>
 <li>
 <a href="#h1famix">Famix</a></li>
-<li>
-<a href="#h1fame">Fame</a></li>
 <li>
 <a href="#h1paintingobjectswithroassal">Painting objects with Roassal</a>
 <ul class="nav nav-h2">
@@ -166,12 +136,7 @@
 <li>
 <a href="#h2examples">Examples</a></li></ul></li>
 <li>
-<a href="#h1theglamoroustoolkit">The Glamorous Toolkit</a></li></ul>
-
-				</nav>
-				<div class="col-sm-9">
-
-					<p>
+<a href="#h1theglamoroustoolkit">The Glamorous Toolkit</a></li></ul>				</nav>				<div class="col-sm-9">					<p>
 <h1 id="h1mooseinanutshell">Moose in a nutshell</h1>
 
 <p>
@@ -863,13 +828,779 @@ But, Moose is more than the source code. It is also an active and open community
 
 
 
-<h1 id="h1petitparser">PetitParser</h1>
+<h1 id="h1importingandexportingmodels">Importing and exporting models</h1>
+<p>
+The first step in the process of analysis is the generation of a model of a given target system or set of data. Moose can handle multiple types of data and data sources. This chapter provides a short guide for how to deal with these.
+</p>
 
-<p class="todo">TODO</p>
+<h2 id="h2importingandexportingwithmse">Importing and exporting with MSE</h2>
+<p>
+The preferred way to load a model in Moose is via an MSE file.
+To load an MSE file, all you have to do is to press the ``Import from MSE'' button in the Moose Panel and indicate the file to load. This creates a model, populates it with the entities from the file and adds the model to the repository. Visually, the model appears in the list of models from the Moose Panel.
+</p>
+<p>
+But what exactly is MSE? MSE is the default file format supported by Moose. It is a generic file format and can describe any model. It is similar to XML, the main difference being that instead of using verbose tags, it makes use of parentheses to denote the beginning and ending of an element.
+</p>
+<p>
+The following snippet provides an example of a small model:
+</p>
+<figure><pre><code>( (FAMIX.Namespace (id: 1)
+    (name 'aNamespace'))
+  (FAMIX.Package (id: 201)
+    (name 'aPackage'))
+  (FAMIX.Package (id: 202)
+    (name 'anotherPackage')
+    (parentPackage (ref: 201)))
+  (FAMIX.Class (id: 2)
+    (name 'ClassA')
+    (container (ref: 1))
+    (parentPackage (ref: 201)))
+  (FAMIX.Method
+    (name 'methodA1')
+    (signature 'methodA1()')
+    (parentType (ref: 2))
+    (LOC 2))
+  (FAMIX.Attribute 
+    (name 'attributeA1')
+    (parentType (ref: 2)))
+  (FAMIX.Class (id: 3)
+    (name 'ClassB')
+    (container (ref: 1))
+    (parentPackage (ref: 202)))
+  (FAMIX.Inheritance
+    (subclass (ref: 3))
+    (superclass (ref: 2))))</code></pre><figcaption></figcaption></figure>
+
+<p>
+The file defines 8 entities: 1 Namespace, 2 Packages, 2 Classes, 1 Method, 1 Attribute and 1 Inheritance. For each of these entities it provides a unique identifier (e.g., <code>(id: 1)</code>) and it defines properties. In general, properties can be either primitive, like <code>(name 'aNamespace')</code>, or they can point to another entity, like in the case of <code>(container (ref: 1))</code> which denotes that the container property of ClassA points to the instance of Namespace named aNamespace.
+</p>
+<p>
+The overall object graph can be seen graphically below.
+</p>
+<p>
+
+<figure>
+	<img src="figures/mse-graph.png"/>
+	<figcaption>MSE example</figcaption>
+</figure>
+</p>
+<p>
+A more complex MSE example is available for download as described in <a href=""></a>.
+</p>
+<p>
+Once a model is loaded, it can be easily exported as an MSE file. This can be done via the contextual menu of the model. By choosing the ``Export to MSE'' menu item you will be prompted to indicate the desired file name and location, and the result is an MSE file saved on the disk containing the entities in the model.
+</p>
+<h2 id="h2importingpharocode">Importing Pharo code</h2>
+<p>
+Moose comes with a built-in importer for Pharo code. The prerequisite for using this importer is that you first need the target source code present in the Pharo image.
+</p>
+<p>
+Once the code is present, simply press on the ``Load from Pharo'' item from 
+the menu of the Moose Panel, and follow the steps from the opening wizard.
+</p>
+<p class="note">This importer works out of the box for code built for Pharo. For code written in other Smalltalk dialects, the code must first be made loadable into Pharo. Moose does not offer ready made solutions for these other languages, but for most known dialects, like VisualWorks, you can often find solutions for exporting the code in a file format loadable in Pharo. An important note is that the code does not have to be fully functioning. It merely needs to be loadable in the Pharo image.</p>
+
+<h2 id="h2importingjavacode">Importing Java code</h2>
+<p>
+Moose supports the analysis of Java systems by means of external parsers and MSE file for model interchange. The general process can be seen in the picture below.
+</p>
+<p>
+The first step is to use the external parser to process the Java sources. Afterwards, the external tool exports the model in MSE. And finally, this MSE file is imported in Moose.
+</p>
+<p>
+
+<figure>
+	<img src="figures/importing-external.png"/>
+	<figcaption>Importing with external parser</figcaption>
+</figure>
+</p>
+<p>
+jdt2famix is an exporter that produces MSE files out of Java code. It is based on JDT Core and Fame for Java, and it requires Java 8. More information, including instructions of how to use it can be found on the main page: <a href="https://github.com/girba/jdt2famix">https://github.com/girba/jdt2famix</a>.
+</p>
+<p class="todo">example</p>
+
+<h2 id="h2settingtherootfolder">Setting the root folder</h2>
+<p>
+To be able to access the source text of a model imported from MSE, we first need to locate this source text. However, models do not typically contain source text representation. Instead the source is stored in external files, and Moose needs to learn the location of these files so that it can display and manipulate the source.
+</p>
+<p>
+For example, after importing a Java system with inFusion, we get just the MSE file and we need to reconcile it with the actual sources. You can achieve this for any model by invoking from its contextual menu: Utilities/Set root folder.
+</p>
+<p>
+Another way to achieve the reconciliation between the MSE file and the sources is to place the sources in the default root folder for the model which is a folder with the same name as the model placed under a <code>src</code> folder inside the folder containing the <code>moose.image</code> file. For example, for the ArgoUML running example, you should place the contents of the ArgoUML folder under the following folder:
+</p>
+<figure><pre><code>/
+  moose.image
+  moose.changes
+  src/
+    ArgoUML-0-34/</code></pre><figcaption></figcaption></figure>
+
+<h1 id="h1writingparserswithpetitparser">Writing parsers with PetitParser</h1>
+<p>
+Pre-existing parsers and importers allow us to deal with well-known languages and data formats. However, in many situations we have to reason about systems written in custom languages or formats.
+</p>
+<p>
+In such situations we need to have the possibility of specifying custom parsers. Moose comes with PetitParser, a parsing framework that enables us to build custom parsers easily.
+</p>
+<p>
+This chapter covers this framework. We start with a hands-on tutorial (see <a href=""></a>), and then we move on to looking into the overall design and the various components.
+</p>
+
+<h2 id="h2stepbystepparsingofmse">Step by step parsing of MSE</h2>
+<p>
+To show how PetitParser works, we take as case study creating a parser to manipulate MSE files. That is right: we pretend Moose has no infrastructure for handling MSE files and we have to create one from scratch.
+</p>
+<p>
+The only input we consider is the official grammar of MSE given using the following rules:
+</p>
+<figure><pre><code>Root := Document ?
+Document := OPEN ElementNode * CLOSE
+ElementNode := OPEN ELEMENTNAME Serial ? AttributeNode * CLOSE
+Serial := OPEN ID NATURAL CLOSE
+AttributeNode := OPEN SIMPLENAME ValueNode * CLOSE
+ValueNode := Primitive | Reference | ElementNode
+Primitive := STRING | NUMBER | Boolean
+Boolean := TRUE | FALSE
+Reference := IntegerReference | NameReference
+IntegerReference := OPEN REF NATURAL CLOSE
+NameReference := OPEN REF ELEMENTNAME CLOSE</code></pre><figcaption></figcaption></figure>
+
+<figure><pre><code>OPEN := &quot;(&quot;
+CLOSE := &quot;)&quot;
+ID := &quot;id:&quot;
+REF := &quot;ref:&quot;
+TRUE := &quot;true&quot;
+FALSE := &quot;false&quot;
+ELEMENTNAME := letter ( letter | digit ) * ( &quot;.&quot; letter ( letter | digit ) * ) 
+SIMPLENAME := letter ( letter | digit ) *
+NATURAL := digit +
+NUMBER := &quot;-&quot; ? digit + ( &quot;.&quot; digit + ) ? ( ( &quot;e&quot; | &quot;E&quot; ) ( &quot;-&quot; | &quot;+&quot; ) ? digit + ) ?
+STRING := ( &quot;'&quot; [^'] * &quot;'&quot; ) +</code></pre><figcaption></figcaption></figure>
+
+<figure><pre><code>digit := \[0-9] 
+letter := \[a-zA-Z_]
+comment := &quot;&quot;&quot; [^&quot;] * &quot;&quot;&quot;</code></pre><figcaption></figcaption></figure>
+
+<p>
+Based on this, we first want to define a grammar to be able to read the file (see <a href=""></a>, <a href=""></a>, <a href=""></a> and <a href=""></a>). Once able to read, we learn how to test the grammar (see <a href=""></a>), and how to build a parser that produces a better output (see <a href=""></a>).
+</p>
+<p>
+Further examples can be found at:
+</p><ul>
+<li><a href="http://www.lukas-renggli.ch/blog/petitparser-1/">http://www.lukas-renggli.ch/blog/petitparser-1/</a></li>
+<li><a href="http://www.lukas-renggli.ch/blog/petitparser-2/">http://www.lukas-renggli.ch/blog/petitparser-2/</a></li>
+</ul>
+
+
+<h3 id="h3startingsmallwithparsingnames">Starting small with parsing names</h3>
+<p>
+As a first task, we parse the identifier names. Looking closely at the MSE grammar, we can find two distinct definitions for identifier names:
+</p>
+<figure><pre><code>ELEMENTNAME := letter ( letter | digit ) * ( &quot;.&quot; letter ( letter | digit ) * )
+SIMPLENAME := letter ( letter | digit ) *</code></pre><figcaption></figcaption></figure>
+
+<p>
+Let's start with <code>SIMPLENAME</code>. The grammar definition says that a valid name must start with a letter, and afterwards it can be followed by either a letter or a digit repeated multiple times. The same specification can be represented graphically:
+</p>
+<p>
+
+<figure>
+	<img src="figures/petitparser-mse-simple-workflow.png"/>
+	<figcaption>MSE workflow</figcaption>
+</figure>
+</p>
+
+<p>
+The translation to PetitParser looks like:
+</p>
+<figure><pre><code>simpleName := #letter asParser , ( #letter asParser / #digit asParser ) star.</code></pre><figcaption></figcaption></figure>
+
+<p>
+It is that easy. It reads almost like the abstract grammar. In essence, the grammar production is mapped on a parser object, and in this case we store it in the <code>simpleName</code> variable. The parser object is obtained out of terminal parser objects such as <code>#letter asParser</code> for parsing one letter character, or <code>#digit asParser</code> for parsing one digit character. These terminal parsers are composed using operators like <code>,</code> (sequence), <code>/</code> (choice) or <code>star</code> (zero or many). The result is a composite parser whose structure is a graph of objects.
+</p>
+<p>
+
+<figure>
+	<img src="figures/petitparser-mse-simple-objects.png"/>
+	<figcaption>MSE objects</figcaption>
+</figure>
+</p>
+<p>
+To test our parser we pass it an input string via the <code>parse:</code> method:
+</p>
+<figure><pre><code>simpleName parse: 'ValidName'.  &quot;--&gt; #($V #($a $l $i $d $N $a $m $e))&quot;</code></pre><figcaption></figcaption></figure>
+
+<p>
+If we print the result we obtain a rather strange looking array that contains each individual character of the input string. We deal with the manipulation of the result at a later time. Currently, we declared ourselves satisfied with getting a valid result.
+</p>
+<p>
+How do we recognize a valid response from an invalid one? Let's give it a try by passing an invalid name:
+</p>
+<figure><pre><code>simpleName parse: '1InvalidName'. &quot;--&gt;  letter expected at 0&quot;</code></pre><figcaption></figcaption></figure>
+
+<p>
+If we inspect the result, we obtain an instance of <code>PPFailure</code>, which denotes that the parser was not successful in parsing the input. If we only want to test the success of parsing, then we can also use the <code>match:</code> method:
+</p>
+<figure><pre><code>simpleName match: 'ValidName'.  &quot;--&gt; true&quot;
+simpleName match: '1InvalidName'.  &quot;--&gt; false&quot;</code></pre><figcaption></figcaption></figure>
+
+<p>
+Having simple name sorted out, we can tackle <code>ELEMENTNAME</code>. It looks slightly more complex and it requires us to specify an optional part that can follow after a dot character. We approach it like we did before and by translating the abstract grammar notation into the PetitParser API.
+</p>
+<figure><pre><code>elementName := #letter asParser , ( #letter asParser / #digit asParser ) star , 
+               (
+                 $. asParser , 
+                 #letter asParser , ( #letter asParser / #digit asParser ) star
+               ) optional.</code></pre><figcaption></figcaption></figure>
+
+<p>
+The optional part is specified by simply sending <code>optional</code> to the corresponding parser. Furthermore, to parse the dot character we use <code>$. asParser</code>.
+</p>
+<p>
+At a closer look, we notice the duplication in the above definition. The first part that covers the input until the optional dot is repeated inside the optional part. We could factor it out. Actually, we already have it in <code>simpleName</code>, and we can reuse it:
+</p>
+<figure><pre><code>elementName := simpleName , ($. asParser , simpleName) optional.</code></pre><figcaption></figcaption></figure>
+
+<p>
+We can test it:
+</p><figure><pre><code>elementName matches: 'Valid.Name'. &quot;--&gt; true&quot;
+elementName matches: '1InvalidName.' &quot;--&gt; false&quot;</code></pre><figcaption></figcaption></figure>
+
+
+<h3 id="h3manipulatingtheoutputofparsingstringsandnumbers">Manipulating the output of parsing strings and numbers</h3>
+<p>
+Let us now tackle the parsing of MSE srings and numbers. Valid strings start and end with a single quote character, and in between we should have any non single-quote character:
+</p>
+<figure><pre><code>STRING := ( &quot;'&quot; [^'] * &quot;'&quot; ) +</code></pre><figcaption></figcaption></figure>
+
+<p>
+The tricky part is expressing <em>any character except</em>. This is achieved through <code>negate</code>. We specify our parser through a sequence in which the contents of the string are given by the parser of single-quote negated and repeated multiple times:
+</p>
+<figure><pre><code>string := $' asParser , 
+          $' asParser negate star ,
+          $' asParser.</code></pre><figcaption></figcaption></figure>
+
+<p>
+A more challenging task would be to add support for escape characters. For example, in MSE, it is allowed to have the character single-quote if it is escaped by another single-quote. The parser could be written as:
+</p>
+<figure><pre><code>string := $' asParser , 
+          ('''''' asParser / $' asParser negate) star ,
+          $' asParser.</code></pre><figcaption></figcaption></figure>
+
+<p>
+The parser now says that either we have two single-quotes one after the other or we do not have any single-quote.
+</p>
+<p>
+Why are there six single-quotes? This happens because the code is written in Smalltalk, and in Smalltalk strings are also marked with single-quotes. For this reason we have two single-quotes surrounding the Smalltalk string, and inside we need to escape the two single-quotes with two more as required by Smalltalk. In total, we get six.
+</p>
+<p>
+We can test the code:
+</p>
+<figure><pre><code>string parse: '''string'''.  &quot;--&gt; #($' #($s $t $r $i $n $g) $')&quot;
+string parse: '''qu''''ote'''.  &quot;--&gt; #($' #($q $u '''''' $o $t $e) $')&quot;</code></pre><figcaption></figcaption></figure>
+
+<p>
+The grammar works fine, but the result we obtain is less useful. PetitParser has two major responsibilities: to consume the input according to a grammar, and to transform it into a desired output. Given that the consuming boils down to a traversal of an input stream, the default result is nothing but a nested collection, where the nesting mirrors the specified grammar. For example, <code>#($' #($s $t $r $i $n $g) $')</code> is a Smalltalk array with three elements:
+</p><ul>
+<li><code>$'</code>, </li>
+<li><code>($s $t $r $i $n $g)</code> which is a nested array produced by <code>star</code>, and</li>
+<li><code>$'</code>.</li>
+</ul>
+
+<p>
+Let us produce a more convenient output in the form of a regular Smalltalk string. First, we want the second element in the resulting array to not be an array but directly a flatten string. For this we have a convenient <code>flatten</code> operator.
+</p>
+<figure><pre><code>string := $' asParser , 
+          ('''''' asParser / $' asParser negate) star flatten ,
+          $' asParser.</code></pre><figcaption></figcaption></figure>
+
+<p>
+The new result looks better:
+</p>
+<figure><pre><code>string parse: '''string'''.  &quot;--&gt; #($' 'string' $')&quot;</code></pre><figcaption></figcaption></figure>
+
+<p>
+Ultimately, we would want our little parser to ignore the first and the last element and return only the second one. For this, PetitParser offers the possibility to specify a custom transformation through the <code>==&gt;</code> operator:
+</p>
+<figure><pre><code>string := ($' asParser , 
+          ('''''' asParser / $' asParser negate) star flatten ,
+          $' asParser)
+          ==&gt; [ :token | token second ].</code></pre><figcaption></figcaption></figure>
+
+<p>
+The transformation operator can be applied to any parser and it takes a block with one argument. The value of the argument is given by the default result of the current parser.
+</p>
+<p>
+In our case, the token argument holds the array <code>#($' 'string' $')</code> and we simply say we want to return the second element. The result is finally what we want:
+</p>
+<figure><pre><code>string parse: '''string'''. &quot;--&gt; 'string'&quot;</code></pre><figcaption></figcaption></figure>
+
+<p>
+Now, let us move on and create a parser for numbers that produces Smalltalk numbers. For the simplicity of the discussion, let us focus on a smaller grammar:
+</p>
+<figure><pre><code>NATURAL := digit +
+NUMBER := &quot;-&quot; ? digit + ( &quot;.&quot; digit + ) ?</code></pre><figcaption></figcaption></figure>
+
+<p>
+The correspondent parser can look like:
+</p>
+<figure><pre><code>natural := #digit asParser plus.
+number  := ($- asParser optional , natural , ($. asParser , natural) optional).</code></pre><figcaption></figcaption></figure>
+
+<p>
+While the above parser is a direct translation of the grammar definition, we can decompose it better to make the several parts more explicit:
+</p>
+<figure><pre><code>natural        := #digit asParser plus. 
+decimalPart    := ($. asParser , natural).
+positiveNumber := natural , decimalPart optional.
+negativeNumber := $- asParser , positiveNumber. 
+number         := positiveNumber / negativeNumber.</code></pre><figcaption></figcaption></figure>
+
+<p>
+In the end, we want to produce a number. To achieve this we use the transformation blocks for each parser. 
+</p>
+<figure><pre><code>natural        := #digit asParser plus flatten 
+                  ==&gt; [:token | token asNumber].
+decimalPart    := ($. asParser , natural) 
+                  ==&gt; [:token | (token at: 2) * (10 raisedTo: (0- (token at: 2) asString size)) asFloat ].
+positiveNumber := natural , decimalPart optional 
+                  ==&gt; [:token | (token at: 1) + ((token at: 2) ifNil: [0]) ].
+negativeNumber := $- asParser , positiveNumber 
+                  ==&gt; [:token | 0 - (token at: 2)] .
+number         := positiveNumber / negativeNumber.</code></pre><figcaption></figcaption></figure>
+
+<p>
+We start with the <code>natural</code> parser and simply use the <code>asNumber</code> method available in a Smalltalk string that transforms the contents of the string into a number. From this point on, when the <code>natural</code> parser is used, the output will always be a Smalltalk number, and not a string anymore. Using this approach we can build up the result out of fine grained pieces.
+</p>
+<p>
+One thing to notice is what happens with an optional part. For example, the <code>positiveNumber</code> has an optional <code>decimalPart</code>. This means that if the decimal part is available, the second element in the token array will hold the value of applying the <code>decimalNumber</code> parser to the input, but if the decimal part is missing, the corresponding value will be <code>nil</code>. Thus, we typically have to guard the manipulation of an optional part with an if in the transformation block. In our case, we want <code>0</code> when no decimal part is specified.
+</p>
+<p>
+One way to go around the use of an optional is to use the choice parser combinator (i.e., <code>/</code>). For example, even if in the original grammar there are two optional productions (i.e., one for the sign, and one for the decimal part) in the transformation blocks we have only one if. This happens because we modeled the optional sign in a <code>number</code> with a choice between a <code>positiveNumber</code> and a <code>negativeNumber</code>. While both approaches can have their benefits, it is important to know of their existence and choose the one that better fits the problem at hand.
+</p>
+
+<h3 id="h3dealingwithcyclicdependencieswhenscriptingthemsegrammar">Dealing with cyclic dependencies when scripting the MSE grammar</h3>
+<p>
+In <a href=""></a> we see in details how we approach the definition of parsers to deal with the names. Once the grammar is clear, the process is straightforward and can be repeated for any production rules.
+</p>
+<p>
+The full MSE parser can be seen below.
+</p>
+<figure><pre><code>open := $( asParser trim.
+close := $) asParser trim.
+string := ($' asParser , 
+          ('''''' asParser / $' asParser negate) star flatten ,
+          $' asParser) trim.
+natural := #digit asParser plus flatten.
+e :=  ($e asParser / $E asParser) , ($- asParser / $+ asParser) optional , natural.
+number := ($- asParser optional , natural , 
+          ($. asParser , natural , e optional) optional) flatten trim.
+boolean := ('true' asParser / 'false' asParser) flatten trim.
+primitive := string / number / boolean.
+simpleName := #word asParser star flatten.
+elementName := (simpleName , ($. asParser , simpleName) optional) token trim.
+nameReference := (open , 'ref:' asParser , elementName , close) token.
+integerReference := (open , 'ref:' asParser , natural trim , close) token.
+reference := integerReference / nameReference.
+element := PPUnresolvedParser new.
+attributeValue := (primitive / reference / element) star.
+attribute := (open , simpleName , attributeValue , close) trim.
+id := (open , 'id:' asParser , natural trim , close) trim.
+element def: ( (open , elementName , id optional , attribute star , close) trim).
+elements := open , element star , close.
+start := elements end.</code></pre><figcaption></figcaption></figure>
+
+<p>
+You can test the parser with a valid MSE string:
+</p><figure><pre><code>mseString := '(
+  (FAMIX.Package 
+     (name ''PackageP''))
+  (FAMIX.Class
+     (name ''ClassA''))
+  (FAMIX.Method
+     (name ''methodM''))
+)'.
+start parse: mseString</code></pre><figcaption></figcaption></figure>
+
+
+<p>
+A particularity of this example is the use of PPUnresolvedParser. When scripting a grammar, every production is held in a parser variable. However, in our case, we have cyclic definitions: 
+</p><ul>
+<li>the <code>element</code> parser depending on the <code>attributeValue</code> parser (through <code>attribute</code>), and</li>
+<li>the <code>attributeValue</code> parser depending on the <code>element</code> one.</li>
+</ul>
+
+<p>
+This is the case where PPUnresolvedParser comes to the rescue. We first define one of the parser as undefined, refer to it from the second parser, and then we define the first rule using <code>def:</code>.
+</p>
+<p>
+This example provides a good coverage of the various operators available in PetitParser. More detailed information about these can be found in <a href=""></a>.
+</p>
+
+<h3 id="h3encapsulatingthemsegrammarinaclass">Encapsulating the MSE grammar in a class</h3>
+<p>
+Scripting a parser is fast, but it can also get dirty. In fact, for any parser that has more than a handful of sub-parsers, it typically gets too dirty.
+</p>
+<p>
+To solve the situation, PetitParser also offers the possibility of mapping a parser on a class. The idea is quite simple:
+</p><ul>
+<li>the class must be a subclass of <code>PPCompositeParser</code>, and it holds the complete parser,</li>
+<li>the methods of the class provide the productions, and</li>
+<li>the attributes of the class store the actual sub-parsers.</li>
+</ul>
+
+<p>
+Let us take our example of producing an MSE grammar. We first create the class.
+</p>
+<figure><pre><code>PPCompositeParser subclass: #ExampleMSEGrammar
+  instanceVariableNames: ''
+  classVariableNames: ''
+  poolDictionaries: ''
+  category: 'MSEParserExample'</code></pre><figcaption></figcaption></figure>
+
+<p>
+Afterwards, we take each production from the script and we transform it in a method. For example:
+</p>
+<figure><pre><code>start := elements end.</code></pre><figcaption></figcaption></figure>
+
+<p>
+gets transformed into:
+</p>
+<figure><pre><code>start 
+  ^ elements end</code></pre><figcaption></figcaption></figure>
+
+<p>
+This might look odd at first sight. Indeed, there is a little magic going on behind the scene. Let us take a closer look.
+</p>
+<p>
+For every production, we create a method. In this case we create the <code>start</code> method, which happens to be mandatory for telling the parser from which production it should start by default.
+</p>
+<p>
+The odd thing is that in the method we refer directly to the <code>elements</code> production via an instance variable (i.e., instead of calling a method). This happens because the PPCompositeParser uses reflection to lookup the corresponding method and to store the result in the instance variable. This leads to a better performance when the same production is used in two different places.
+</p>
+<p>
+Given that we now refer to the <code>elements</code> instance variable, we also have to create the corresponding method. To do this, we simple copy the production from the script:
+</p>
+<figure><pre><code>elements
+  ^ open , element star , close.</code></pre><figcaption></figcaption></figure>
+
+<p>
+Repeating these steps for all the productions from the script, we obtain our grammar class. Afterwards, we can execute a parsing command via:
+</p>
+<figure><pre><code>mseString := '(
+  (FAMIX.Package (id: 1) 
+     (name ''PackageP''))
+  (FAMIX.Class (id: 2) 
+     (name ''ClassA'')
+     (parentPackage (ref: 1)))
+  (FAMIX.Method (id: 3)
+     (name ''methodA'')
+     (declaredType (ref: 1))
+     (parentType (ref: 2)))
+)'.
+ExampleMSEGrammar parse: mseString</code></pre><figcaption></figcaption></figure>
+
+
+<h3 id="h3testingthemsegrammarclass">Testing the MSE grammar class</h3>
+<p>
+Parsers can get complex quite quickly. For example, the MSE grammar developed previously (see <a href=""></a>) even if rather small, it is reasonably intricate as can be seen in the graph below:
+</p>
+<p>
+
+<figure>
+	<img src="figures/petitparser-mse-grammar-graph.png"/>
+	<figcaption>MSE Grammar</figcaption>
+</figure>
+</p>
+<p>
+In this situation testing becomes central for controlling the evolution of the parser. Given its importance, PetitParser offers a dedicated infrastructure similar to the one for creating parsers.
+</p>
+<p>
+To create a test case, we first create a subclass of PPCompositeParserTest:
+</p>
+<figure><pre><code>PPCompositeParserTest subclass: #ExampleMSEGrammarTest
+  instanceVariableNames: ''
+  classVariableNames: ''
+  poolDictionaries: ''
+  category: 'MSEParserExample'</code></pre><figcaption></figcaption></figure>
+
+<p>
+In this test class, we override the <code>parserClass</code> method to return the target parser to be tested:
+</p>
+<figure><pre><code>ExampleMSEGrammarTest&gt;&gt;parserClass
+  ^ ExampleMSEGrammar</code></pre><figcaption></figcaption></figure>
+
+<p>
+Afterwards, each test method should be focused on testing one example for one production. For writing the assertion, the base test class offers a utility <code>parse:rule:</code> that checks that the string passed as the first argument is parse-able using the production passed as the second argument. For example, for testing the element name we can write:
+</p>
+<figure><pre><code>ExampleMSEGrammarTest&gt;&gt;testElementName
+  self parse: 'ABC.XYZ' rule: #elementName</code></pre><figcaption></figcaption></figure>
+
+
+<h3 id="h3creatinganmseparser">Creating an MSE parser</h3>
+<p>
+The grammar provides a means to digest the input from a syntactic point of view. The default result of parsing the input using this grammar is an array. In most cases this array is not at all satisfactory. Instead, we need to produce an output that matches our problem.
+</p>
+<p>
+Let us consider using the MSE grammar from <a href=""></a> for a simple input.
+</p>
+<figure><pre><code>mseString := '((FAMIX.Package))'.
+ExampleMSEGrammar parse: mseString.
+&quot;--&gt;  an Array($( an Array(an Array($( a PPToken(FAMIX.Package) nil #() $))) $))&quot;</code></pre><figcaption></figcaption></figure>
+
+<p>
+Let us supposed that we merely want to produce a regular Smalltalk nested array out of input. There is a lot of unwanted cruft that we would like to get rid of, such as not printing <code>a PPToken</code> explicitly, but only get the name of the element.
+</p>
+<p>
+To solve this problem, we subclass the grammar class with a parser class that will take care of the desired transformation.
+</p>
+<figure><pre><code>ExampleMSEGrammar subclass: #ExampleMSEArrayParser
+  instanceVariableNames: ''
+  classVariableNames: ''
+  poolDictionaries: ''
+  category: 'MSEParserExample'</code></pre><figcaption></figcaption></figure>
+
+<p>
+Before we go any further, we write a test. To do this we mirror the hierarchy of parsers with a hierarchy of tests:
+</p>
+<figure><pre><code>ExampleMSEGrammarTest subclass: #ExampleMSEArrayParserTest
+  instanceVariableNames: ''
+  classVariableNames: ''
+  poolDictionaries: ''
+  category: 'MSEParserExample'</code></pre><figcaption></figcaption></figure>
+
+<figure><pre><code>ExampleMSEArrayParserTest&gt;&gt;testElementName
+  super testElementName.
+  self assert: result = 'ABC.XYZ'</code></pre><figcaption></figcaption></figure>
+
+<p>
+The first line, simply calls the test defined in the super class (see <a href=""></a>). Because the test stores the parsing result result in the <code>result</code> instance variable, we can use this instance variable for writing the assertion.
+</p>
+<p>
+The test fails as expected. To make it work, we now have to override the <code>elementName</code> definition in the parser class and specify how the output should be transformed:
+</p>
+<figure><pre><code>ExampleMSEArrayParser&gt;&gt;elementName
+  ^ super elementName
+
+  ==&gt; [:token | token value ]</code></pre><figcaption></figcaption></figure>
+
+<p>
+The output transformation is achieved through the <code>==&gt;</code> operator. This operator takes as input the value returned by the parser and returns the result of evaluating the block. In this case, we simply want to extract the string value out of the token object.
+</p>
+<p>
+With this change, the test becomes green, and running the example yields:
+</p>
+<figure><pre><code>mseString := '((FAMIX.Package))'.
+ExampleMSEArrayParser parse: mseString.
+&quot;--&gt;  an Array($( an Array(an Array($(FAMIX.Package nil #() $))) $))&quot;</code></pre><figcaption></figcaption></figure>
+
+
+<h2 id="h2parsingoperators">Parsing operators</h2>
+<p>
+PetitParser is based on scannerless parsing. This means that even the most basic of parsers are parsers too. PetitParser offers several of these basic parsers, also called terminals. Here are some examples:
+</p>
+<table style="border: solid thin"><tr><th>Terminals</th>
+<th>Description</th>
+</tr>
+<tr><td><code>$a asParser</code></td>
+<td>Parses the character $a.</td>
+</tr>
+<tr><td><code>'abc' asParser</code></td>
+<td>Parses the string 'abc'.</td>
+</tr>
+<tr><td><code>#any asParser</code></td>
+<td>Parses any character.</td>
+</tr>
+<tr><td><code>#digit asParser</code></td>
+<td>Parses the digits 0..9.</td>
+</tr>
+<tr><td><code>#letter asParser</code></td>
+<td>Parses the letters a..z and A..Z.</td>
+</tr>
+<tr><td><code>#cr asParser</code></td>
+<td>Parses the carriage-return character.</td>
+</tr>
+<tr><td><code>#lf asParser</code></td>
+<td>Parses the line-feed character.</td>
+</tr>
+<tr><td><code>#space asParser</code></td>
+<td>Parses the space character.</td>
+</tr>
+<tr><td><code>#tab asParser</code></td>
+<td>Parses the tabulator character.</td>
+</tr>
+<tr><td><code>nil asParser</code></td>
+<td>The empty parser.</td>
+</tr>
+</table>
+
+<p>
+More readily available terminals can be found on the class side of the <code>PPPredicateObjectParser</code> class, in the <code>factory-chars</code> protocol.
+</p>
+<table style="border: solid thin"><tr><th>Combinators</th>
+<th>Description</th>
+</tr>
+<tr><td><code>p1 , p2</code></td>
+<td>Parses p1 followed by p2 (sequence).</td>
+</tr>
+<tr><td><code>p1 / p2</code></td>
+<td>Parses p1, if that doesn’t work parses p2 (ordered choice).</td>
+</tr>
+<tr><td><code>p star</code></td>
+<td>Parses zero or more p.</td>
+</tr>
+<tr><td><code>p plus</code></td>
+<td>Parses one or more p.</td>
+</tr>
+<tr><td><code>p optional</code></td>
+<td>Parses p if possible.</td>
+</tr>
+</table>
+
+<table style="border: solid thin"><tr><th>Predicates</th>
+<th>Description</th>
+</tr>
+<tr><td><code>p and</code></td>
+<td>Parses p but does not consume its input.</td>
+</tr>
+<tr><td><code>p not</code></td>
+<td>Parses p and succeeds when p fails, but does not consume its input.</td>
+</tr>
+<tr><td><code>p negate</code></td>
+<td>Parses any input token but the receiver.</td>
+</tr>
+<tr><td><code>p end</code></td>
+<td>Parses p and succeeds at the end of the input.</td>
+</tr>
+</table>
+
+<p>
+To manipulate the output of a parser, PetitParser offers actions that we can use to decorate the parser.
+</p>
+<table style="border: solid thin"><tr><th>Actions</th>
+<th>Description</th>
+</tr>
+<tr><td><code>p ==&gt; aBlock</code></td>
+<td>Performs the transformation given in aBlock.</td>
+</tr>
+<tr><td><code>p flatten</code></td>
+<td>Creates a string from the result of p.</td>
+</tr>
+<tr><td><code>p token</code></td>
+<td>Creates a token from the result of p.</td>
+</tr>
+<tr><td><code>p trim</code></td>
+<td>Trims all whitespaces before and after p.</td>
+</tr>
+<tr><td><code>p trimBlanks</code></td>
+<td>Trims the blanks before and after p.</td>
+</tr>
+</table>
+
+
+<h2 id="h2dedicateduserinterface">Dedicated user interface</h2>
+<p>
+If you want to visualize, edit, or debug the parser, you can use the built-in editor by:
+</p>
+<figure><pre><code>PPBrowser open</code></pre><figcaption></figcaption></figure>
+
+<p>
+
+<figure>
+	<img src="figures/petitparser-browser.png"/>
+	<figcaption>PetitParser browser</figcaption>
+</figure>
+</p>
+<h1 id="h1meta-modelingwithfame">Meta-modeling with Fame</h1>
+
+<p>
+Fame is the meta-modeling infrastructure of Moose. It provides the following features:
+</p><ul>
+<li>the FM3 self described meta-meta-model,</li>
+<li>meta-description of regular implementation classes through annotations,</li>
+<li>the MSE format for model interchange,</li>
+<li>input/output serialization to the MSE format, and</li>
+<li>generation of implementation classes from a meta-description.</li>
+</ul>
+
+
+<h2 id="h2thefm3meta-meta-model">The FM3 meta-meta-model</h2>
+<p>
+The core of Fame is given by the FM3 meta-meta-model. FM3 is a small meta-meta-model inspired from the Essential Meta-Object Facility.
+</p>
+<p>
+All meta-models from Moose are described in terms of FM3.
+</p>
+<p>
+More information about it can be found at: <a href="http://www.moosetechnology.org/tools/fame/">http://www.moosetechnology.org/tools/fame/</a>
+</p>
+
+<h2 id="h2subject,model,meta-model,meta-meta-model">Subject, model, meta-model, meta-meta-model</h2>
+<p>
+Often, the terms of model and meta-model generate confusion. As they are crucial for understanding the terminology related to modeling, let me spend a couple of words to clarify them.
+</p>
+<p>
+Before talking about either of them, we first have to talk about the concept of a <em>subject</em>. A subject is simply something we want to reason about. It can be something from the real world, or something imaginary. For example, if we want to analyze a software system, that software system is the subject.
+</p>
+<p>
+The act of reasoning is typically geared around one specific problem or question. The answer to the question typically only concerns a small subset of all the characteristics of the subject. Thus, the process of reasoning is greatly enhanced if we limit its scope to only the relevant variables.
+</p>
+<p>
+For example, when we want to reason about the best path to get from point A to point B, we only require the route information, and we do not really need to know about other details like the quantity of oil in the ground, or the language spoken by the inhabitants. This is why for the purpose of route finding, we typically use a travel map which is a great tool that provides exactly the details we need to solve our little problem.
+</p>
+<p>
+In general, to solve a problem we construct simplifications of the subject. We call these models. Bezivin and Gerbe define a model: a simplification of the subject, and its purpose is to answer some particular questions aimed towards the subject. In the case of Moose, FAMIX (see <a href=""></a>) is a family of meta-models for representing the structure of software projects.
+</p>
+<p>
+Given that a model captures only a part of the complete subject, we can build many models that represent the same subject but that capture different variables of the subject. To reason about a model we need to know which exact variables it offers. In other words, we need to know the structure of the model. This information is expressed in the meta-model, where a meta-model is a model that makes statements about what can be expressed in valid models.
+</p>
+<p>
+One common misconception is to say that <em>a meta-model is the model of a model</em>. That is incorrect. A model shows a simplification of a subject. A meta-model offers the vocabulary for formulating reasonings on top of a given model. While both are models, they are different in intent and interpretation.
+</p>
+<p>
+Another form of the above misconception is formulated as: <em>the relationship between the model and subject is the same as the one between meta-model and model</em>. That is incorrect as well. While a model <em>represents</em> a subject, a meta-model <em>describes</em> a model.
+</p>
+<p>
+Once we understand the difference between meta-model and model, we can go even deeper in the meta-land and add as many meta levels as we might need. The attached diagram shows an overall of four levels and their relationships.
+</p>
+<p>
+
+<figure>
+	<img src="figures/subject-model-meta-model-meta-meta-model.png"/>
+	<figcaption>Subject, model, meta-model, meta-meta-model</figcaption>
+</figure>
+</p>
+
+<p>
+Why would we need more meta-levels? We always need a meta-level when we want to reason about the model at the level below. When we want to reason about a map, we need to know its structure. In the same way, when we want to reason about the structure of a map, we need to know the structure of the structure of the map. In Moose, we have a main meta-meta-model in terms of which we describe our meta-models: FM3 (see <a href=""></a>).
+</p>
+
+<h2 id="h2pharointegration">Pharo integration</h2>
+
+<p class="todo">more</p>
+<figure><pre><code>FAMIXPackage new class &quot;--&gt; FAMIXPackage&quot;</code></pre><figcaption></figcaption></figure>
+
+<figure><pre><code>FAMIXPackage asMooseDescription &quot;--&gt;  a FM3MetaDescription[FAMIX.Package]&quot;</code></pre><figcaption></figcaption></figure>
+
+<figure><pre><code>FAMIXPackage new mooseDescription &quot;--&gt;  a FM3MetaDescription[FAMIX.Package]&quot;</code></pre><figcaption></figcaption></figure>
+
+<figure><pre><code>FAMIXPackage new mooseDescription implementingClass &quot;--&gt; FAMIXPackage&quot;</code></pre><figcaption></figcaption></figure>
+
+<p>
+
+<figure>
+	<img src="figures/fame-pharo-integration.png"/>
+	<figcaption>Fame integration with the Pharo meta-model</figcaption>
+</figure>
+</p>
+<figure><pre><code>FAMIXPackage asMooseDescription attributes first implementingSelector &quot;--&gt; #numberOfMethods&quot;</code></pre><figcaption></figcaption></figure>
+
+<ul>
+<li><code>Object&gt;&gt;mmGetProperty: aFM3PropertyDescription</code></li>
+<li><code>Object&gt;&gt;mmSetProperty: aFM3PropertyDescription to: value</code></li>
+</ul>
+
 <h1 id="h1famix">Famix</h1>
-
-<p class="todo">TODO</p>
-<h1 id="h1fame">Fame</h1>
 
 <p class="todo">TODO</p>
 <h1 id="h1paintingobjectswithroassal">Painting objects with Roassal</h1>
@@ -2197,10 +2928,4 @@ The browser offers several examples to the left. When selecting an example, it d
 
 <p class="todo">TODO</p>
 
-</p>  
-
-				</div> 
-			</div>
-		</div>
-	</body>
-</html>
+</p>  				</div> 			</div>		</div>	</body></html>
