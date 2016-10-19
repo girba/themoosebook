@@ -1,46 +1,178 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <title>The Moose Book</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html>
+	<title>The Moose Book</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<style>
+		.nav-pills>li.active>a {
+			background-color: transparent;
+			color: #337ab7;
+		}
+		.nav-pills>li.active>a:focus,
+		.nav-pills>li.active>a:hover {
+			background-color: #eee;
+			color: #337ab7;
+		}
+		.nav-pills>li>a {
+			border-radius: 0px;
+		}
+		.nav-pills {
+		   top: 20px;
+		   position: fixed;
+		}
+		/* hide sidebar sub menus by default */
+		.nav-pills li .nav-h2 {
+		  display: none;
+		}
+		/* show sub menu when parent is active */
+		.nav-pills li.active .nav-h2 {
+		  display: block;
+		}
+		.nav-pills>li.active {
+			border-left: 2px solid #ddd;
+		}
+		.nav-pills>li.active>a {
+		  border-left: 6px solid #ddd;
+		}
+		.nav-pills>li.active li.active a {
+		  border-left: 6px solid #eee;
+		}
+		.nav-pills>li.active li a {
+		  border-left: 6px solid transparent;
+		}
+		ul .nav-h3 {display: none;}
+		.nav-pills li a {
+			padding-top: 5px;
+			padding-bottom: 5px;
+			font-size: 14px;
+		}
+		.nav-pills li li a {
+			padding-top: 5px;
+			padding-bottom: 5px;
+			font-size: 11px;
+		}
+		img {max-width: 100%;}
+		.todo { padding: 20px; background-color: #FED2D4; }
+		.note { padding: 20px; background-color: #AACEFF; }
+		figcaption { text-align: center; color: gray; }
+		figure { padding: 20px; text-align: center; }
+		figure pre { text-align: left;  }
+	</style>
+	<body data-spy="scroll" data-target="#myScrollspy" data-offset="20">
+		<div class="container">
+			<div class="row">
+				<nav class="col-sm-3" id="myScrollspy">
 
-    <!-- Highlight js -->
-    <link rel="stylesheet" href="../support/html/highlightjs/styles/default.css">
-    <link rel="stylesheet" href="../support/html/css/highlight-commands.css">
-    <script src="support/html/highlightjs/highlight.pack.js"></script>
-    <script src="support/html/js/highlight-commands.js"></script>
+					
+<ul class="nav nav-pills nav-stacked">
+<li>
+<a href="#h1mooseinanutshell">Moose in a nutshell</a>
+<ul class="nav nav-h2">
+<li>
+<a href="#h2mooseinaction">Moose in action</a>
+<ul class="nav nav-h3">
+<li>
+<a href="#h3analyzingjavacode">Analyzing Java code</a></li>
+<li>
+<a href="#h3navigatingxmlfiles">Navigating XML files</a></li>
+<li>
+<a href="#h3beyondstructuredtext">Beyond structured text</a></li></ul></li>
+<li>
+<a href="#h2mooseoverview">Moose overview</a>
+<ul class="nav nav-h3">
+<li>
+<a href="#h3petitparser">PetitParser</a></li>
+<li>
+<a href="#h3fame,famix,mse">Fame, FAMIX, MSE</a></li>
+<li>
+<a href="#h3roassal">Roassal</a></li>
+<li>
+<a href="#h3glamour">Glamour</a></li>
+<li>
+<a href="#h3finder">Finder</a></li>
+<li>
+<a href="#h3theglamoroustoolkit">The Glamorous Toolkit</a></li>
+<li>
+<a href="#h3otherenginesandtools">Other engines and tools</a></li></ul></li>
+<li>
+<a href="#h2summary">Summary</a></li></ul></li>
+<li>
+<a href="#h1petitparser">PetitParser</a></li>
+<li>
+<a href="#h1famix">Famix</a></li>
+<li>
+<a href="#h1fame">Fame</a></li>
+<li>
+<a href="#h1paintingobjectswithroassal">Painting objects with Roassal</a>
+<ul class="nav nav-h2">
+<li>
+<a href="#h2roassalinaction">Roassal in action</a></li>
+<li>
+<a href="#h2visualizingdependenciesbetweentarget">Visualizing dependencies between target </a></li></ul></li>
+<li>
+<a href="#h1buildingbrowserswithglamour">Building browsers with Glamour</a>
+<ul class="nav nav-h2">
+<li>
+<a href="#h2aglimpseofglamour">A glimpse of Glamour</a></li>
+<li>
+<a href="#h2glamourarchitecture">Glamour architecture</a></li>
+<li>
+<a href="#h2sketchingbrowsers">Sketching browsers</a></li>
+<li>
+<a href="#h2handlingtransmissions">Handling transmissions</a></li>
+<li>
+<a href="#h2specifyingpresentations">Specifying presentations</a>
+<ul class="nav nav-h3">
+<li>
+<a href="#h3compositepresentation">Composite presentation</a></li>
+<li>
+<a href="#h3listingpresentations">Listing presentations</a></li>
+<li>
+<a href="#h3textpresentation">Text presentation</a></li>
+<li>
+<a href="#h3labelpresentation">Label presentation</a></li>
+<li>
+<a href="#h3smalltalkcodepresentation">Smalltalk code presentation</a></li>
+<li>
+<a href="#h3roassalpresentation">Roassal presentation</a></li>
+<li>
+<a href="#h3magrittepresentation">Magritte presentation</a></li>
+<li>
+<a href="#h3diffpresentation">Diff presentation</a></li>
+<li>
+<a href="#h3dynamicpresentation">Dynamic presentation</a></li>
+<li>
+<a href="#h3custompresentations">Custom presentations</a></li></ul></li>
+<li>
+<a href="#h2scriptingbrowsers">Scripting browsers</a>
+<ul class="nav nav-h3">
+<li>
+<a href="#h3tabulator">Tabulator</a></li>
+<li>
+<a href="#h3finderandpager">Finder and Pager</a></li>
+<li>
+<a href="#h3accumulator">Accumulator</a></li>
+<li>
+<a href="#h3composingbrowsers">Composing browsers</a></li></ul></li>
+<li>
+<a href="#h2handlingactions">Handling actions</a></li>
+<li>
+<a href="#h2updatingbrowsers">Updating browsers</a></li>
+<li>
+<a href="#h2rendering">Rendering</a></li>
+<li>
+<a href="#h2examples">Examples</a></li></ul></li>
+<li>
+<a href="#h1theglamoroustoolkit">The Glamorous Toolkit</a></li></ul>
 
-    <!-- Bootstrap -->
-    <link href="support/html/css/bootstrap.min.css" rel="stylesheet">
-    <link href="support/html/css/bootstrap-theme.min.css" rel="stylesheet">
-    <link href="support/html/css/square-braket-associates.css" rel="stylesheet">
-    <style>
-        .container { max-width: 55em; }
-        figure {text-align: center; margin: 2em;}
-        figure img {max-width: 100%;}
-        figure figcaption {color: #888;}
-        figure pre {text-align: left; margin: 0em;}
-        h1, h2, h3 {margin-top: 2em;}
-        p {margin-top: 1em; text-align: left;}
-        code {background-color: #EEE; color: #222;}    </style>
+				</nav>
+				<div class="col-sm-9">
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-    <![endif]-->
-  </head>
-  <body>
-
-    <div class="container">
-      <section>
-        <h1>The Moose Book</h1>
-        <div class="attribution"></div>
-
-        <section>
-<h1>1. Moose in a nutshell</h1>
+					<p>
+<h1 id="h1mooseinanutshell">Moose in a nutshell</h1>
 
 <p>
 Moose (<a href="http://moosetechnology.org">moosetechnology.org</a>) is a platform for expressing analyses of software systems and of data in general. Its main goal is to assist and enable a human in the process of understanding large amounts of data. It addresses several categories of users:
@@ -53,14 +185,12 @@ Moose (<a href="http://moosetechnology.org">moosetechnology.org</a>) is a platfo
 <p>
 This book covers Moose from various angles. It covers its externals, its internals, and the philosophy behind its design. 
 </p>
-<section>
-<h2>1.1. Moose in action</h2>
+<h2 id="h2mooseinaction">Moose in action</h2>
 
 <p>
 Let's start from a couple of examples around a case study. In our case, we take ArgoUML, an open-source Java project.
 </p>
-<section>
-<h3>1.1.1. Analyzing Java code</h3>
+<h3 id="h3analyzingjavacode">Analyzing Java code</h3>
 
 <p>
 The system contains some deprecated classes. A typical question is which of these classes we can remove. Essentially, this boils down to finding the classes annotated with <code>@Deprecated</code> and then selecting those that are not used anywhere (we ignore reflection for this exercise). This is an analysis.
@@ -85,7 +215,7 @@ Starting Moose you see the following window:
 <p>
 
 <figure>
-	<img src="Chapters/Nutshell/figures/moose-panel-1.png"/>
+	<img src="figures/moose-panel-1.png"/>
 	<figcaption>Moose Panel</figcaption>
 </figure>
 </p>
@@ -101,7 +231,7 @@ Now we are ready to query our system. Select <code>All model classes</code>.
 <p>
 
 <figure>
-	<img src="Chapters/Nutshell/figures/moose-panel-2.png"/>
+	<img src="figures/moose-panel-2.png"/>
 	<figcaption>All model classes</figcaption>
 </figure>
 </p>
@@ -116,7 +246,7 @@ Select the whole text and from the contextual menu choose <code>Do it and go</co
 <p>
 
 <figure>
-	<img src="Chapters/Nutshell/figures/moose-panel-3.png"/>
+	<img src="figures/moose-panel-3.png"/>
 	<figcaption>Deprecated classes</figcaption>
 </figure>
 </p>
@@ -126,7 +256,7 @@ Just to make sure that we indeed got deprecated classes, let's investigate one o
 <p>
 
 <figure>
-	<img src="Chapters/Nutshell/figures/moose-panel-4.png"/>
+	<img src="figures/moose-panel-4.png"/>
 	<figcaption>One deprecated class with source code</figcaption>
 </figure>
 </p>
@@ -136,7 +266,7 @@ Let's step back for a moment. We see 2 panes at the moment, but we have 4 panes 
 <p>
 
 <figure>
-	<img src="Chapters/Nutshell/figures/moose-panel-5.png"/>
+	<img src="figures/moose-panel-5.png"/>
 	<figcaption>Three panes</figcaption>
 </figure>
 </p>
@@ -151,7 +281,7 @@ We get 14 classes that can be removed immediately.
 <p>
 
 <figure>
-	<img src="Chapters/Nutshell/figures/moose-panel-6.png"/>
+	<img src="figures/moose-panel-6.png"/>
 	<figcaption>Deprecated classes without clients</figcaption>
 </figure>
 </p>
@@ -161,7 +291,7 @@ This leaves us with 11 classes that cannot be removed because they are still bei
 <p>
 
 <figure>
-	<img src="Chapters/Nutshell/figures/moose-panel-7.png"/>
+	<img src="figures/moose-panel-7.png"/>
 	<figcaption>Deprecated classes with clients</figcaption>
 </figure>
 </p>
@@ -183,7 +313,7 @@ This shows us a simple visualization containing the 11 deprecated classes and th
 <p>
 
 <figure>
-	<img src="Chapters/Nutshell/figures/moose-panel-8.png"/>
+	<img src="figures/moose-panel-8.png"/>
 	<figcaption>Simple visualization of used deprecated classes and their clients</figcaption>
 </figure>
 </p>
@@ -193,7 +323,7 @@ What we get is an interactive picture, and clicking on a node reveals the detail
 <p>
 
 <figure>
-	<img src="Chapters/Nutshell/figures/moose-panel-9.png"/>
+	<img src="figures/moose-panel-9.png"/>
 	<figcaption>Obtaining details from the visualization</figcaption>
 </figure>
 </p>
@@ -212,7 +342,7 @@ view</code></pre><figcaption></figcaption></figure>
 <p>
 
 <figure>
-	<img src="Chapters/Nutshell/figures/moose-panel-10.png"/>
+	<img src="figures/moose-panel-10.png"/>
 	<figcaption>Distinguishuing between deprecated and non-deprecated classes</figcaption>
 </figure>
 </p>
@@ -233,7 +363,7 @@ view</code></pre><figcaption></figcaption></figure>
 <p>
 
 <figure>
-	<img src="Chapters/Nutshell/figures/moose-panel-11.png"/>
+	<img src="figures/moose-panel-11.png"/>
 	<figcaption>Representing dependencies through edges</figcaption>
 </figure>
 </p>
@@ -254,15 +384,14 @@ view</code></pre><figcaption></figcaption></figure>
 <p>
 
 <figure>
-	<img src="Chapters/Nutshell/figures/moose-panel-12.png"/>
+	<img src="figures/moose-panel-12.png"/>
 	<figcaption>Patterns of usages of deprecated classes</figcaption>
 </figure>
 </p>
 <p>
 Ok. Now, we can distinguish several distinct situations. Two deprecated classes call each other and they can be simply removed. There is one non-deprecated class using two deprecated classes. And there are 3 deprecated classes that are being used by several other non-deprecated ones. This picture offers us the opportunity to choose our path by taking more details into account at the same time. For example, an interesting candidate to investigate is the one class that uses two deprecated ones.
 </p>
-</section><section>
-<h3>1.1.2. Navigating XML files</h3>
+<h3 id="h3navigatingxmlfiles">Navigating XML files</h3>
 
 <p>
 Working with code is interesting but often the plain code does not provide the complete story. For example, ArgoUML happens to rely on some Ant XML files for building the system. Let's look at them. To this end, click on the background of Pharo and from the so called World menu choose <code>Playground</code>. If you are new to Pharo, the Playground is a little tool that allows you to evaluate scripts. We start with inspecting the object representing the root directory of our <code>ArgoUML-0-34</code> model. 
@@ -272,7 +401,7 @@ Working with code is interesting but often the plain code does not provide the c
 <p>
 
 <figure>
-	<img src="Chapters/Nutshell/figures/playground-files-1.png"/>
+	<img src="figures/playground-files-1.png"/>
 	<figcaption>Inspecting directories</figcaption>
 </figure>
 </p>
@@ -282,7 +411,7 @@ We want to find the Ant XML files. We could write a query, but let's first get a
 <p>
 
 <figure>
-	<img src="Chapters/Nutshell/figures/playground-files-2.png"/>
+	<img src="figures/playground-files-2.png"/>
 	<figcaption>Overview of files by extension</figcaption>
 </figure>
 </p>
@@ -292,7 +421,7 @@ We see that we get 614 XML files. We pick the first <code>build.xml</code>.
 <p>
 
 <figure>
-	<img src="Chapters/Nutshell/figures/playground-files-3.png"/>
+	<img src="figures/playground-files-3.png"/>
 	<figcaption>A build.xml</figcaption>
 </figure>
 </p>
@@ -304,7 +433,7 @@ The inspector shows the XML with syntax highlighting. Let's say that we want to 
 <p>
 
 <figure>
-	<img src="Chapters/Nutshell/figures/playground-files-4.png"/>
+	<img src="figures/playground-files-4.png"/>
 	<figcaption>Inspecting an XML document</figcaption>
 </figure>
 </p>
@@ -316,7 +445,7 @@ The tree is more appropriate for  navigation, but still we are required to scrol
 <p>
 
 <figure>
-	<img src="Chapters/Nutshell/figures/playground-files-5.png"/>
+	<img src="figures/playground-files-5.png"/>
 	<figcaption>Using XPath to find elements of interest</figcaption>
 </figure>
 </p>
@@ -324,8 +453,7 @@ The tree is more appropriate for  navigation, but still we are required to scrol
 The result is only a list of 44 <code>&lt;property&gt;</code> tags. Now we can read.
 </p>
 
-</section><section>
-<h3>1.1.3. Beyond structured text</h3>
+<h3 id="h3beyondstructuredtext">Beyond structured text</h3>
 
 <p>
 The previous examples show how the same interaction metaphor that we can use for navigating models of code, can be used to navigate and reason about arbitrary objects, such as objects representing files and folders. But, what happens when we do not have easy access to those objects?
@@ -343,7 +471,7 @@ First, we need the source. Open another Playground by clicking on the background
 <p>
 
 <figure>
-	<img src="Chapters/Nutshell/figures/playground-pillar-1.png"/>
+	<img src="figures/playground-pillar-1.png"/>
 	<figcaption>Obtaining the remote source code</figcaption>
 </figure>
 </p>
@@ -361,13 +489,12 @@ Evaluating this code, extracts the wanted snippets. Now we can read.
 <p>
 
 <figure>
-	<img src="Chapters/Nutshell/figures/playground-pillar-2.png"/>
+	<img src="figures/playground-pillar-2.png"/>
 	<figcaption>Extracting code snippets</figcaption>
 </figure>
 </p>
 
-</section></section><section>
-<h2>1.2. Moose overview</h2>
+<h2 id="h2mooseoverview">Moose overview</h2>
 <p>
 The examples above exercised several Moose components. Let's take a step back and observe the overall structure of Moose.
 </p>
@@ -383,7 +510,7 @@ From a conceptual point of view, Moose is organized as follows.
 <p>
 
 <figure>
-	<img src="Chapters/Nutshell/figures/moose-workflow.png"/>
+	<img src="figures/moose-workflow.png"/>
 	<figcaption>Moose workflow</figcaption>
 </figure>
 </p>
@@ -419,8 +546,7 @@ But, Moose is more than a tool. Moose is a platform. This is not just marketing,
 <p>
 Let's now take a closer look at some of these engines.
 </p>
-<section>
-<h3>1.2.1. PetitParser</h3>
+<h3 id="h3petitparser">PetitParser</h3>
 
 <p>
 PetitParser is a parsing engine. Its goal is to help engineers craft parsers for various programming languages and data formats.
@@ -428,7 +554,7 @@ PetitParser is a parsing engine. Its goal is to help engineers craft parsers for
 <p>
 
 <figure>
-	<img src="Chapters/Nutshell/figures/petitparser-workflow.png"/>
+	<img src="figures/petitparser-workflow.png"/>
 	<figcaption>PetitParser</figcaption>
 </figure>
 </p>
@@ -438,7 +564,7 @@ For example, to build a parser for SQLite, you can follow the official abstract 
 <p>
 
 <figure>
-	<img src="Chapters/Nutshell/figures/sqlite-select-core.png"/>
+	<img src="figures/sqlite-select-core.png"/>
 	<figcaption>Select core SQLite production</figcaption>
 </figure>
 </p>
@@ -463,7 +589,7 @@ In the picture below, you can see the definition of the <code>selectCore</code> 
 <p>
 
 <figure>
-	<img src="Chapters/Nutshell/figures/pp-with-inspector.png"/>
+	<img src="figures/pp-with-inspector.png"/>
 	<figcaption>PetitParser browser with inspector</figcaption>
 </figure>
 </p>
@@ -473,15 +599,14 @@ Furthermore, the browser offers other visual representations of the grammar. For
 <p>
 
 <figure>
-	<img src="Chapters/Nutshell/figures/pp-with-graph.png"/>
+	<img src="figures/pp-with-graph.png"/>
 	<figcaption>PetitParser browser with graph</figcaption>
 </figure>
 </p>
 <p>
 Developing an analysis is a software development project, and it is subject to the same problems any software development project has. Given that Moose's aim is precisely to decrease the cost of analysis, having a dedicated environment covering the complete cycle of developing a parser is a key ingredient for decreasing the cost of building non-toy parsers.
 </p>
-</section><section>
-<h3>1.2.2. Fame, FAMIX, MSE</h3>
+<h3 id="h3fame,famix,mse">Fame, FAMIX, MSE</h3>
 
 <p>
 Fame is one of the two engines that provide the meta-modeling infrastructure of Moose. The other one is Magritte and it is mostly used for user interface purposes. Fame provides several things:
@@ -495,7 +620,7 @@ Fame is one of the two engines that provide the meta-modeling infrastructure of 
 <p>
 
 <figure>
-	<img src="Chapters/Nutshell/figures/fame-workflow.png"/>
+	<img src="figures/fame-workflow.png"/>
 	<figcaption>Fame</figcaption>
 </figure>
 </p>
@@ -531,7 +656,7 @@ To this end, the Moose Meta Browser provides an easy way to keep an overview of 
 <p>
 
 <figure>
-	<img src="Chapters/Nutshell/figures/meta-browser.png"/>
+	<img src="figures/meta-browser.png"/>
 	<figcaption>The Meta Browser</figcaption>
 </figure>
 </p>
@@ -547,8 +672,7 @@ Let’s look at an example. Suppose you want to look for all classes  that are n
 <p>
 Having a highly expressive API brings makes querying inexpensive. And when you combine this ability with visual and interactive tools, you get a different way of experiencing your systems.
 </p>
-</section><section>
-<h3>1.2.3. Roassal</h3>
+<h3 id="h3roassal">Roassal</h3>
 
 <p>
 Roassal is an engine for crafting interactive graph visualizations. For example, the visualization from the picture above is built using Roassal.
@@ -556,7 +680,7 @@ Roassal is an engine for crafting interactive graph visualizations. For example,
 <p>
 
 <figure>
-	<img src="Chapters/Nutshell/figures/roassal-workflow.png"/>
+	<img src="figures/roassal-workflow.png"/>
 	<figcaption>Roassal</figcaption>
 </figure>
 </p>
@@ -581,7 +705,7 @@ b </code></pre><figcaption></figcaption></figure>
 <p>
 
 <figure>
-	<img src="Chapters/Nutshell/figures/roassal-2.png"/>
+	<img src="figures/roassal-2.png"/>
 	<figcaption>Roassal in the inspector</figcaption>
 </figure>
 </p>
@@ -594,8 +718,7 @@ These visualizations are fully interactive, and developers can continue inspecti
 <p>
 You can learn more about Roassal in <a href="http://www.agilevisualization.com">the Agile Visualization book</a>.
 </p>
-</section><section>
-<h3>1.2.4. Glamour</h3>
+<h3 id="h3glamour">Glamour</h3>
 
 <p>
 Visualizations are great, but analyzing complicated models requires browsing through multiple complementary views. To help you craft browsers fast and inexpensively, Moose comes with the Glamour browsing engine.
@@ -603,7 +726,7 @@ Visualizations are great, but analyzing complicated models requires browsing thr
 <p>
 
 <figure>
-	<img src="Chapters/Nutshell/figures/glamour-workflow.png"/>
+	<img src="figures/glamour-workflow.png"/>
 	<figcaption>Glamour</figcaption>
 </figure>
 </p>
@@ -613,7 +736,7 @@ The entire user interface of Moose is built with Glamour (yes, the pun is intend
 <p>
 
 <figure>
-	<img src="Chapters/Nutshell/figures/moose-code-browser.png"/>
+	<img src="figures/moose-code-browser.png"/>
 	<figcaption>Sample browser</figcaption>
 </figure>
 </p>
@@ -644,7 +767,7 @@ composer startOn: classGroup.</code></pre><figcaption></figcaption></figure>
 <p>
 
 <figure>
-	<img src="Chapters/Nutshell/figures/glamour-editor.png"/>
+	<img src="figures/glamour-editor.png"/>
 	<figcaption>Glamour Editor</figcaption>
 </figure>
 </p>
@@ -654,8 +777,7 @@ Perhaps interesting to note is that the editor itself was built with Glamour, to
 <p>
 Browsers are important tools for understanding complicated models. Glamour makes the construction of such browsers inexpensive. You can learn more about Glamour in <a href="http://www.themoosebook.org/book/internals/glamour">the dedicated chapter from the Moose Book</a>.
 </p>
-</section><section>
-<h3>1.2.5. Finder</h3>
+<h3 id="h3finder">Finder</h3>
 
 <p>
 All these engines can be combined in various forms. One interface in which most of them come together is the Moose Finder, the basic browser meant to help you navigate through models.
@@ -663,7 +785,7 @@ All these engines can be combined in various forms. One interface in which most 
 <p>
 
 <figure>
-	<img src="Chapters/Nutshell/figures/finder-workflow.png"/>
+	<img src="figures/finder-workflow.png"/>
 	<figcaption>Finder</figcaption>
 </figure>
 </p>
@@ -676,7 +798,7 @@ For example, the screenshot below shows the finder open on a group of classes fr
 <p>
 
 <figure>
-	<img src="Chapters/Nutshell/figures/finder-query-visualization.png"/>
+	<img src="figures/finder-query-visualization.png"/>
 	<figcaption>Finder with a  query and a visualization</figcaption>
 </figure>
 </p>
@@ -686,35 +808,39 @@ Selecting one of the classes from the map, spawns another pane to the right. In 
 <p>
 
 <figure>
-	<img src="Chapters/Nutshell/figures/finder-visualization-source.png"/>
+	<img src="figures/finder-visualization-source.png"/>
 	<figcaption>Finder with a visualization and source code</figcaption>
 </figure>
 </p>
 <p>
 The Moose Finder focuses on the iterative nature of analysis. Every instance of the browser captures one analysis flow where every pane represents a step in the analysis. This is particularly useful when the analysis requires multiple steps. Furthermore, the Finder is extensible, and developers can easily add presentations specific to their entities.
 </p>
-</section><section>
-<h3>1.2.6. The Glamorous Toolkit</h3>
+<h3 id="h3theglamoroustoolkit">The Glamorous Toolkit</h3>
 
 <p>
-Moose is primarily an analysis platform. This means that the editing part is not particular
+Moose is primarily an analysis platform. This means that the editing part is not particularly supported for external languages. However, the lessons from Moose should be more closely embedded inside the IDE (integrated development environment). For Pharo, this happens through the Glamorous Toolkit (<a href="http://gtoolkit.org">gtoolkit.org</a>). The core concept of the toolkit is the idea of moldability, a property that allows engineers to adapt development tools inexpensively to deal with contextual problems. We have already seen in the examples above how the Playground and the Inspector can help us work with arbitrary objects. Similarly, we can also use Spotter, the search interface. In the figure below we can see a search through the entities of a Java code model.
 </p>
-</section><section>
-<h3>1.2.7. Other engines and tools</h3>
+<p>
+
+<figure>
+	<img src="figures/spotter-model-search.png"/>
+	<figcaption>Using Spotter to search through the Model</figcaption>
+</figure>
+</p>
+<h3 id="h3otherenginesandtools">Other engines and tools</h3>
 
 <p>
 The engines and tools mentioned above are the most visible one that come with Moose. Yet, Moose offers more. To name a few:
 </p><ul>
 <li>Arki for building reports;</li>
 <li>MooseAlgos for expressing various algorithms related to data mining, graphs or traversals;</li>
-<li>The Glamorous Toolkit for supporting live programming in Pharo;</li>
-<li>Various dedicated browsers;</li>
+<li>SmaCC parsing framework;</li>
+<li>XML, JSON, CSV support;</li>
 <li>Metanool for handling custom annotations on entities;</li>
-<li>Multiple off-the-shelf software metrics and visualizations.</li>
+<li>Multiple off-the-shelf dedicated browsers, software metrics and visualizations.</li>
 </ul>
 
-</section></section><section>
-<h2>1.3. Summary</h2>
+<h2 id="h2summary">Summary</h2>
 
 <p>
 Moose is a platform that is made for programmers. It provides engines to express those analyses, and a rich development environment to actually craft them.
@@ -736,20 +862,1345 @@ But, Moose is more than the source code. It is also an active and open community
 
 
 
-</section></section>
-      </section>
-    </div>
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://code.jquery.com/jquery.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="../support/html/js/bootstrap.min.js"></script>
+<h1 id="h1petitparser">PetitParser</h1>
 
-    <!-- Syntax highlighting of code blocks -->
-    <script>hljs.initHighlightingOnLoad();</script>
+<p class="todo">TODO</p>
+<h1 id="h1famix">Famix</h1>
 
-    <!-- Prettify annotated paragraphs-->
-    <script src="../support/html/js/annotated-paragraphs.js"></script>
+<p class="todo">TODO</p>
+<h1 id="h1fame">Fame</h1>
 
-  </body>
+<p class="todo">TODO</p>
+<h1 id="h1paintingobjectswithroassal">Painting objects with Roassal</h1>
+
+<p>
+Digital data has no physical shape. While this allows us to manipulate easily great amounts of data, it poses a problem when it comes to understanding this data and assessing its state. The lack of physical shape renders useless our built-in skill of perceiving the world around us through visual stimuli.
+</p>
+<p>
+Visualization aims to solve this problem by offering a visual skin to data. “A picture tells a thousand words” goes the old adage. And so it does, but only if the picture is the right one.
+</p>
+<p>
+What makes a picture appropriate? Well, it has to focus on one or more relevant questions, and it has to take the particularities of data into account.
+</p>
+<p>
+There are many tools out there providing nice and useful visualizations for interesting questions. However, many of them offer only limited customization possibilities, and this makes them less useful in particular circumstances.
+</p>
+<p>
+To address this issue, the Moose platform ships with Roassal, an engine for scripting interactive visualizations.
+</p>
+<h2 id="h2roassalinaction">Roassal in action</h2>
+
+<p>
+The <code>ArgoUML-0-34</code> case study contains several modules that can be distinguished by the appearance of a <code>build.xml</code> file in the module root folder.
+</p>
+<p>
+Where are these modules located throughout the overall folder structure? To find this out, we visualize the tree of folders.
+</p>
+<figure><pre><code>interestingDirectories := self withDeepCollect: [: each | 
+	(each files anySatisfy: [ :f | f basename asLowercase = 'build.xml' ])
+		ifTrue: [ #() ]
+		ifFalse: [ each directories ] ].
+view := RTMondrian new.
+view shape circle
+	size: 5;
+	if: [ :each | each files anySatisfy: [ :f | f basename asLowercase = 'build.xml' ] ] color: Color red.
+view nodes: interestingDirectories.
+view edges connectFrom: #parent.
+view layout tree.</code></pre><figcaption></figcaption></figure>
+
+<p>
+
+<figure>
+	<img src="figures/inspector-roassal-argo-modules-tree.png"/>
+	<figcaption>Sub projects as tree</figcaption>
+</figure>
+</p>
+<p>
+Visualize the location of project directories using a circular tree map:
+</p>
+<figure><pre><code>b := RTCircularTreeMapBuilder new.
+b shape if: [ :each | each files anySatisfy: [ :f | f basename asLowercase = 'build.xml' ] ] color: Color red.
+b leafWeight: 1.
+b explore: self nesting: #directories leaves: #directories.
+b</code></pre><figcaption></figcaption></figure>
+
+<p>
+
+<figure>
+	<img src="figures/inspector-roassal-argo-modules-treemap.png"/>
+	<figcaption>Sub projects as tree map</figcaption>
+</figure>
+</p>
+
+<p>
+Visualize the location of project directories using a sunburst:
+</p>
+<figure><pre><code>b := RTSunburstBuilder new.
+b shape color: [ :each | (each files anySatisfy: [ :f | f basename asLowercase = 'build.xml' ]) ifTrue: [ Color red ] ifFalse: [ Color lightGray ] ].
+b leafWeight: 1.
+b angularSpacing: 5.
+b explore: self nesting: #directories leaves: #directories.
+b</code></pre><figcaption></figcaption></figure>
+
+<p>
+
+<figure>
+	<img src="figures/inspector-roassal-argo-modules-sunburst.png"/>
+	<figcaption>Sub projects as sunbirst</figcaption>
+</figure>
+</p>
+
+
+<h2 id="h2visualizingdependenciesbetweentarget">Visualizing dependencies between target </h2>
+
+<figure><pre><code>tags := (XMLDOMParser parse: self) // 'target'.
+view := RTMondrian new.
+view nodes: tags.
+view edges connectFromAll:  [:aTag | |depends|
+	depends:=(aTag @ 'depends') stringValue splitOn: ', '.
+	tags select: [ :each | 
+		depends includes: (each @ 'name') stringValue] ].
+view layout dominanceTree.
+view.</code></pre><figcaption></figcaption></figure>
+
+<a id="cha:Glamour"></a>
+<h1 id="h1buildingbrowserswithglamour">Building browsers with Glamour</h1>
+
+<p>
+Large models hold many details. Tons of details. The sheer size is precisely what makes it can be hard for us to grasp systems in one shot. Browsers offer an alternative. A browser is a specific user interface that allows us to look at the space provided by the model, to navigate from one part of this space to another, and to act upon it.
+</p>
+<p>
+For example, both the Inspector and the Moose Finder are browsers. They have a workflow that works well for many situations, but this workflow is still hardcoded and at times it is not flexible enough to accommodate custom needs. An alternative way is to use a custom browser. For example, when it comes to manipulating code, we could write code in the Inspector, but we typically prefer not to. We use a dedicated code browser instead.
+</p>
+<p>
+Dedicated browsers are desirable, but they are typically expensive to build. As a result we have no dedicated way to browse the large majority of models around us. This situation needs rectification, and Glamour presents the solution in the form of an engine for building dedicated browsers. In fact, the Inspector and the Moose Finder are written in Glamour.
+</p>
+<p>
+This chapter describes the details of Glamour. It starts with a short tutorial and then it gradually introduces the architecture and the most important concepts.
+</p>
+
+<h2 id="h2aglimpseofglamour">A glimpse of Glamour</h2>
+
+<p>
+How exactly does Glamour help us build dedicated browsers? The rest of this section tries to answer this question via a hands-on example.
+</p>
+<p>
+Previously, we saw that the  <code>ArgoUML-0-34</code> system is comprised of several submodules identified by the presence of a <code>build.xml</code> file in the folder. To get a better handling of these build files, we construct a dedicated browser for them. For example, we can show all modules to the right, and the details related to the build file of each module to the right. 
+</p>
+<p>
+
+<figure>
+	<img src="figures/glamour-action-1.png"/>
+	<figcaption>Simple build browser</figcaption>
+</figure>
+</p>
+<p>
+From a conceptual point of view, this browser is composed out of two panes that are connected such that when we select something in the first one, the second pane shows related information.
+</p>
+<p>
+Let's construct this step by step. Open a Playground and type: 
+</p>
+<figure><pre><code>GLMCompositePresentation new tabulator 
+	with: [ :t |
+		t column: #index; column: #details.
+		t transmit to: #index; andShow: [ :composite | 
+			composite list 
+				title: 'Projects';
+				format: [:each | each parent basename]] ];
+	openOn: (MooseModel root allModels anyOne rootFolder asFileReference allFiles select: [ :each | each basename = 'build.xml' ]).</code></pre><figcaption></figcaption></figure>
+
+<p>
+
+<figure>
+	<img src="figures/glamour-action-2.png"/>
+	<figcaption>Browser with one list</figcaption>
+</figure>
+</p>
+<p>
+We build a browser with two panes: <code>#index</code> and <code>#details</code>. When opening the browser, we transmit to the <code>#index</code> pane the input and we show in the pane a list presentation that is entitled <code>'Projects'</code>. The list also formats its elements by showing only the basename of the parent directory. We open the overall browser on the list of all build files. One thing to notice here is that we focus primarily on how data flows, and only afterwards on how it is presented.
+</p>
+<p>
+Still, nothing happens when selecting an item from our list. That's because we did not connect the two panes. Let's connect them.
+</p>
+<figure><pre><code>GLMCompositePresentation new tabulator 
+	with: [ :t |
+		t title: 'Build browser'.
+		t column: #index; column: #details.
+		t transmit to: #index; andShow: [ :composite | 
+			composite list 
+				title: 'Projects';
+				format: [:each | each parent basename] ].
+		t transmit from: #index; to: #details; andShow: [ :composite |
+			composite text
+				title: 'XML';
+				display: [ :file | file contents ] ] ];
+	openOn: (MooseModel root allModels anyOne rootFolder asFileReference allFiles select: [ :each | each basename = 'build.xml' ] )			</code></pre><figcaption></figcaption></figure>
+
+<p>
+The second transmission connects the selection from <code>#index</code> with the input from <code>#details</code> and it shows a text that displays the contents of the file.
+</p>
+<p>
+
+<figure>
+	<img src="figures/glamour-action-3.png"/>
+	<figcaption>Browser with two connected panes</figcaption>
+</figure>
+</p>
+<p>
+We can now also add extra presentations with more details in the second pane. 
+</p>
+<figure><pre><code>GLMCompositePresentation new tabulator with: [ :t |
+	t column: #index; column: #details.
+	t transmit to: #index; andShow: [ :composite | 
+		composite list
+			title: 'Projects';
+			format: [:each | each parent basename] ].
+	t transmit from: #index; to: #details; andShow: [ :composite |
+		composite text
+			title: 'XML';
+			display: [ :file | file contents ].
+		composite list 
+			title: 'Targets';
+			display: [ :file | (XMLDOMParser parse: file contents) // 'target' ];
+			format: [ :xmlElement | xmlElement attributeAt: 'name' ].
+		composite roassal2
+			title: 'Dependencies';
+			initializeView: [ RTMondrian new ];
+			painting: [ :view :file | 
+				| tags |
+				tags := (XMLDOMParser parse: file) // 'target'.
+				view shape label text: [:each | (each @ 'name') stringValue].
+				view nodes: tags.
+				view shape line color: (Color gray alpha: 0.5).
+				view edges connectFromAll:  [:aTag | |depends|
+					depends:=(aTag @ 'depends') stringValue splitOn: ', '.
+					tags select: [ :each | 
+						depends includes: (each @ 'name') stringValue] ].
+				view layout horizontalDominanceTree.
+				] ].
+	];
+	openOn: (MooseModel root allModels anyOne rootFolder asFileReference
+ allFiles select: [ :each | each basename = 'build.xml' ]).</code></pre><figcaption></figcaption></figure>
+
+<p>
+In this case, one of the presentation is another list showing only the <code>&lt;target&gt;</code> tags from the build files, and another presentation is a Roassal visualization showing the dependencies between the <code>&lt;target&gt;</code> tags.
+</p>
+<p>
+
+<figure>
+	<img src="figures/glamour-action-4.png"/>
+	<figcaption>Browser with two connected panes and multiple presentations</figcaption>
+</figure>
+</p>
+<p>
+Not bad so far. Still, why should we see the XML details only for the overall file? Why not see the XML of the tags as well?
+</p>
+<p>
+Let's transform a bit our browser:
+</p>
+<figure><pre><code>GLMCompositePresentation new tabulator with: [ :t |
+	t title: 'Build browser'.
+	t 
+		row: [:r | r column: #index; column: #details];
+		row: #source.
+	t transmit to: #index; andShow: [ :composite | 
+		composite list
+			title: 'Projects';
+			format: [:each | each parent basename] ].
+	t transmit from: #index; to: #details; andShow: [ :composite |
+		composite list 
+			title: 'Targets';
+			display: [ :file | (XMLDOMParser parse: file contents) // 'target' ];
+			format: [ :xmlElement | xmlElement attributeAt: 'name' ].
+		composite roassal2
+			title: 'Dependencies';
+			initializeView: [ RTMondrian new ];
+			painting: [ :view :file | 
+				| tags |
+				tags := (XMLDOMParser parse: file) // 'target'.
+				view shape label text: [:each | (each @ 'name') stringValue].
+				view nodes: tags.
+				view shape line color: (Color gray alpha: 0.5).
+				view edges connectFromAll:  [:aTag | |depends|
+					depends:=(aTag @ 'depends') stringValue splitOn: ', '.
+					tags select: [ :each | 
+						depends includes: (each @ 'name') stringValue] ].
+				view layout horizontalDominanceTree.
+				] ].
+		t transmit from: #index; to: #source; andShow: [ :composite |
+			composite text
+				title: 'XML';
+				display: [ :file | file contents ] ].
+		t transmit from: #details; to: #source; andShow: [ :composite |
+			composite text
+				title: 'XML';
+				display: [ :xmlElement | xmlElement gtDisplayString ] ].
+			
+	];
+	openOn: (MooseModel root allModels anyOne rootFolder asFileReference
+ allFiles select: [ :each | each basename = 'build.xml' ])</code></pre><figcaption></figcaption></figure>
+
+<p>
+Now, we created an extra pane named <code>#source</code> and we transmit to it both from the <code>#index</code> pane and from the <code>#details</code> pane.
+</p>
+<p>
+
+<figure>
+	<img src="figures/glamour-action-5.png"/>
+	<figcaption>Browser with separate XML preview</figcaption>
+</figure>
+</p>
+<p>
+That is about it.
+</p>
+<p class="note">In short, in Glamour get five main concepts: a <em>browser (1)</em> is made of <em>panes (2)</em> which represent spatial locations on which various <em>objects (3)</em> are <em>presented (4)</em>. Furthermore, the result of acting on the graphical <em>presentation (4)</em> is <em>transmitted (5)</em> to other panes.</p>
+<h2 id="h2glamourarchitecture">Glamour architecture</h2>
+<p>
+The architecture of Glamour revolves around a handful of concepts. The picture below shows a UML diagram with an overview of these.
+</p>
+<p>
+<img src="figures/glamour-architecture.png"/>
+</p>
+<p>
+The central concept is the Browser which encapsulates the entire interaction and presentation logic of a browser.
+</p>
+<p>
+A Browser is composed of Panes. A pane defines physical locations in a Browser. A Pane manages its state through named Ports which can hold any objects as value. 
+</p>
+<p>
+The navigation flow is specified via Transmissions. A Transmission connects several origin ports with a destination port, and its job is to handle the propagation of values between these. In essence, when the value of an origin port changes the Browser analyzes its Transmissions and those that originate in that particular port are subject to being triggered.
+</p>
+<p>
+Essentially, the constructs of Panes, Ports and Transmissions correspond to a components and connectors architecture in which the components are connected in a directed graph.
+</p>
+<p>
+Panes only define the location in the Browser, but the way they should be rendered is handled by Presentations. A Presentation interprets the state of the Pane and maps it to visual characteristics through a strategy pattern. Thus, we can have multiple types of Presentations: TextPresentation, ListPresentation and so on.
+</p>
+<p>
+Furthermore, Presentations can also be composed in a CompositePresentation. In fact, a Pane is always represented by such a composite.
+</p>
+
+<h2 id="h2sketchingbrowsers">Sketching browsers</h2>
+<p>
+To ease the conception of browsers we can use a dedicated notation to capture the critical aspects: Pane, Port, Transmission and Presentation (and Browsers). A sketch of a browser and the corresponding legend can be seen below.
+</p>
+<p>
+<img src="figures/glamour-notation.png"/>
+</p>
+<p>
+The flow of a browser can at times become difficult to follow. This notation is meant to ease in that situation.
+</p>
+<p class="note">Use this even for simple browsers. Before coding a browser, start by sketching it on a paper. This will help you crystalize the way the information flows through your browser.</p>
+
+<h2 id="h2handlingtransmissions">Handling transmissions</h2>
+<p>
+The fundamental idea behind Glamour starts from the observation that the navigation flow should be orthogonal to the way of presentation. In Glamour, this navigation flow is captured through Panes, Ports and Transmissions: the Panes represent the building blocks, the Ports provide the hooks, and the Transmissions form the fiber of the browser by connecting the ports.
+</p>
+<p>
+The following UML class diagram shows the most important classes and methods related to understanding Transmissions. A Transmission connects a destination port with one or multiple origin Ports. When triggered, the main job of the Transmission is to take the values from the origin ports and combines them to populate the destination port. Further behavior can be appended to this basic one through a transmission strategy.
+</p>
+<p>
+An origin port can be either active (specified using <code>from:port:</code>) or passive (specified using <code>passivelyFrom:port:</code>). Only the active origin ports can trigger a transmission. This information is captured by the PortReference.
+</p>
+<p class="todo">explain what is the use of a passive port</p>
+<p>
+As mentioned, a Transmission can have several origin ports. This is achieved by sending multiple messages like <code>from:port:</code>. As a result of triggering a transmission with multiple origins, the target port contains a special ordered collection populated with the values from the origins. These values are then accessible when defining the properties of the desired presentations.
+</p>
+<p>
+In most cases transmissions originate in a <code>#selection</code> port and have as destination an <code>#entity</code> port. For convenience, Glamour provides some shorter messages that make use of this observation:
+</p><ul>
+<li>For specifying a transmission origin that points to a <code>#selection</code> port of a pane, you simply use <code>from:</code>.</li>
+<li>Similarly, for specifying a transmission destination that points to an <code>#entity</code> port of a pane, you can use <code>to:</code>.</li>
+</ul>
+
+<p>
+The triggering of a Transmission can be controlled by a condition specification. This condition is set via a <code>when:</code> message that takes as a parameter a block returning a boolean depending on the values of the origin ports.
+</p>
+<p>
+Transmissions have deep control over the values passed around via transformation specifications. There are two hooks for such transformations.
+</p>
+<p>
+The main transformation is offered by the Transmission itself and it comes in the form of a block that takes as parameters the values from the origin ports and returns the desired value to be set in the destination port. This can be specified via a <code>transformed:</code> message sent to the transmission.
+</p>
+<p>
+The second hook is provided by the PortReference. Using this transformation, we can transform each individual port before it gets in the Transmission transformation. We can specify such a transformation for each individual origin port using <code>from:transformed:</code> or <code>passivelyFrom:transformed:</code>. 
+</p>
+<p>
+Besides setting the value to a destination port, a Transmission can have further behavior via a TransmissionStrategy. This is useful when we want the transmission to also impact the presentations from the pane of the target destination. Besides the NoStrategy default strategy, there are two more semantics presently implemented:
+</p><ol><li>ReplacePresentationsStrategy replaces the presentations from the pane of the destination port with those specified by the strategy. This one is set via the <code>andShow:</code> message.</li>
+<li>PresentIfNoneStrategy sets presentations only if none exits in the pane of the destination port. This one is set via the <code>andShowIfNone:</code> message.</li>
+</ol>
+
+<p>
+Both the <code>andShow:</code> and the <code>andShowIfNone:</code> messages expect a block with one parameter consisting of a composite presentation that will be used by the transmission.
+</p>
+<p>
+<img src="figures/transmission-semantics.png"/>
+</p>
+<p>
+The following pieces of code offer some examples of the most common cases of transmissions:
+</p>
+<figure><pre><code>&quot;transmission with multiple origins that replaces presentations&quot;
+browser transmit 
+  from: #paneOne;
+  from: #paneTwo port: #portB;
+  to: #paneThree;
+  andShow: [ :a | 
+    &quot;specification of presentations based on two variables&quot; ].</code></pre><figcaption></figcaption></figure>
+
+<figure><pre><code>&quot;transmission that installs a presentation only if none exists in the target panel&quot;
+browser transmit 
+  from: #paneOne;
+  to: #paneTwo;
+  andShowIfNone: [ :a | 
+    &quot;specification of presentations&quot; ].</code></pre><figcaption></figcaption></figure>
+
+
+<figure><pre><code>&quot;transmission with multiple origins and with transformations&quot;
+browser transmit 
+  from: #paneOne transformed: [ :paneOneSelectionValue | 
+    &quot;computation of the transformed value based on one variable&quot; ];
+  from: #paneTwo port: #portB;
+  to: #paneThree;
+  transformed: [ :transformedPaneOneSelectionValue :portBValue |
+    &quot;computation of the destination value based on two variables&quot; ]</code></pre><figcaption></figcaption></figure>
+
+<figure><pre><code>&quot;transmission with one origin bound to the pane surrounding the browser
+ (i.e., the outside port)&quot;
+browser transmit 
+  fromOutsidePort: #outsidePort;
+  to: #paneThree port: #portC.</code></pre><figcaption></figcaption></figure>
+
+<figure><pre><code>&quot;transmission with the origin bound to the #entity port of the pane of the browser&quot;
+browser transmit 
+  to: #paneThree port: #portC.</code></pre><figcaption></figcaption></figure>
+
+
+<h2 id="h2specifyingpresentations">Specifying presentations</h2>
+<p>
+A Presentation defines the way a Pane is to be displayed and how the user interaction should change its state. It does that by interpreting the values from the Ports and by specifying how these Ports should change.
+</p>
+<p>
+Presentations can be parameterized in several ways using blocks. The basic parameters are:
+</p><ul>
+<li>Every presentation has a title set via <code>title:</code>.</li>
+<li>A presentation can transform the input into a model better suited for it. This is accomplished via the <code>display:</code> message.</li>
+<li>The visibility of each presentation can be controlled via a condition block that is set by sending a <code>when:</code> message. </li>
+<li>By default, there is an implicit condition saying that all input objects must be not nil for the presentation to appear. If we still want to allow the presentation to appear even if the the input objects are nil we can use <code>allowNil</code>.</li>
+</ul>
+
+<p>
+All these specifications take as input blocks that accept a variable number of parameters depending on the number of objects present in the <code>#entity</code> port. 
+</p>
+<p>
+In our example, we only used transmissions with one origin, and thus the display blocks took one parameter as input. For example, the code below describes how on the <code>#details</code> pane we should show a TextPresentation that should <code>display:</code> the result of a block that takes as parameter the <code>#selection</code> from the <code>#methods</code> pane, and this in turn happens to be a method entity which understands <code>sourceText</code>.
+</p>
+<figure><pre><code>browser transmit from: #methods; to: #details; andShow: [ :composite |
+  composite text
+    display: [ :method | method sourceText ] ].</code></pre><figcaption></figcaption></figure>
+
+<p>
+If on the other hand, we might want to be able to show the source code for both a class and a 
+method, we could write:
+</p>
+<figure><pre><code>| browser |
+&quot; ... &quot;
+browser transmit
+  from: #classes;
+  from: #methods; 
+  to: #details; andShow: [ :composite |
+    composite text
+      title: [ :class | class name, ' source'];
+      display: [ :class | class sourceText ];
+      allowNil.
+    composite text
+      title: [ :class :method | method name, ' source'];
+      display: [ :class :method | method sourceText ] ].</code></pre><figcaption></figcaption></figure>
+
+<p>
+Because now we have two origins, there will be two objects in the #entity port corresponding to the selected class and to the selected method. Thus, the <code>display:</code> block of the presentations  accepts two parameters. However, when we only need the first one we can leave the second one out, as is the case for displaying the class source text. Furthermore, because we want to display the class source even when no method is selected, we want to allow the presentation to appear even when one of the ports is nil.
+</p>
+<p>
+Glamour offers multiple types of presentations, and the figure below shows an overview. Some of these correspond to basic widgets that can be found in user interface frameworks, while others are more sophisticated and tailored for the needs of browsing. The following section describe each of them.
+</p>
+<p>
+<img src="figures/glamour-presentations-details.png"/>
+</p>
+<p class="todo">clarify how presentations consume and populate ports</p>
+
+<h3 id="h3compositepresentation">Composite presentation</h3>
+<p>
+Every pane has a reference to a Composite Presentation. Thus, whenever we specify a transmission, we get access to such a composite presentation.
+</p>
+<figure><pre><code>| browser | 
+&quot; ... &quot;
+browser transmit from: #paneOne; to: #paneTwo; andShow: [ :composite |
+  &quot;composite is a CompositePresentation that will be installed on the destination pane&quot; ].</code></pre><figcaption></figcaption></figure>
+
+<p>
+The job of a composite is to regulate the display of the contained presentations. To this end, it allows us to specify a so called arrangement.
+</p>
+<p>
+There are three different kinds of arrangements currently offered:
+</p><ul>
+<li>TabbedArrangement arranges multiple presentations under a tab widget. This is the default arrangement.</li>
+<li>StackedVerticallyArrangement lays out the presentations one below the other in group boxes.</li>
+<li>AccordionArrangement offers the possibility to collapse the presentations using an accordion widget.</li>
+</ul>
+
+<p>
+Specifying the arrangement is straightforward. For example:
+</p>
+<figure><pre><code>| browser | 
+&quot; ... &quot;
+browser transmit from: #paneOne; to: #paneTwo; andShow: [ :composite |
+  composite stackedVerticallyArrangement.
+  &quot;...&quot; ].</code></pre><figcaption></figcaption></figure>
+
+
+<h3 id="h3listingpresentations">Listing presentations</h3>
+<p>
+There are three ListingPresentations available: List, Tree and Table. Each of these expects the result of evaluating the transformation on a given input entity (by using <code>display:</code>) to be a list.
+</p>
+<p>
+In the case of the ListPresentation, this list is then mapped on the elements in the list widget to be displayed. For example, to display the namespaces from a MooseModel in a list you can use:
+</p>
+<figure><pre><code>browser transmit to: #namespaces; andShow: [ :composite |
+   composite list
+      display: [ :model | model allNamespaces ] ].</code></pre><figcaption></figcaption></figure>
+
+<p>
+A TablePresentation goes along the same line, only it adds the possibility to also add columns using <code>column:evaluated:</code>. For example, if we want to display the number of classes in each namespace, we can do it like:
+</p>
+<figure><pre><code>browser transmit to: #namespaces; andShow: [ :composite |
+   composite table
+      display: [ :model | model allNamespaces ];
+      column: 'Namespaces' evaluated: [ :each | each mooseName ];
+      column: 'NOCls' evaluated: [ :each | each classes size asString ] ].</code></pre><figcaption></figcaption></figure>
+
+<p>
+A TreePresentation is slightly different. The list to be displayed will appear as root elements in the tree. Thus, if we want to show the tree of all namespaces, in the display block we have to select only the root ones and then specify the children (using <code>children:</code>) for each of the namespaces:
+</p>
+<figure><pre><code>browser transmit to: #namespaces; andShow: [ :composite |
+   composite tree
+      display: [ :model | model allNamespaces select: [ :each | each isRoot ] ];
+      children: [ :namespace | namespace childScopes ] ].</code></pre><figcaption></figcaption></figure>
+
+<p>
+The ListingPresentations also offer further options. First, we can specify how to deal with the selection. In this area we can say if we want the selection to <code>beSingle</code> (the default option) or to <code>beMultiple</code>. When multiple selection is wanted, the result of populating the <code>#selection</code> port is a collection. Yet another selection related issue is to <code>allowDeselection</code> of the current selection. If the listing is set to allow deselection, when deselecting the <code>#selection</code> port is set to <code>nil</code>.
+</p>
+<p>
+Second, we have the possibility to ask for an input box that acts as a filter (using <code>filterOn:</code>) or as a search box (using <code>searchOn:</code>). Both accept as parameter a block that takes each element of the list as input and returns a true or false. The effect of the filter box is to trim the visible items based on the selection. The effect of the search box is to select the desired item and to populate the <code>#selection</code> port. For example, in the Moose Finder (see <a href=""></a>) the group view offers a search box with which we can select the wanted elements in the group. Once selected, the <code>#selection</code> port is populated appropriately.
+</p>
+<p>
+Third, it is sometimes impractical to show an entire list, especially when we deal with very large lists. In such situations it is better to show only a limited amount of items by using <code>showOnly:</code>. For example, this can be seen in the Moose Finder where we typically do not show more than 50 elements by default.
+</p>
+<p>
+Finally, we also have the possibility to add tags to the items of a list by using <code>tags:</code>.
+</p>
+<p class="todo">icon</p>
+<p class="todo">input and output ports: #selection, #strongSelection, #selectedPath</p>
+
+<h3 id="h3textpresentation">Text presentation</h3>
+<p>
+A TextPresentation offers the possibility to display a text in an editor. For example, suppose we have a class at hand, we can display the source code in the following way:
+</p>
+<figure><pre><code>browser transmit to: #source; andShow: [ :composite |
+   composite text
+      display: [ :class | class sourceText ] ].</code></pre><figcaption></figcaption></figure>
+
+<p>
+The presentation offers control over the setting and retrieving the currently selected text. The selected text is provided via the port named <code>#selectedText</code>. It is not provided through the <s><code>#selection</code></s> port, because in most cases, it is not text that we want as an abstraction to pass forward to other ports. Furthermore, we can also set the currently selected text through the <code>#selectionInterval</code> port.
+</p>
+
+<h3 id="h3labelpresentation">Label presentation</h3>
+<p>
+A Label Presentation displays a non-interactive label as a piece of text that should fit on one line. To specify, simply use a piece of code along the lines of:
+</p>
+<figure><pre><code>  composite label display: [ :entity | 'A label example' ].</code></pre><figcaption></figcaption></figure>
+
+<p>
+Labels typically go well with a fix-size pane. For example:
+</p>
+<figure><pre><code>| browser |
+browser := GLMTabulator new.
+browser row: #variable; row: #fix size: 20.
+browser transmit to: #fix; andShow: [ :composite | composite label display: 'Fix size'].
+browser showOn: #variable; using: [browser text display: 'Variable size'].
+browser openOn: 1 </code></pre><figcaption></figcaption></figure>
+
+
+<h3 id="h3smalltalkcodepresentation">Smalltalk code presentation</h3>
+<p>
+The SmalltalkCode presentation is a specialization of the TextPresentation that provides handy features for handling Smalltalk code: syntax highlighting and code completion.
+</p>
+<p>
+There are two modes in which this presentation can be used:
+</p><ol><li>by default, the presentation behaves like a Smalltalk Workspace, and it highlights the code as if it were written in the Smalltalk Workspace.</li>
+<li>by specifying a <code>smalltalkClass:</code> you can specialize it and make it behave as a method code editor. This property takes as parameters the entity objects and its evaluation is expected to produce a Smalltalk class. As a result the code will be highlighted as if it were a method definition inside the specified class.</li>
+</ol>
+
+<p>
+When in the Workspace mode, you can also specify variable bindings that can be passed to the overall context. This is achieved by getting the <code>variableBindings:</code> return a collection of associations in which each key is the name of the variable, and each value is the value of the corresponding variable.
+</p>
+<p>
+An example of a simple Smalltalk code can be seen below:
+</p><figure><pre><code>| browser |
+browser := GLMTabulator new.
+browser row: #code span: 2; row: #preview.
+browser transmit to: #code; andShow: [ :composite | 
+  composite smalltalkCode 
+    title: 'Smalltalk Code';
+    populate: #acceptedCode
+      icon: GLMUIThemeExtraIcons glamorousAccept
+      on: $s 
+      entitled: 'Accept'
+      with: [:text | text text ] ].
+browser transmit from: #code port: #acceptedCode; to: #preview; andShow: [ :composite | 
+  composite text 
+    title: 'Evaluated result';
+    display: [:code | [Compiler evaluate: code ] on: Error do: ['Error']] ].
+browser openOn: '1+2'</code></pre><figcaption></figcaption></figure>
+
+
+<h3 id="h3roassalpresentation">Roassal presentation</h3>
+
+<p>
+The RoassalPresentation offers the means to integrate a Roassal view inside a browser.
+</p>
+<p>
+The presentation can simply be customized through a <code>painting:</code> block that takes a <code>view</code> or a <code>builder</code> variable as a first parameter and the entity variables as the following parameters. Let's see an example of building a simple browser with two panes showing an overview of all classes to the left and for each selected class displaying a Class Blueprint visualization to the right:
+</p>
+<figure><pre><code>| browser |
+browser := GLMTabulator new.
+browser title: 'Blueprint Browser'.
+browser column: #complexity; column: #blueprint.
+browser transmit to: #complexity; andShow: [:composite | 
+	composite roassal2
+		title: 'Overview';
+		initializeView: [RTCircularTreeMapBuilder new];
+		painting: [ :builder :model | 
+			builder shape
+				borderColor: Color veryLightGray;
+				if: [ :each | each isClass and: [ each isStub not ] ] color: [ Color blue lighter ].
+			builder
+				leafWeight: [:class | class isClass ifTrue: [class outgoingInvocations size ] ifFalse: [ 0 ] ]; 
+				from: (model allNamespaces select: [ :each | each isRoot ])
+				nesting: [ :each | each childScopes ]
+				leaves: [ :each | each classes ] ] ].
+browser transmit from: #complexity; to: #blueprint; andShow: [:composite | 
+	composite roassal2 
+		title: #mooseName;
+		painting: [ :view :class | 
+			class viewBlueprintOn: view ];
+		whenKindOf: FAMIXClass ].
+browser openOn: MooseModel root allModels anyOne</code></pre><figcaption></figcaption></figure>
+
+<p>
+
+<figure>
+	<img src="figures/glamour-roassal-example.png"/>
+	<figcaption>Embeddeding Roassal visualization into Glamour</figcaption>
+</figure>
+</p>
+<p>
+The example shows two distinct Roassal visualizations embedded in different ways. The first one, uses a dedicated builder, namely <code>RTCircularTreeMapBuilder</code> and specifies the visualization explicitly in a painting block. The second one,  uses the default <code>RTView</code> and  reuses the visualization already defined in  <code>FAMIXType&gt;&gt;viewBlueprintOn:</code>. 
+</p>
+<p>
+The RoassalPresentation populates the <code>#selection</code> port with the object behind the selected element. Furthemore, populating the <code>#selection</code> port from outside leads to selecting the element with the corresponding object behind.
+</p>
+<h3 id="h3magrittepresentation">Magritte presentation</h3>
+<p>
+Magritte is a framework for meta-describing data, and one of its applications is the automatic generation of user interfaces for handling data. An extensive description of the concepts of Magritte is provided at: <a href="http://book.seaside.st/book/advanced/magritte">http://book.seaside.st/book/advanced/magritte</a>.
+</p>
+<p>
+All that is required by the Magritte engine is a description for each of the handled entities. Thus, the MagrittePresentation expects the evaluation of the <code>display:</code> block to return an object that can be used for the model behind the <code>description:</code>. Once the description obtained, it is simply passed to Magritte and the engine takes care of the rendering.
+</p>
+<p>
+As an example, let us set our mind to create a small tool to help us review source code. More specifically, we want for each class we inspect in the code browser to have a small form that enables us to write a comment and to mark the class as problematic.
+</p>
+<p>
+We first need the class that will hold the review information. Thus, we create <code>TMBReview</code> class that holds a comment and problematic instance variables:
+</p>
+<figure><pre><code>Object subclass: #TMBReview
+    instanceVariableNames: 'comment problematic'
+    classVariableNames: ''
+    poolDictionaries: ''
+    category: 'TheMooseBook-Examples'</code></pre><figcaption></figcaption></figure>
+
+<figure><pre><code>TMBReview&gt;&gt;comment
+  ^ comment</code></pre><figcaption></figcaption></figure>
+
+<figure><pre><code>TMBReview&gt;&gt;comment: aString
+  comment := aString</code></pre><figcaption></figcaption></figure>
+
+<figure><pre><code>TMBReview&gt;&gt;problematic
+  ^ problematic</code></pre><figcaption></figcaption></figure>
+
+<figure><pre><code>TMBReview&gt;&gt;problematic: aBoolean
+  problematic := aBoolean</code></pre><figcaption></figcaption></figure>
+
+<p>
+The next step is to make this class Magritte aware:
+</p>
+<figure><pre><code>TMBReview class&gt;&gt;descriptionComment
+  ^ MAStringDescription new
+        accessor: #comment;
+        label: 'Comment';
+        priority: 100;
+        yourself</code></pre><figcaption></figcaption></figure>
+
+<figure><pre><code>TMBReview class&gt;&gt;descriptionProblematic
+ ^ MABooleanDescription new
+        accessor: #problematic;
+        label: 'Problematic';
+        priority: 200;
+        yourself</code></pre><figcaption></figcaption></figure>
+
+<p>
+Once we have that, we can just go ahead and build our browser:
+</p>
+<p class="todo">replace this example with the XML one</p>
+<figure><pre><code>| browser |
+browser := GLMTabulator new.
+browser title: 'Reviewer'.
+browser
+  row: [ :r | r column: #namespaces; column: #classes; column: #methods ];
+  row: [:r  | r column: #details span: 2; column: #review ].
+browser transmit to: #namespaces; andShow: [ :composite |
+  composite tree
+    display: [ :model | model allNamespaces select: [ :each | each isRoot ] ];
+    children: [ :namespace | namespace childScopes ];
+    format: [ :namespace | namespace stubFormattedName ] ].
+browser transmit from: #namespaces; to: #classes; andShow: [ :a |
+  a list
+    display: [ :namespace | namespace classes ];
+    format: [ :class | class stubFormattedName ] ].
+browser transmit from: #classes; to: #methods; andShow: [ :a |
+  a list
+    display: [ :class | class methods ];
+    format: [ :method | method stubFormattedName ] ].
+browser transmit from: #classes; from: #methods; to: #details; andShow: [ :a |
+  a text
+    title: [ :class | class name, ' source'];
+    display: [ :class | class sourceText ];
+    allowNil.
+  a text
+    title: [ :class :method | method name, ' source'];
+    display: [ :class :method | method sourceText ] ].
+browser transmit from: #classes; to: #review; andShow: [:a | 
+  a magritte 
+    title: 'Review';
+    display: [ :class |
+      | review |
+      review := class propertyNamed: #theReview ifAbsentPut: [TMBReview new].
+      review ];
+    description: #description].</code></pre><figcaption></figcaption></figure>
+
+<p>
+For obtaining the review information for each class, we make use of the generic <code>propertyNamed:ifAbsentPut:</code> method present in any Moose entities. Using this, we lazily create a review object if none exists for the current class. We then pass the <code>description</code> of this object to be rendered.
+</p>
+<p>
+Executing the script leads to a browser like in the screenshot below:
+</p>
+<p>
+<img src="figures/glamour-magritte-presentation.png"/>
+</p>
+
+<h3 id="h3diffpresentation">Diff presentation</h3>
+<p>
+A DiffPresentation expects a collection with two pieces of text from the <code>display:</code> block, and it displays the difference between these with a dedicated user interface widget.
+</p>
+<p>
+A simple use case can be encountered when browsing a collection of Duplication entities computed by SmallDude (see <a href=""></a>). Duplication offers information about <code>referenceText</code> and about <code>duplicateText</code>. Thus, we can pass this information to the DiffPresentation and we get back a user interface as in the below example:
+</p>
+<p class="todo">redo this one</p>
+<figure><pre><code>| browser |
+browser := GLMTabulator new.
+browser title: 'Duplication Browser'.
+browser row: #duplications; row: #diff span: 2.
+browser showOn: #duplications; using: [browser list].
+browser showOn: #diff; from: #duplications; using: [
+  browser diff display: [:dup | 
+    Array with: dup referenceText with: dup duplicateText ]].
+browser openOn: MooseModel root allModels anyOne allDuplications.</code></pre><figcaption></figcaption></figure>
+
+<p>
+<img src="figures/glamour-diff-presentation.png"/>
+</p>
+<p>
+The DiffPresentation does not populate any port.
+</p>
+
+<h3 id="h3dynamicpresentation">Dynamic presentation</h3>
+<p>
+The specification of Glamour transmissions and presentations are interpreted at creation time. Thus, by default we do not have the possibility to decide the presentation based on a given entity. The DynamicPresentation rectifies the situation by simply expecting a presentation returned from the block via the <code>display:</code> message.
+</p>
+<p>
+There are two distinct classes of applications for DynamicPresentations: deciding the type or the amount of presentations based on the input entity.
+</p>
+<p class="todo">describe how the type can also be simulated with when: conditions on regular presentations</p>
+<p>
+While the type of presentations can be simulated, deciding the number of presentations based on a given entity is not possible without a DynamicPresentation. The following code shows an example of how we could have a method browser that spawns multiple source code viewers when we select multiple methods.
+</p>
+<figure><pre><code>| browser |
+browser := GLMTabulator new.
+browser title: 'Multi Methods Viewer'.
+browser 
+  column: [:c | c row:  #classes; row: #methods];
+  column: #source.
+browser transmit to: #classes; andShow: [ :a  |
+  a list 
+    title: 'Classes';
+    display: [:model | model allClasses ] ].
+browser transmit to: #methods; from: #classes; andShow: [ :a |
+  a list 
+    title: [ :class | 'Methods from ', class name ];
+    beMultiple; 
+    display: [ :class | class methods ];
+    format: [ :class | class name ] ].
+browser transmit to: #source; from: #methods; andShow: [ :a |
+  a dynamic with: [ :some :methods | 
+    methods do: [ :each |
+      some text 
+        title: each name asString;
+        display: [ each sourceText] ].
+    some stackedArrangement ] ].
+browser openOn: MooseModel root allModels last.</code></pre><figcaption></figcaption></figure>
+
+<p>
+The above browser works on a model. For example, the picture below shows it spawned on the ArgoUML model.
+</p>
+<p>
+<img src="figures/glamour-dynamic-example.png"/>
+</p>
+
+<h3 id="h3custompresentations">Custom presentations</h3>
+<p>
+Presentations are not limited to the default ones shipped with Glamour. Instead, if you desire a specific kind of interaction for your browser, you are encouraged to create a new Presentation.
+</p>
+<p>
+A simple example such a presentation would be one that would allow us to embed any widget from the underlying GUI framework. Glamour already comes with a MorphicPresentation which does nothing else but enable the display of Morphs provided by the Morphic framework of Pharo.
+</p>
+<p class="todo">change the example to use something else than the inspector</p>
+<p>
+As an example, suppose we want to reuse the Pharo Inspector by embedding it in a larger browser for inspecting classes from a model. For this we can simply retrieve the morph of the Inspector on each class as in the code below:
+</p>
+<figure><pre><code>| browser |
+browser := GLMTabulator new.
+browser title: 'Class Inspector'.
+browser column: #classes; column: #inspector span: 2.
+browser transmit to: #classes; andShow: [ :a |
+  a list
+    title: 'Classes' ].
+browser transmit to: #inspector; from: #classes; andShow: [ :a |
+  a morph 
+    title: [ :class | 'Inspector on ', class name]; 
+    display: [ :class | 
+    PanelMorph new
+      layoutPolicy: ProportionalLayout new;
+		hResizing: #spaceFill;
+		vResizing: #spaceFill;
+      addAllMorphs: ( Inspector openAsMorphOn: class ) paneMorphs;
+      yourself ] ].
+browser openOn: MooseModel root allModels anyOne allModelClasses.</code></pre><figcaption></figcaption></figure>
+
+<p>
+Executing the code leads to a user interface that spawns an Inspector for every selected class. Each of these Inspectors offers the same interaction as in the regular incarnation.
+</p>
+<p>
+<img src="figures/glamour-morph-presentation.png"/>
+</p>
+
+<p>
+While it can be straightforward to build presentations that mirror the user interface widgets, it is desired to build presentations that provide a good abstraction for <em>browsing</em>. Four things are important to keep in mind:
+</p>
+<ol><li>Presentations should focus primarily on data and on the goal of data interaction;</li>
+<li>They should provide an API suitable for scripting;</li>
+<li>Because ports are the means to propagate information to the outside of the pane, it is desirable for Presentations to populate at least one port (typically the <code>#selection</code> one). Ideally, it should also populate and react to other ports as well.</li>
+<li>Even if the Presentaion does not populate a port, it is advisable to at least allow for Actions to be defined for them. Thus, the user would have the option of using these Actions to populate ports or to change the model.</li>
+</ol>
+
+
+<h2 id="h2scriptingbrowsers">Scripting browsers</h2>
+<p>
+A Browser dictates the way in which the navigation flow is to be specified. We distinguish between two general types of browsers: 
+</p>
+<ol><li>Explicit browsers enables us to control the creation of panes and transformations. Currently, there Glamour offers a single implementation of this type of browsers: the Tabulator (see <a href=""></a>)</li>
+<li>Implicit browsers come with a built in logic of the navigation flow, and only allow us to customize the presentations. There are two such browsers available: the Finder (see <a href=""></a>) and the Accumulator (see <a href=""></a>) </li>
+</ol>
+
+<p>
+Perhaps even more interesting is that Browsers can be nested allowing us to reuse complex navigation flows within even more complex ones. <a href=""></a> provides more details.
+</p>
+
+<h3 id="h3tabulator">Tabulator</h3>
+<p>
+As shown in <a href=""></a>, a Tabulator is an explicit browser that allows us to:
+</p><ul>
+<li>create panes and organize them in a table layout, and</li>
+<li>create transmissions between ports of these panes.</li>
+</ul>
+
+<p>
+The creation and laying out of panes is achieved via a simple scripting API similar to the algorithm behind the computation of a treemap visualization. The following UML diagram lists the relevant methods for this API.
+</p>
+<p>
+<img src="figures/tabulator-layout.png"/>
+</p>
+<p>
+The creation of three panes at the same level can be achieved like:
+</p>
+<figure><pre><code>browser column: #paneOne.
+browser column: #paneTwo.
+browser column: #paneThree.</code></pre><figcaption></figcaption></figure>
+
+<p>
+or:
+</p>
+<figure><pre><code>browser row: #paneOne.
+browser row: #paneTwo.
+browser row: #paneThree.</code></pre><figcaption></figcaption></figure>
+
+<p>
+If we want to nest the last two into a parent cell that is placed at the same level as <code>#paneOne</code>, we can achieve it in the following way:
+</p>
+<figure><pre><code>browser column: #paneOne.
+browser column: [ :c | 
+  c row: #paneTwo; c row: #paneThree ].</code></pre><figcaption></figcaption></figure>
+
+<p>
+respectively: 
+</p>
+<figure><pre><code>browser row: #paneOne.
+browser row: [ :r | 
+  r column: #paneTwo; r column: #paneThree ].</code></pre><figcaption></figcaption></figure>
+
+<p>
+Thus, the <code>row:</code> and <code>column:</code> messages can be passed a block with one parameter that allows for further nesting. A row will allow us to create nested columns, while in a column we will be able to create nested rows. These parent rows and columns do not have a name because they are only an implementation detail related to the laying out of panes. Only the cells with names lead to the creation of panes that can later be accessed for transmissions.
+</p>
+<p>
+Once panes are created, we can deal with transmissions. A transmission can be created by simply calling <code>transmit</code>. For example, defining a transmission that sets the presentations on #paneThree based on ports from paneOne and portB can be done via a construct like:
+</p>
+<figure><pre><code>browser transmit 
+  from: #paneOne;
+  from: #paneTwo-&gt;#portB;
+  fromOutside: #outsidePort;
+  to: #paneThree;
+  andShow: [ :a | 
+    &quot;specification of presentations&quot; ].</code></pre><figcaption></figcaption></figure>
+
+<p>
+More details about the specification of a transmission are presented in <a href=""></a>. 
+</p>
+
+<h3 id="h3finderandpager">Finder and Pager</h3>
+<p>
+Finder is an implicit browser and it takes its name from the browser used to navigate through the file system of Mac OS X. Pager is a specialization that has the same API but offers a different scrolling user interface.
+</p>
+<p>
+The logic of the Finder goes as follows: 
+</p><ul>
+<li>Panes are handled in an simple linked list, each having possibly one predecessor and one successor</li>
+<li>The value from the #entity port of the pane containing the Finder, spawns the first pane.</li>
+<li>Every time the #selection port of a pane is populated with a value, a new successor pane is created.</li>
+<li>A transmission is created with the #selection of the previous pane as origin and the #entity port of the successor pane as destination.</li>
+<li>Optionally, the user can specify further origin ports that should be taken into account.</li>
+<li>This transmission sets the presentations that the user specifies.</li>
+</ul>
+
+<p>
+Perhaps this sounds more complicated than it really is. Let's see an example and build a rudimentary file browser like the one on Mac. Such a browser displays for each directory a list of all the direct children, and selecting a directory spawns another pane to the right:
+</p>
+<figure><pre><code>browser := GLMFinder new.
+browser title: 'Files'.
+browser show: [ :a |
+  a list 
+	display: [ :directory | directory children ];
+   format: #basename;
+	when: [ :directory | directory exists ] ].</code></pre><figcaption></figcaption></figure>
+
+<p>
+In essence, the only thing we specify is what gets shown in each pane. We can open the browser on an input directory file reference:
+</p>
+<figure><pre><code>browser openOn: MooseModel root allModels first allModelNamespaces.</code></pre><figcaption></figcaption></figure>
+
+<p>
+<img src="figures/glamour-finder-example.png"/> 
+</p>
+<p>
+The Pager can be specified in exactly the same way, only for a different browser instance:
+</p>
+<figure><pre><code>browser := GLMPager new.
+browser title: 'Files'.
+browser show: [ :a |
+  a list 
+	display: [ :directory | directory children ];
+   format: #basename;
+	when: [ :directory | directory exists ] ].</code></pre><figcaption></figcaption></figure>
+
+<p>
+<img src="figures/glamour-pager-example.png"/> 
+</p>
+<p>
+Please note how the scrollbar of the Pager shows the amount of panes more explicitly.
+</p>
+<p class="todo">forwarding</p>
+
+<h3 id="h3accumulator">Accumulator</h3>
+<p>
+Accumulator is an implicit type of browser whose only behavior is to accumulate panes.
+</p>
+<p>
+Every time the #entity port of the parent pane is populated, the Accumulator searches through its panes to find one that corresponds the entity. If none is found, a new pane is created with the #entity populated. Just like in the case of the Finder, the user can specify the presentations that go in each pane.
+</p>
+<p>
+The main use case behind this type of browser is an editor like the Eclipse main view. For this purpose, it is typically combined with a Tabulator (more details about browser composition can be seen in <a href=""></a>). The snippet below shows an example:
+</p>
+<figure><pre><code>| browser |
+browser := GLMTabulator new.
+browser column: #list; column: #details span: 2.
+browser title: 'Class Viewer'.
+browser transmit to: #list; andShow: [ :a | 
+  a list 
+    format: #name;
+    title: 'Classes' ].
+browser transmit to: #details; from: #list; andShowIfNone: [ :a |
+  | accumulator |
+  accumulator := GLMAccumulator new.
+  accumulator show: [ :some | 
+    some title: #name.
+    some text 
+      display: #formattedSourceText ].
+  a custom: accumulator ].</code></pre><figcaption></figcaption></figure>
+
+<p>
+The overall browser is a Tabulator with two panes: one showing the list of all classes, and 
+one showing the source code of each selected class in an Accumulator.
+</p>
+<p>
+The <code>#selection</code> port of the left pane is linked with the <code>#entity</code> port of the right pane. Thus, every time we select a class from the list on the left, the Accumulator will spawn a new tab. A particularity of this example is the use of <code>andShowIfNone:</code> when specifying the transmission. Because the Accumulator is meant to accumulate, and not be replaced with every new transmission, we want the transmission to only install a new presentation when there is none in the target pane.
+</p>
+<p>
+Running the browser on all classes from the ArgoUML model, spawns a window as shown below.
+</p>
+<p>
+<img src="figures/accumulator.png"/>
+</p>
+<p>
+The Accumulator also offers two more special ports: <code>#entityToSelect</code>, and <code>#activeEntity</code>.
+</p>
+<p>
+The <code>#entityToSelect</code> port is meant to be used as an input port, and populating it with a value causes the renderer to try to select a tab that corresponds to the value. The behavior is similar to the one of <code>#entity</code>, the difference being that it will not create a new tab if the tab does not yet exist.
+</p>
+<p>
+The <code>#activeEntity</code> port is a special one that is populated with the value behind the currently selected tab.
+</p>
+<p>
+We can use these two ports can be used to completely simulate the Eclipse like behavior:
+</p><ul>
+<li>When we strong select (i.e., double click) the class from the left pane, we get a new tab. For this we connect the <code>#strongSelection</code> port the list pane with the <code>#entity</code> port from the details pane.</li>
+<li>When we simply select the class from the left pane, we try to select the corresponding tab. To achieve this we connect the <code>#selection</code> port from the left pane with the <code>#entityToSelect</code> port from the details pane.</li>
+<li>Finally, when we select a new tab, we select the corresponding element from the list. To this end, we connect the <code>#activeEntity</code> port from the right pane with the <code>#selection</code> port from the left pane.</li>
+</ul>
+
+<p>
+The code below shows the complete script:
+</p>
+<figure><pre><code>| browser |
+browser := GLMTabulator new.
+browser column: #list; column: #details span: 2.
+browser title: 'Class Viewer'.
+browser transmit to: #list; andShow: [ :a | 
+  a list 
+    format: #name;
+    title: 'Classes' ].
+browser transmit to: #details; from: #list port: #strongSelection; andShowIfNone: [ :a |
+  | accumulator |
+  accumulator := GLMAccumulator new.
+  accumulator show: [ :some | 
+    some title: #name.
+    some text 
+      display: #formattedSourceText ].
+  a custom: accumulator ].
+browser transmit to: #details port: #entityToSelect; from: #list. 
+browser transmit to: #list port: #selection; from: #details port: #activeEntity.</code></pre><figcaption></figcaption></figure>
+
+
+<h3 id="h3composingbrowsers">Composing browsers</h3>
+<p>
+Browsers encapsulate a navigation flow, and in many cases we would like to reuse this flow in a larger context. This reuse is possible because browsers are presentations. Thus, they can be used within another browser by simply adding it as a presentation to a pane.
+</p>
+<p>
+Suppose that we would want to build a browser that given a starting method would allow us to navigate the chain of all invoking methods (similar to the Senders browser in Pharo). Given that we deal with a deep tree, we might want to use a Finder to navigate this structure. As possible result can be seen below.
+</p>
+<p>
+<img src="figures/glamour-classic-chaser.png"/>
+</p>
+<p>
+In our example, we are actually dealing with two browsers:
+</p><ol><li>an inner Finder that spawns the next pane with the invoking methods for each selected method, and</li>
+<li>an overall Tabulator that shows the Finder on top, and the preview of the source code below.</li>
+</ol>
+
+<p>
+Let's build the two step by step. First, we build the <code>innerBrowser</code>:
+</p>
+<figure><pre><code>innerBrowser := GLMFinder new.
+innerBrowser show: [:a | 
+  a list
+    title: [:each | 'Methods invoking ', each name ];
+    display: #invokingMethods ;
+    format: #mooseName ].</code></pre><figcaption></figcaption></figure>
+
+<p>
+To see the source code for each method, we can now embed this browser in a Tabulator that previews the code for the currently selected method in a below pane. The embedding is achieved using <code>custom:</code>:
+</p>
+<figure><pre><code>browser := GLMTabulator new.
+browser title: [:each | 'Classic chaser on ', each mooseName ].
+browser row: #methods; row: #source.
+browser transmit to: #methods; andShow: [ :a | 
+  a custom: innerBrowser ].
+browser transmit from: #methods; to: #source; andShow: [:a |
+  a text display: #sourceText ].</code></pre><figcaption></figcaption></figure>
+
+<p>
+This works as follows. The inner Finder takes care of navigating through methods. Whenever a method is selected, it automatically sets the <code>#selection</code> port of the pane holding the Finder, and this in turn triggers the transmission from the overall Tabulator.
+</p>
+<p>
+Executing the script on a Method entity reveals a browser like in the screenshot. For example, if you have an ArgoUML model loaded, you can execute it by:
+</p>
+<figure><pre><code>browser openOn: (
+  MooseModel root allModels first allMethods 
+    entityNamed: #'org::argouml::model::Facade.getName()')</code></pre><figcaption></figcaption></figure>
+
+<p>
+One drawback of this browser is that at any point we can see the source code of only one method. To make it more interesting, we could turn the browser around a bit, and embed the Tabulator inside the Finder. For each pane in the Finder we would display two panes: one showing the current list of invoking methods, and one showing the code preview of the selected method. When a method is selected, we want to see its invoking methods to the right in the Finder. See the below screenshot for more details.
+</p>
+<p>
+<img src="figures/glamour-chaser.png"/>
+</p>
+<p>
+In this example, we are dealing with the following browser:
+</p><ol><li>an inner Tabulator that shows the invoking methods of a given method, and takes care of the source code preview of the selected method, and</li>
+<li>an overall Finder browser that spawns the next pane for each selection.</li>
+</ol>
+
+<p>
+As before, first we build the <code>innerBrowser</code>:
+</p>
+<figure><pre><code>innerBrowser := GLMTabulator new.
+innerBrowser row: #methods; row: #source.
+innerBrowser transmit to: #methods; andShow: [ :a | 
+  a list
+    title: [:each | 'Methods invoking ', each name ];
+    display: #invokingMethods ;
+    format: #mooseName ].
+innerBrowser transmit from: #methods; to: #source; andShow: [:a |
+  a text display: #sourceText ].</code></pre><figcaption></figcaption></figure>
+
+<p>
+No magic here, just a plain Tabulator. While this works just fine as standalone, because the Tabulator is an explicit browser, it does not automatically populate the <code>#selection</code> port like in the case of the Finder. Thus, when inside the Finder it we still need to inform the pane surrounding our browser that the <code>#selection</code> port has changed. To do this, we have to explicitly export the <code>#selection</code> port from the <code>#methods</code> pane to the <code>#selection</code> port of the <code>#outer</code> pane:
+</p>
+<figure><pre><code>innerBrowser transmit from: #methods; toOutsidePort: #selection.</code></pre><figcaption></figcaption></figure>
+
+<p>
+Once this accomplished, we can now embed it in a Finder using <code>custom:</code>:
+</p>
+<figure><pre><code>browser  := GLMFinder new.
+browser title: [ :each | 'Reference browser on ', each mooseName ].
+browser show: [ :a |
+  a custom: innerBrowser ].</code></pre><figcaption></figcaption></figure>
+
+<p>
+The new browser can be opened using the same code as before:
+</p>
+<figure><pre><code>browser openOn: (
+  MooseModel root allModels first allMethods 
+    entityNamed: #'org::argouml::model::Facade.getName()')</code></pre><figcaption></figcaption></figure>
+
+<p>
+These examples show how we can compose browsers in different ways to obtain complex interactions. An important issue is to take care of what values go outside the browser. When embedding an implicit browser (e.g., Finder) we can directly rely on the <code>#selection</code> port of the outer pane. When embedding an explicit browser (e.g., Tabulator) we need to explicitly populate the outer ports.
+</p>
+
+<h2 id="h2handlingactions">Handling actions</h2>
+<p>
+Every Presentation can be configured to react to Actions. Actions represent commands that are to be triggered by the user. 
+</p>
+<p>
+Actions are described by three parameters: <code>title</code>, <code>key</code>, and <code>icon</code>. An action with a title appears in the contextual menu of the presentation. If the action has an icon attached, it has the chance of appearing in the toolbar of a browser. An action with a key is mapped on a shortcut involving the platform modifier and the key (e.g., on Mac it is CMD+key). 
+</p>
+<p>
+The protocol to create actions has several selectors to accommodate the possible combinations. The most basic ones are as follows:
+</p><ul>
+<li><code>act:entitled:</code> sets the title;</li>
+<li><code>act:icon:entitled:</code> sets the icon and the title;</li>
+<li><code>act:on:</code> sets the shortcut.</li>
+</ul>
+
+<p>
+The <code>act:</code> expects a block with several optional parameters: the first parameter is given by the presentation object, and the rest are populated by the input entities.
+</p>
+<p>
+By providing access to the presentation object, the Action also enable the population of the ports of the pane holding the presentation. 
+</p>
+<p>
+For example, if we want to implement the Evaluator pane from the Moose Finder (see <a href=""></a>) we can write an action that takes the selected text, evaluates it and populates the <code>#selection</code> port with the result:
+</p>
+<figure><pre><code>finder show: [ :a |
+  a text
+    &quot;...&quot;
+    act: [ :text :entity | 
+      text selection:
+        (Compiler evaluate: text selectedText for: entity logged: false)  ]
+      on: $o 
+      entitled: 'Open script (o)' ].</code></pre><figcaption></figcaption></figure>
+
+<p>
+The same action can also be written more succinctly:
+</p>
+<figure><pre><code>finder show: [ :a |
+  a text
+    &quot;...&quot;
+    populate: #selection 
+      on: $o 
+      entitled: 'Open script (o)' 
+      with: [ :text :entity | 
+        Compiler evaluate: text selectedText for: entity logged: false  ] ].</code></pre><figcaption></figcaption></figure>
+
+<p class="note">Given the access to the presentation object we have access to the entire browser, and thus we can also directly modify it. However, affecting directly the overall browser bypasses the mechanism of Glamour, breaks encapsulation and it makes the understanding and maintenance more difficult. Instead, it is preferred that each presentation affects only its own pane and let the propagation happen through explicit transmissions.</p>
+<p>
+There are several kinds of actions supported by Glamour. First, there are actions that are supposed to work for the entire presentation, and actions that are meant to work only contextually when there is a selection. These are specified using the following messages:
+</p><ul>
+<li>the <code>act:</code> messages define actions for the entire presentation. These actions are typically rendered in the toolbar from the top-right of the presentation.</li>
+<li>the <code>selectionAct:</code> messages define actions that should be active only when there is a selection. These actions are typically mapped on the contextual menu.</li>
+</ul>
+
+<p>
+The above messages define static actions. That means that regardless of what the values of the ports are, these actions will always be available. However, at times, we can also decide to provide actions dynamically depending on the port values. This can be achieved through <code>dynamicActions:</code> and <code>dynamicActionsOnSelection:</code> messages. These messages receive a block that will be evaluated on the presentation and should return a list of GLMAction objects.
+</p>
+<p class="note">These messages are meant to be used as a last resort because they work with the internals of Glamour.</p>
+
+<h2 id="h2updatingbrowsers">Updating browsers</h2>
+<p>
+When the objects browsed get changed, we need the browser to update and reflect the new state.
+</p>
+<p>
+In Glamour, there are two ways in which this is accomplished: 
+</p><ol><li>explicitly, by sending #update to a presentation, or </li>
+<li>implicitly, by making a presentation listen to Announcements thrown by the objects.</li>
+</ol>
+
+<p>
+The explicit mechanism is simple and is typically accessible by means of actions. For example, to see the list of all models registered in the root model we could use a browser as shown below.
+</p>
+<figure><pre><code>| browser |
+browser := GLMTabulator new.
+browser title: 'Model list with manual update'.
+browser column: #list.
+browser transmit to: #list; andShow: [:a | 
+  a list 
+    act: [:list | list update] 
+      icon: GLMUIThemeExtraIcons glamorousRefresh
+      entitled: 'Update';
+    format: #name ].
+browser openOn: MooseModel root.</code></pre><figcaption></figcaption></figure>
+
+<p>
+You can affect the root model by simply adding a new model:
+</p>
+<figure><pre><code>MooseModel root add: MooseModel new.</code></pre><figcaption></figcaption></figure>
+
+<p>
+The list does not show the new model. We can update the list by pressing the update icon.
+</p>
+<p>
+For the Announcement-based mechanism to work, you need an object that does raise Announcements. Once you have such an object, you can use <code>GLMPresentation&gt;&gt;#updateOn: anAnnouncement from: anAnnouncer</code> to control what announcements should trigger the update of the presentation.
+</p>
+<p>
+Let us take an example. A MooseEntity sends several announcements when its inner structure changes. One of these Announcements is <code>MooseEntityAdded</code>. However, because the MooseEntity is not an Announcer, it uses an announcer object to send the announcements. If you want to have a list of models from the root model updated every time a new model is added, you can register to the <code>MooseEntityAdded</code> announcement sent by the <code>model announcer</code>:
+</p>
+<figure><pre><code>| browser |
+browser := GLMTabulator new.
+browser title: 'Model list with implicit update'.
+browser column: #list.
+browser transmit to: #list; andShow: [:a | 
+  a list 
+    format: #name;
+    updateOn: MooseEntityAdded from: [:model | model announcer ] ].</code></pre><figcaption></figcaption></figure>
+
+<p>
+To watch the effect of an announcement, you can test it with:
+</p>
+<figure><pre><code>MooseModel root add: MooseModel new.</code></pre><figcaption></figcaption></figure>
+
+<p class="todo">validation</p>
+
+<h2 id="h2rendering">Rendering</h2>
+<p>
+The Glamour model is formed by entities such as Browser, Pane, Presentation and Transmission (see <a href=""></a>), and its main goal is to handle the abstract logic of the browser. Even if the main goal of Glamour is to produce actual browsers, this model is independent of the rendering technology.
+</p>
+<p>
+This decoupling is realized through a Visitor pattern. Every Pane and Presentations classes  understand <code>renderGlamorouslyOn:</code>, and as an implementation, they delegate to a Renderer. It is then the job of the renderer to actually produce the actual widget that will appear on the screen and link it with the model of Glamour. The basic structure can be seen in the below class diagram.
+</p>
+<p>
+<img src="figures/glamour-rendering.png"/>
+</p>
+<p>
+The Renderer class provides the abstract class that is meant to be subclassed by each new rendering platform. The default implementation uses Morphic, the default Pharo user interface framework, and it can be found in the GLMMorphicRenderer class.
+</p>
+<p>
+To better understand how the mechanism works, let us take a closer look at the code related to rendering a text presentation:
+</p>
+<figure><pre><code>GLMTextPresentation&gt;&gt;renderGlamorouslyOn: aRenderer 
+  self registerAnnouncements.
+  ^ aRenderer renderTextPresentation: self</code></pre><figcaption></figcaption></figure>
+
+<p>
+The corresponding code in the MorphicRenderer uses a helper class:
+</p>
+<figure><pre><code>renderTextPresentation: aTextPresentation 
+  ^ GLMMorphicTextRenderer render: aTextPresentation from: self</code></pre><figcaption></figcaption></figure>
+
+<p>
+Finally, the GLMMorphicTextRenderer provides the actual code:
+</p>
+<figure><pre><code>GLMMorphicTextRenderer&gt;&gt;render: aPresentation
+  textModel := GLMTextModel new glamourPresentation: aPresentation &quot;...&quot;.
+  textMorph := aPresentation highlightSmalltalk 
+        ifTrue: [self smalltalkTextMorphForModel: textModel]
+        ifFalse: [self textMorphForModel: textModel].
+  &quot;... more code that sets 
+       the state of the presentation based on the morph events,
+       and the state of the morphs based on the internal Glamour announcements&quot;
+  ^ textMorph</code></pre><figcaption></figcaption></figure>
+
+<p>
+The implication of this design is twofold. First, if you want to support a new platform, you have to create a new subclass of Renderer. Second, if you create a new presentation or browser, you have to also provide the rendering code in all Renderers.
+</p>
+
+<h2 id="h2examples">Examples</h2>
+<p>
+Glamour offers a self documenting browser with a set of examples covering the various features.
+You can get to this browser by executing:
+</p>
+<figure><pre><code>GLMBasicExamples open</code></pre><figcaption></figcaption></figure>
+
+<p>
+The browser offers several examples to the left. When selecting an example, it displays an instance of a browser and the source code for the browser.
+</p>
+<p>
+<img src="figures/basic-examples-browser.png"/>
+</p>
+<h1 id="h1theglamoroustoolkit">The Glamorous Toolkit</h1>
+
+<p class="todo">TODO</p>
+
+</p>  
+
+				</div> 
+			</div>
+		</div>
+	</body>
 </html>
