@@ -1,4 +1,4 @@
-<!DOCTYPE html><html>	<title>The Moose Book</title>	<author>Tudor Girba</author>	<meta charset="utf-8">	<meta name="viewport" content="width=device-width, initial-scale=1">	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>	<style>		.nav-pills>li.active>a {			background-color: transparent;			color: #337ab7;		}		.nav-pills>li.active>a:focus,		.nav-pills>li.active>a:hover {			background-color: #eee;			color: #337ab7;		}		.nav-pills>li>a {			border-radius: 0px;		}		.nav-pills {		   top: 20px;		   position: fixed;		}		/* hide sidebar sub menus by default */		.nav-pills li .nav-h2 {		  display: none;		}		/* show sub menu when parent is active */		.nav-pills li.active .nav-h2 {		  display: block;		}		.nav-pills>li.active {			border-left: 2px solid #ddd;		}		.nav-pills>li.active>a {		  border-left: 6px solid #ddd;		}		.nav-pills>li.active li.active a {		  border-left: 6px solid #eee;		}		.nav-pills>li.active li a {		  border-left: 6px solid transparent;		}		ul .nav-h3 {display: none;}		.nav-pills li a {			padding-top: 5px;			padding-bottom: 5px;			font-size: 14px;		}		.nav-pills li li a {			padding-top: 5px;			padding-bottom: 5px;			font-size: 11px;		}		img {max-width: 100%;}		.todo { padding: 20px; background-color: #F9F2F4; }		.note { padding: 20px; background-color: #DBECFF; }		figcaption { text-align: center; color: gray; }		figure { padding: 20px; text-align: center; }		figure pre { text-align: left; }		code { background-color: #eee; color: #333; }	</style>	<body data-spy="scroll" data-target="#myScrollspy" data-offset="20">		<div class="container">			<div class="row">				<nav class="col-sm-3" id="myScrollspy">					
+<!DOCTYPE html><html>	<head>		<title>The Moose Book</title>		<meta name="author" content="Tudor Girba">		<meta charset="utf-8">		<meta name="viewport" content="width=device-width, initial-scale=1">		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>		<style>				.nav-pills>li.active>a {	background-color: transparent;	color: #337ab7;}.nav-pills>li.active>a:focus,.nav-pills>li.active>a:hover {	background-color: #eee;	color: #337ab7;}.nav-pills>li>a {	border-radius: 0px;}.nav-pills {   top: 20px;   position: fixed;}/* hide sidebar sub menus by default */.nav-pills li .nav-h2 {  display: none;}/* show sub menu when parent is active */.nav-pills li.active .nav-h2 {  display: block;}.nav-pills>li.active {	border-left: 2px solid #ddd;}.nav-pills>li.active>a {  border-left: 6px solid #ddd;}.nav-pills>li.active li.active a {  border-left: 6px solid #eee;}.nav-pills>li.active li a {  border-left: 6px solid transparent;}ul .nav-h3 {display: none;}.nav-pills li a {	padding-top: 5px;	padding-bottom: 5px;	font-size: 14px;}.nav-pills li li a {	padding-top: 5px;	padding-bottom: 5px;	font-size: 11px;}img {max-width: 100%;}.todo { padding: 20px; background-color: #F9F2F4; }.note { padding: 20px; background-color: #DBECFF; }figcaption { text-align: center; color: gray; }figure { padding: 20px; text-align: center; }figure pre { text-align: left; }code { background-color: #eee; color: #333; }		</style>	</head>	<body data-spy="scroll" data-target="#myScrollspy" data-offset="20">		<div class="container">			<div class="row">				<nav class="col-sm-3" id="myScrollspy">					
 <ul class="nav nav-pills nav-stacked">
 <li>
 <a href="#h1mooseinanutshell">Moose in a nutshell</a>
@@ -136,7 +136,12 @@
 <li>
 <a href="#h2examples">Examples</a></li></ul></li>
 <li>
-<a href="#h1theglamoroustoolkit">The Glamorous Toolkit</a></li></ul>				</nav>				<div class="col-sm-9">					<p>
+<a href="#h1theglamoroustoolkit">The Glamorous Toolkit</a></li>
+<li>
+<a href="#h1checkingandreportingwitharki">Checking and reporting with Arki</a>
+<ul class="nav nav-h2">
+<li>
+<a href="#h2creatingadedicatedreportfromscratch">Creating a dedicated report from scratch</a></li></ul></li></ul>				</nav>				<div class="col-sm-9">					<p>
 <h1 id="h1mooseinanutshell">Moose in a nutshell</h1>
 
 <p>
@@ -2927,5 +2932,189 @@ The browser offers several examples to the left. When selecting an example, it d
 <h1 id="h1theglamoroustoolkit">The Glamorous Toolkit</h1>
 
 <p class="todo">TODO</p>
+<h1 id="h1checkingandreportingwitharki">Checking and reporting with Arki</h1>
+<p>
+While a large part of Moose is focused on providing interactive capabilities to build and perform analysis, it is often desirable to carve in stone a set of concerns that we want to watch for, and then have a tool check them and produce a report.
+</p>
+<p>
+Such a report is useful when it addresses needs of the development team. Some concerns are trivial, some are complex. Some are generic, some are very specific. Regardless of their nature, if they are of concern to the team, they have a place in the report. Similarly, it does not matter how smart a rule is, it is of no use if there is no stakeholder.
+</p>
+<p>
+Thus, it is of little use to provide an almighty report: on the one hand it will include many things that are not of direct interest, on the other hand it will not address concerns that are specific to the project.
+</p>
+<p>
+Instead, Moose provides Arki, a reporting infrastructure, that allows the analyst to build a reporting tool in an iterative way. Arki provides an interface through which an index of multiple concerns can be defined. A concern can be a strict rule (e.g., the database should not be called from the user interface layer), or it can be an issue that we want to watch for (e.g., which classes call the database).
+</p>
+<p>
+Besides the content, a crucial element in a report is also the way the content is presented. Thus, Arki makes use of all the presentation capabilities of Moose to allow the analyst to build dedicated presentations.
+</p>
+<p>
+All in all, Arki makes custom reporting practical.
+</p>
+
+<h2 id="h2creatingadedicatedreportfromscratch">Creating a dedicated report from scratch</h2>
+<p>
+For the purpose of this exercise, let's start a report dedicated to ArgoUML. To identify relevant concerns, I browsed the documentation present on the ArgoUML site. More specifically, the development guidelines. Here are some excerpts:
+</p><ul>
+<li><em>``All instance variables are private.</em>''</li>
+<li><em>``Don't use deprecated methods or classes.</em>''</li>
+<li><em>``Don't use very long package and class names...  keep class names shorter than 25 chars</em>''</li>
+</ul>
+
+<p>
+Let's start with the first issue: ``all instance variables are private''. To check this, we create a query that retrieves all attributes that are not static, that are not stub and that are not private:
+</p>
+<figure><pre><code>spec := REPConcernSpecification on: MooseModel root allModels first.
+spec 
+  query: 'Non-private attributes' 
+  meaning: 'The ArgoUML guidelines say that all attributes must be private'
+  as: [:model | model allAttributes select: [ :each | 
+      each parentType isStub not and: [ each isPrivate not and: [
+        each hasClassScope not ]]]].
+spec open</code></pre><figcaption></figcaption></figure>
+
+<p>
+Executing this script results in a browser as below. To the left we have the index with our item in red. It is red, because indeed the ArgoUML violates this concern. Selecting the concern reveals the list of offending attributes to the right. In fact, list to the right is 
+a complete instance of a MooseFinder that offers us various possibilities for navigation and enquiry.
+</p>
+<p>
+
+<figure>
+	<img src="figures/arki-argo-non-private-attributes.png"/>
+	<figcaption>Argo non private attributes</figcaption>
+</figure>
+</p>
+<p>
+In the same way we can define the rest of the concerns. For convenience, we can also group concerns into composites:
+</p>
+<figure><pre><code>spec := REPConcernSpecification on: MooseModel root allModels first.
+spec label: 'ArgoUML Report'.
+spec composite: 'ArgoUML design problems' meaning: '' with: [
+  spec 
+    query: 'Non-private attributes' 
+    meaning: 'The ArgoUML guidelines say that all attributes must be private'
+    as: [:model | model allAttributes select: [ :each | 
+        each parentType isStub not and: [ 
+          each isPrivate not and: [ each hasClassScope not ]]]].
+  spec
+    query: 'Deprecated classes still in use'
+    meaning: 'Deprecated classes should not be used anymore'
+    as: [:model | model allModelClasses select: [ :each | 
+        (each isAnnotatedWith: 'Deprecated') and: [ 
+          (each clientClasses reject: [:e | e = each]) notEmpty ]]].
+  spec
+    query: 'Deprecated methods still in use'
+    meaning: 'Deprecated methods should not be used anymore'
+    as: [:model | model allMethods select: [ :each | 
+        (each isAnnotatedWith: 'Deprecated') and: [ 
+          (each invokingClasses reject: [:e | e = each parentType ]) notEmpty ]]]
+	].
+spec composite: 'ArgoUML naming problems' meaning: '' with: [
+  spec 
+    query: 'Classes with too long name' 
+    meaning: 'A class should not have a name with more than 25 characters'
+    as: [:model | model allModelClasses select: [ :each | 
+        each nameLength &gt; 25 ] ].
+	].
+spec open</code></pre><figcaption></figcaption></figure>
+
+<p>
+
+<figure>
+	<img src="figures/arki-argo-multiple.png"/>
+	<figcaption>Multiple rules in Arki</figcaption>
+</figure>
+</p>
+<p>
+Up to now we only defined concerns that are expressed with a query and that spawn a group of items as a result. If the group is not empty, the concern is considered to be violated and it turns red. If the group is empty, it appears green.
+</p>
+<p>
+There are cases in which an issue is better represented with a presentation different from a list. Also, a concern is not necessarily black or white, but it can simply be something we might want to watch for.
+</p>
+<p>
+Reading further ArgoUML documentation, we get to a section dealing with the use of Facades in ArgoUML. Here are some relevant excerpts:
+</p><ul>
+<li><em>``A Facade class provides the most common functions</em>''</li>
+<li><em>``For each subsystem X in ArgoUML that uses the subsystem Y, the designer of the subsystem X must decide if he wants to use the API of Y when using the subsystem Y ... or use the Facade class of subsystem Y</em>''</li>
+</ul>
+
+<p>
+Given that the use of Facades is important in ArgoUML, a concern can be to make them more visible so that people are aware of their existence. Furthermore, because ArgoUML offers one Facade per module, it would be interesting to offer an overview of the modules that contain such a Facade.
+</p>
+<p>
+Thus, we would like to create a small visualization to highlight the places that contain Facades. Given that this task presupposes more code, it requires the creation of a class:
+</p>
+<figure><pre><code>REPComputedConcern subclass: #TMBArgoUMLFacadeMap
+  instanceVariableNames: ''
+  classVariableNames: ''
+  poolDictionaries: ''
+  category: 'TheMooseBook-Examples'</code></pre><figcaption></figcaption></figure>
+
+<p>
+In this class we define the following methods:
+</p>
+<figure><pre><code>label 
+  ^ 'Facade watcher'</code></pre><figcaption></figcaption></figure>
+
+<figure><pre><code>explanation 
+  ^ 'Map of packages containing Facade classes'</code></pre><figcaption></figcaption></figure>
+
+<figure><pre><code>computeResult
+  ^ self model allModelNamespaces select: [ :each | 
+    each classes anySatisfy: [:class | '*Facade*' match: class name] ]</code></pre><figcaption></figcaption></figure>
+
+<figure><pre><code>browser
+  | browser |
+  browser := GLMTabulator new.
+  browser column: #map; column: #code.
+  browser transmit to: #map; andShow: [:a | 
+    a mondrian
+      title: 'Package map';
+      painting: [:view :facadeNamespaces | 
+        self viewFacadeNamespaces: facadeNamespaces on: view ]].
+  browser transmit to: #code; from: #map; andShow: [:a | 
+    a text 
+      title: 'Facade class';
+      display: [ :namespace | 
+        (namespace classes detect: [:each | 
+          '*Facade*' match: each name ]) sourceText ];
+      when: [:namespace | self result includes: namespace ]].
+  ^ browser startOn: self result</code></pre><figcaption></figcaption></figure>
+
+<figure><pre><code>viewFacadeNamespaces: facadeNamespaces on: view
+  view shape label 
+    text: #name; 
+    fontColor: [:each |
+      (facadeNamespaces includes: each)
+        ifTrue: [Color blue] 
+        ifFalse: [Color gray]].
+  view nodes: (self model allNamespaces select: [:each | 
+    'org::argouml*' match: each mooseName ]).
+  view shape horizontalOrthogonalLine.
+  view edgesFrom: #parentScope.
+  view horizontalTreeLayout</code></pre><figcaption></figcaption></figure>
+
+<p>
+The first two methods provide the proper label and explanation text. The third method takes care of computing the result of the query. The last two are more interesting as they define a browser to present the information. These two methods make use of Glamour and Roassal.
+</p>
+<p>
+Once we have the class, we simply add it to the overall report by inserting:
+</p>
+<figure><pre><code>spec composite: 'To watch for' with: [
+  spec concern: TMBArgoUMLFacadeMap new ].</code></pre><figcaption></figcaption></figure>
+
+<p>
+Spawning the complete report results in a browser like shown below. First, the &quot;Facade watcher&quot; concern is black denoting that we do not expect a certain answer. Second, the presentation is offered in the form of the browser defined above: the visualization to the left shows in blue the packages that contain a Facade, and selecting one shows the source code to the right.
+</p>
+<p>
+
+<figure>
+	<img src="figures/arki-argo-complete.png"/>
+	<figcaption>Arki including an embedded visual browser</figcaption>
+</figure>
+</p>
+<p>
+That is it. We have just built a dedicated report that can act both as a checker of hard rules, and as a documentation with complex presentations.
+</p>
 
 </p>  				</div> 			</div>		</div>	</body></html>
