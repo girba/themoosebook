@@ -83,7 +83,25 @@
 <li>
 <a href="#h2themodel">The Model</a></li></ul></li>
 <li>
-<a href="#h1famix">Famix</a></li>
+<a href="#h1thefamixfamilyofmeta-models">The FAMIX family of meta-models</a>
+<ul class="nav nav-h2">
+<li>
+<a href="#h2thecorelanguage-independentmeta-model">The core language-independent meta-model</a>
+<ul class="nav nav-h3">
+<li>
+<a href="#h3anincorrect,butusefuloverview">An incorrect, but useful overview</a></li>
+<li>
+<a href="#h3types">Types</a></li>
+<li>
+<a href="#h3theinvocation">The invocation</a></li>
+<li>
+<a href="#h3theannotations">The annotations</a></li>
+<li>
+<a href="#h3famixgenericqueryapi">Famix generic query API</a></li></ul></li>
+<li>
+<a href="#h2meta-modelextensions">Meta-model extensions</a></li>
+<li>
+<a href="#h2themetabrowser">The Meta Browser</a></li></ul></li>
 <li>
 <a href="#h1paintingobjectswithroassal">Painting objects with Roassal</a>
 <ul class="nav nav-h2">
@@ -1712,9 +1730,198 @@ To add your model to the root model, you can simply do:
 <p>
 Once an entity is placed in a model, it automatically stores the model in an instance variable accessible via <code>mooseModel</code>. Thus, when a query requires information that is outside of the scope of the entity under study, you can obtain the information from the model.
 </p>
-<h1 id="h1famix">Famix</h1>
+<h1 id="h1thefamixfamilyofmeta-models">The FAMIX family of meta-models</h1>
 
-<p class="todo">TODO</p>
+<p>
+FAMIX is a family of meta-models for representing models related to various facets of software systems. These meta-models are typically geared towards enabling analysis and they provide a rich API that can be used for querying and navigation.
+</p>
+<p>
+The meta-models are implemented in Pharo, and because Pharo can be used as scripting language, the APIs defined by the meta-models also provide a query language.
+</p>
+
+<h2 id="h2thecorelanguage-independentmeta-model">The core language-independent meta-model</h2>
+<p>
+The Core of FAMIX consists of a language independent meta-model that can represent in a uniform way multiple object-oriented and procedural languages.
+</p>
+<p>
+The figure below offers a an overview of the class hierarchy, including some of the most used extensions. The hierarchy is to be read from left to right, the entities to the right being specializations of those to the left.
+</p>
+<p>
+
+<figure>
+	<img src="figures/famix-hierarchy.png"/>
+	<figcaption>Famix hierarch</figcaption>
+</figure>
+</p>
+<p>
+The diagram shows the hierarchy, but it does not show the attributes or relationships. To give you an idea of the amount of relations provided by FAMIX, take a look at the figure below (every light gray link represents a relationship between two entities):
+</p>
+<p>
+
+<figure>
+	<img src="figures/famix-hierarchy-relationships.png"/>
+	<figcaption>Famix hierarchy</figcaption>
+</figure>
+</p>
+<p>
+It can be daunting to try to understand FAMIX all at once. That is why in this chapter we take another route, and provide an overview of the most important parts. What does most important mean? These would be the parts that you are most likely to need in practice. That is not to say that the other parts are useless, but a significant amount of tasks can be accomplished with knowing only a subset of FAMIX.
+</p>
+
+<h3 id="h3anincorrect,butusefuloverview">An incorrect, but useful overview</h3>
+<p>
+In most cases, you get enough information if you master the core types entities that model an object-oriented system. These are Namespace, Package, Class, Method, Attribute, and the relationships between them, namely Inheritance, Access and Invocation. The figure below provides an overview of these classes.
+</p>
+<p>
+
+<figure>
+	<img src="figures/famix-overview.png"/>
+	<figcaption>A useful Famix overview</figcaption>
+</figure>
+</p>
+<p>
+This is an incorrect overview from two points of view:
+</p><ol><li>It does not show all entities. For example, a Method has also a Parameters and LocalVariables.</li>
+<li>At places, it shows direct relationships when in reality they happen through inheritance. For example, the Access points to an Attribute, while in reality it points to a superclass (StructuralEntity).</li>
+</ol>
+
+<p>
+However, while incorrect, this picture is also useful because for most practical purposes it is all you need. Let us go through it step by step.
+</p>
+<p>
+There isn't much to say about most of the picture. Most of it goes along the lines of mirroring  code concepts. For example, classes have methods, and methods belong to classes. More worthy of being noticed is the use of explicit entities to model relationships. Thus, we have:
+</p><ul>
+<li>Inheritance models as its names says object-oriented inheritance between two classes and: the subclass, and the superclass.</li>
+<li>Access denotes a connection between a behavioral entity (often a Method in object-oriented systems) and an structural entity (often an Attribute).</li>
+<li>Invocation is a connection between one source and one or more target behavioral entities (often Methods). There can be more than one target behavioral entity because in dynamic languages we cannot identify statically with 100% accuracy the target of an invocation. See <a href=""></a> for more details.</li>
+</ul>
+
+<p>
+Another point that often generates confusion is the presence of both Namespace and Package in the meta-model. These are similar entities, but they model different things. Namespaces have a semantic meaning in the language so they influence the unique name of the entity, while a Package are physical entities for packaging:
+</p><ul>
+<li>In Smalltalk the two are explicitly different.</li>
+<li>In C++ we have explicit Namespaces, but not so explicit Packages. A C++ namespace has no other responsibility beside providing a lexical scope for the contained classes and funcions.</li>
+<li>In Java, we have both Namespace (what you define in your Java source), and Package (the folder structure), but they happen to overlap in naming (although one is with . and the other one is with /). As a consequence, people tend to see them as packages only. It is for this reason, that Java extractors map Java packages to FAMIX Namespaces. Some can also mirror the same information in terms of FAMIX Packages.</li>
+</ul>
+
+<p>
+Please note the missing arrows on the associations. This is not a mistake. In FAMIX, all associations are bidirectional. Let us take an example. Given the model from our running example, we have:
+</p>
+<figure><pre><code>aClass := model allClasses entityNamed: #'org::argouml::ui::Critic'.
+aClass methods first parentType == aClass
+&quot;--&gt; true&quot;</code></pre><figcaption></figcaption></figure>
+
+<p>
+In other words, we can navigate from a class to its methods and back using only unary methods. Furthermore, these relationships are cached in the entities, and thus the traversal works fast.
+</p>
+<p>
+The reason for this mechanism is that we want to offer the possibility of traversing the model from any point to any point. This is particularly useful when we use the API as a query language.
+</p>
+<p class="todo">naming convention for attributes</p>
+
+<h3 id="h3types">Types</h3>
+<p>
+Types are central to object-oriented systems. In this section, we take a closer look at the type hierarchy and related classes.
+</p>
+<p>
+The root of the hierarchy is simply Type. This is a generic class representing a type in an object-oriented language. It can have many Methods and Attributes.
+</p>
+<p>
+A type can also take part in inheritance relationships. This happens by means of Inheritance entities that connect pairs of types. Multiple inheritance is modeled by simply having multiple inheritance objects connecting the same subclass with multiple superclasses.
+</p>
+<p>
+Type has several specializations for specific kinds of types. The most prominent is provided by Class. This models a typical class in Smalltalk, Java or C++, but it also models a Java interface (by means of the isInterface boolean property).
+</p>
+<p>
+A PrimitiveType is just that: a primitive type. For example, int or char will be modeled using PrimitiveType entities.
+</p>
+<p>
+ParameterizedType and ParameterizableClass model Java generics or C++ templates. In particular, a ParameterizableClass represents the generic definition, while the ParameterizedType represents the actual usage of the generic in a specific context.
+</p>
+<p>
+Let me provide an example based on the following Java snippet:
+</p>
+<figure><pre><code>public class ClassA&lt;B,C&gt; {...}
+...
+public ClassA&lt;ActualTypeA,ActualTypeB&gt; anAttribute;</code></pre><figcaption></figcaption></figure>
+
+<p>
+In this case, <code>ClassA</code> will be represented by a ParameterizableClass, and the declared type of anAttribute will be an actual ParameterizedType linking to <code>ClassA</code>. Furthermore, <code>B</code> and <code>C</code> will be ParameterTypes, and the corresponding slots from the ParameterizedType will point to the actual types <code>ActualTypeA</code> and <code>ActualTypeB</code>.
+</p>
+<p>
+
+<figure>
+	<img src="figures/famix-types.png"/>
+	<figcaption>Types</figcaption>
+</figure>
+</p>
+
+<h3 id="h3theinvocation">The invocation</h3>
+<p>
+The Invocation entity models a static invocation between two behavioral entities. Typical behavioral entities are Method and Function, the difference between them being that a Method belongs to a Class, while a Function belongs directly to a Namespace.
+</p>
+<p>
+This entity is one of the most complex in FAMIX, mostly due to it being able to accommodate both statically and dynamically typed languages.
+</p>
+<p>
+
+<figure>
+	<img src="figures/famix-invocation.png"/>
+	<figcaption>Invocation</figcaption>
+</figure>
+</p>
+
+<h3 id="h3theannotations">The annotations</h3>
+<p>
+Most programming languages have some means to add information to source code that has no direct impact on the execution.
+</p>
+<p>
+Let us take two examples: 
+</p>
+<figure><pre><code>smalltalkMethodAnnotated
+  &lt;primitive: 'primAnyBitFromTo' module:'LargeIntegers'&gt;</code></pre><figcaption></figcaption></figure>
+
+<figure><pre><code>@Test(timeout = 500)
+public void javaMethodAnnotated()</code></pre><figcaption></figcaption></figure>
+
+<p class="todo">more on the examples: what is the type, what is the instance, and how they relate to the entity</p>
+<p>
+
+<figure>
+	<img src="figures/famix-annotations.png"/>
+	<figcaption>Annotations</figcaption>
+</figure>
+</p>
+
+<h3 id="h3famixgenericqueryapi">Famix generic query API</h3>
+
+<p class="todo">examples, composability, main concepts</p>
+
+<h2 id="h2meta-modelextensions">Meta-model extensions</h2>
+<p class="todo">navigation, actions</p>
+<p class="todo">focus on unary methods</p>
+
+<h2 id="h2themetabrowser">The Meta Browser</h2>
+<p>
+FAMIX is a family of meta-models and it is meant to be extended. To browse the landscape of the FAMIX implementation at any point in time, we have a dedicated browser that offers a logical view of the meta-descriptions.
+</p>
+<p>
+The Meta Browser can be can be spawned from the Moose menu or by executing:
+</p>
+<figure><pre><code> MooseModel browseMeta</code></pre><figcaption></figcaption></figure>
+
+<p>
+The browser shows the hierarchy of classes to the top-left. Selecting an class shows both the references to other classes and the primitive properties. At the bottom, a map of the overall class hierarchies is provided as a Mondrian visualization. The current selection is shown on the map in red. Furthermore, the comment of the current selection is shown to the right.
+</p>
+<p>
+The picture below shows the browser focused on the <code>SourcedEntity</code> and on the <code>sourceAnchor</code> property.
+</p>
+<p>
+
+<figure>
+	<img src="figures/meta-browser.png"/>
+	<figcaption>Meta browser</figcaption>
+</figure>
+</p>
 <h1 id="h1paintingobjectswithroassal">Painting objects with Roassal</h1>
 
 <p>
