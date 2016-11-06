@@ -158,7 +158,7 @@ We see that we get 614 XML files. We pick the first ==build.xml==.
 
 +A build.xml>file://figures/playground-files-3.png+
 
-The inspector shows the XML with syntax highlighting. Let's say that we want to understand the ==<property>== elements from this file. One possibility would be to scroll through the file, but that would mean that we treat XML as text. Another way is to take advantage of the structure of XML. We switch to the ==Raw== view and we parse the file.
+The inspector shows the XML with syntax highlighting. Let's say that we want to understand the ==<property>== elements from this file. One possibility would be to scroll through the file, but that would mean that we treat XML as text. Another way is to take advantage of the structure of XML. We switch to the ==Raw== view and we parse the file using the following expression.
 
 [[[
 XMLDOMParser parse: self contents
@@ -166,7 +166,7 @@ XMLDOMParser parse: self contents
 
 +Inspecting an XML document>file://figures/playground-files-4.png+
 
-The tree is more appropriate for  navigation, but still we are required to scroll. Instead, we should only care about the ==<property>== tags. To this end, we can use an XPath query.
+The result is an XML document that can be viewed using a tree. The tree is indeed more appropriate for navigation, but still we are required to scroll. As we only care about the ==<property>== tags, we need to trim the XML. To this end, we can use an XPath query.
 
 [[[
 self // #property
