@@ -138,6 +138,8 @@ view
 
 +Patterns of usages of deprecated classes>file://figures/moose-panel-12.png+
 
+@@todo address the issue of edges. either create directed edges or explain why we did not use them.
+
 Ok. Now, we can distinguish several distinct situations. Two deprecated classes call each other and they can be simply removed. There is one non-deprecated class using two deprecated classes. And there are 3 deprecated classes that are being used by several other non-deprecated ones. This picture offers us the opportunity to choose our path by taking more details into account at the same time. For example, an interesting candidate to investigate is the one class that uses two deprecated ones.
 
 !!!Navigating XML files
