@@ -69,6 +69,7 @@ This leaves us with 11 classes that cannot be removed because they are still bei
 
 +Deprecated classes with clients>file://figures/moose-panel-7.png+
 
+It would be great to know how these classes are being used. Perhaps there is one deprecated class that is used in several places. Or maybe there is one non-deprecated class that uses multiple deprecated ones. Or it can also be that multiple deprecated classes call each other. A plain list presentation is not quite ideal to exhibit these patterns. So, let's build a visualization instead.
 It would be great to know how these classes are being used. Perhaps there is one deprecated class that is used in several places. Or maybe there is one non-depreated class that uses multiple deprecated ones. Or it can also be that multiple deprecated classes call each other. A plain list presentation is not quite ideal to exhibit these patterns. So, let's build a visualization instead.
 
 In the pane of the 11 classes execute in the playground:
