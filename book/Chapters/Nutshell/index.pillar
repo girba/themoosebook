@@ -21,7 +21,7 @@ We first need to build a model of our system, and for this we will use *jdt2fami
 - *Download the ArgoUML version 0.34 sources>http://argouml-downloads.tigris.org/nonav/argouml-0.34/ArgoUML-0.34-src.zip* and place them in ==ArgoUML-0-34/src== folder (the name of the src folder can be arbitrary)
 - *Download the ArgoUML version 0.34 libraries>http://argouml-downloads.tigris.org/nonav/argouml-0.34/ArgoUML-0.34-libs.zip* and place them in ==ArgoUML-0-34/libs== folder  (the name of the libs folder can be arbitrary)
 - Go to the ==ArgoUML-0-34== folder
-- From the command line execute ==path/to/jdt2famix/sh==
+- From the command line, execute ==path/to/jdt2famix.sh==
 
 The result is that you will get an ==ArgoUML-0-34/ArgoUML-0-34.mse== file with the serialized model that can be loaded in Moose. Make sure you have *Moose 6.0 or later>http://moosetechnology.org/#install*.
 
