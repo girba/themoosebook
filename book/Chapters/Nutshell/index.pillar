@@ -65,7 +65,7 @@ We get 14 classes that can be removed immediately.
 
 +Deprecated classes without clients>file://figures/moose-panel-6.png+
 
-This leaves us with 11 classes that cannot be removed because they are still being used. So, what should we do about these?
+Changing ==isEmpty== into ==notEmpty== leaves us with 11 classes that cannot be removed because they are still being used. So, what should we do about these?
 
 +Deprecated classes with clients>file://figures/moose-panel-7.png+
 
