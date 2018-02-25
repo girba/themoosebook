@@ -142,6 +142,8 @@ view
 
 Ok. Now, we can distinguish several distinct situations. Two deprecated classes call each other and they can be simply removed. There is one non-deprecated class using two deprecated classes. And there are 3 deprecated classes that are being used by several other non-deprecated ones. This picture offers us the opportunity to choose our path by taking more details into account at the same time. For example, an interesting candidate to investigate is the one class that uses two deprecated ones.
 
+To explore the structure of the model (e.g. which properties does a Class have?), open the World menu and select Moose > Meta Browser. In the top right corner, there is the magnifying class with which you can jump to an entity (e.g. search for "class"). From there, you can explore the relations to other entities, its properties and methods. Happy experimenting.
+
 !!!Navigating XML files
 
 Working with code is interesting but often the plain code does not provide the complete story. For example, ArgoUML happens to rely on some Ant XML files for building the system. Let's look at them. To this end, click on the background of Pharo and from the so called World menu choose ==Playground==. If you are new to Pharo, the Playground is a little tool that allows you to evaluate scripts. We start with inspecting the object representing the root directory of our ==ArgoUML-0-34== model. 
