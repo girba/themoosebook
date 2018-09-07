@@ -183,7 +183,7 @@ The result is only a list of 44 ==<property>== tags. Now we can read.
 
 The previous examples show how the same interaction metaphor that we can use for navigating models of code, can be used to navigate and reason about arbitrary objects, such as objects representing files and folders. But, what happens when we do not have easy access to those objects?
 
-Let's consider another example. The *source of this chapter>https://raw.githubusercontent.com/girba/themoosebook/master/Chapters/Nutshell/index.pillar*  uses Pillar, a markup language. As with any technical documentation, it contains code, and very often we just want to scheme through that code. Of course, we could just scroll through the whole document, but that is not really cool. So, let's set to extract only the snippets.
+Let's consider another example. The *source of this chapter>https://raw.githubusercontent.com/girba/themoosebook/master/book/Chapters/Nutshell/index.pillar*  uses Pillar, a markup language. As with any technical documentation, it contains code, and very often we just want to scheme through that code. Of course, we could just scroll through the whole document, but that is not really cool. So, let's set to extract only the snippets.
 
 First, we need the source. Open another Playground by clicking on the background of the window and inspect:
 
