@@ -16,7 +16,7 @@ Let's start from a couple of examples around a case study. In our case, we take 
 The system contains some deprecated classes. A typical question is which of these classes we can remove. Essentially, this boils down to finding the classes annotated with ==@Deprecated== and then selecting those that are not used anywhere (we ignore reflection for this exercise). This is an analysis.
 
 We first need to build a model of our system, and for this we will use *jdt2famix>https://github.com/girba/jdt2famix*:
-- Download and unzip *version 1.0.2>https://github.com/girba/jdt2famix/releases/download/1.0.2/jdt2famix-bin-1.0.2.zip*.
+- Download and unzip *version 1.0.12>https://github.com/girba/jdt2famix/releases/download/1.0.12/jdt2famix-bin-1.0.12.zip*.
 - Create an ==ArgoUML-0-34== folder.
 - *Download the ArgoUML version 0.34 sources>http://argouml-downloads.tigris.org/nonav/argouml-0.34/ArgoUML-0.34-src.zip* and place them in ==ArgoUML-0-34/src== folder (the name of the src folder can be arbitrary)
 - *Download the ArgoUML version 0.34 libraries>http://argouml-downloads.tigris.org/nonav/argouml-0.34/ArgoUML-0.34-libs.zip* and place them in ==ArgoUML-0-34/libs== folder  (the name of the libs folder can be arbitrary)
